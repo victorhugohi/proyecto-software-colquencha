@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedidos - Panadería del Barrio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Panadería del Barrio</h1>
+
+    <!-- ── NUEVO PEDIDO ───────────────────────────────────────────────── -->
+    <!-- Cuatro campos, ni uno más: es RNF-02. Cada <label> va con `for`, así
+         tocar el texto pone el foco en su campo.
+         Los `required` están, y ayudan, pero NO son la protección: se borran
+         con el inspector. La protección vive en pedidos.php. -->
+    <section aria-labelledby="titulo-registro">
+      <h2 id="titulo-registro">Nuevo pedido</h2>
+
+      <form id="form-pedido">
+        <label for="cliente">Cliente</label>
+        <input id="cliente" name="cliente" type="text" autocomplete="name" required>
+
+        <label for="producto">Producto</label>
+        <select id="producto" name="producto_id" required>
+          <option value="">Cargando productos...</option>
+        </select>
+
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" name="cantidad" type="number" min="1" step="1" inputmode="numeric" required>
+
+        <label for="fecha">Fecha de entrega</label>
+        <input id="fecha" name="fecha_entrega" type="date" required>
+
+        <button type="submit">Confirmar</button>
+
+        <!-- role="status" hace que un lector de pantalla lea el aviso cuando
+             aparece, sin que la persona tenga que ir a buscarlo. -->
+        <p id="aviso-pedido" role="status" hidden></p>
+      </form>
+    </section>
+
+    <!-- ── PEDIDOS DE HOY ─────────────────────────────────────────────── -->
+    <section aria-labelledby="titulo-pedidos">
+      <h2 id="titulo-pedidos">Pedidos de hoy</h2>
+
+      <div class="filtros">
+        <label for="fecha-consulta">Día</label>
+        <input id="fecha-consulta" type="date">
+
+        <label for="buscar">Buscar por cliente</label>
+        <input id="buscar" type="search">
+      </div>
+
+      <p>Pendientes: <strong id="total-pendientes">0</strong></p>
+      <p id="estado-pedidos">Cargando pedidos...</p>
+
+      <!-- app.js llena esta lista. Cada pedido pendiente trae su botón
+           "Entregado". -->
+      <ul id="lista-pedidos" class="pedidos"></ul>
+    </section>
+
+    <!-- ── CATÁLOGO ───────────────────────────────────────────────────── -->
+    <section aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo">Productos disponibles</h2>
+
+      <!-- El párrafo de estado empieza visible con "Cargando": es lo primero
+           que ve el usuario, antes de que lleguen los datos. app.js lo va
+           cambiando o lo oculta según lo que pase. -->
+      <p id="estado">Cargando productos...</p>
+
+      <!-- La tabla va dentro de una caja que se desplaza sola. En una pantalla de
+           360 px cuatro columnas no entran, y sin esta caja se desplazaría la
+           PÁGINA entera hacia un costado: es RNF-03. Así solo se mueve la tabla. -->
+      <div class="tabla-desplazable">
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th>Precio</th>
+              <th>Disponible</th>
+            </tr>
+          </thead>
+          <!-- app.js llena este tbody. Empieza vacío a propósito: sin datos, no
+               hay filas que mostrar. -->
+          <tbody id="cuerpo-tabla"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

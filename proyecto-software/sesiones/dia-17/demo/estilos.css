@@ -1,0 +1,111 @@
+/* Estilos mínimos: el foco del día es la conexión, no el diseño.
+   Lo suficiente para que la tabla se lea y el estado se distinga. */
+
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #1a1a1a;
+}
+
+h1 { font-size: 1.4rem; }
+
+#estado {
+  padding: 0.75rem 1rem;
+  background: #fff8e1;
+  border-left: 4px solid #f5a623;
+  border-radius: 4px;
+}
+
+/* [hidden] como regla de autor: cuando app.js pone estado.hidden = true,
+   esto lo oculta de verdad. Es la misma lección del Día 18 del módulo pasado. */
+[hidden] { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th { background: #f5f5f5; }
+
+.precio { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ── PEDIDOS ──────────────────────────────────────────────────────────────── */
+
+section + section { margin-top: 2.5rem; }
+
+h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+
+form, .filtros {
+  display: grid;
+  gap: 0.35rem;
+}
+
+label { font-weight: 600; font-size: 0.9rem; margin-top: 0.5rem; }
+
+/* 44 px de alto: es RNF-04, lo mínimo para tocar con el dedo sin errar.
+   width 100%: en una pantalla de 360 px (RNF-03) el campo ocupa el ancho y
+   no aparece desplazamiento horizontal. */
+input, select, button {
+  font: inherit;
+  min-height: 44px;
+  padding: 0.4rem 0.6rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+button {
+  margin-top: 0.75rem;
+  background: #7a4a1f;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: progress; }
+
+#aviso-pedido { padding: 0.6rem 0.8rem; border-radius: 4px; }
+#aviso-pedido.ok    { background: #e8f5e9; border-left: 4px solid #2e7d32; }
+#aviso-pedido.error { background: #fdecea; border-left: 4px solid #c62828; }
+
+#estado-pedidos {
+  padding: 0.75rem 1rem;
+  background: #fff8e1;
+  border-left: 4px solid #f5a623;
+  border-radius: 4px;
+}
+
+.pedidos { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+
+.pedidos li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pedidos button { width: auto; margin-top: 0; min-width: 44px; }
+
+.entregado { color: #2e7d32; font-weight: 600; }
+
+/* ── PANTALLAS ANGOSTAS (RNF-03) ─────────────────────────────────────────── */
+
+/* La tabla del catálogo se desplaza DENTRO de su caja, no la página. */
+.tabla-desplazable { overflow-x: auto; }
+
+/* Un nombre larguísimo sin espacios (un enlace pegado, cien letras seguidas)
+   no puede ensanchar la pantalla hacia un costado: se corta donde haga falta.
+   min-width: 0 hace falta porque un elemento flex, por defecto, no se achica
+   por debajo del ancho de su contenido. */
+.pedidos li span { min-width: 0; overflow-wrap: anywhere; }

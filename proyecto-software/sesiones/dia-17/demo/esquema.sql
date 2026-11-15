@@ -1,0 +1,213 @@
+-- ═══════════════════════════════════════════════════════════════════════════
+-- ESQUEMA DE LA BASE DE DATOS - proyecto de ejemplo
+--
+-- ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+--
+-- DE DÓNDE SALE ESTE ARCHIVO: del `datos.json` del módulo pasado. Ese archivo
+-- es una foto de los datos; este es la estructura que los sostiene.
+--
+-- El JSON servía para practicar `fetch`, y para eso estaba bien. Como base de
+-- datos tiene tres problemas, y encontrarlos ES el trabajo de hoy:
+--
+--    1. "Panes" aparece escrito 4 veces
+--    2. "Lácteos del Valle" aparece escrito 4 veces
+--    3. `disponible` se puede calcular desde `stock`, y sin embargo está
+--       guardado aparte
+--
+-- Los tres son la misma clase de problema: UN DATO GUARDADO EN VARIOS
+-- LUGARES. Y siempre que un dato vive en varios lugares, tarde o temprano
+-- esos lugares se contradicen.
+-- ═══════════════════════════════════════════════════════════════════════════
+
+CREATE DATABASE IF NOT EXISTS panaderia
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+-- utf8mb4 y no utf8: el `utf8` de MySQL es de 3 bytes y NO guarda emoji ni
+-- algunos caracteres. utf8mb4 es el UTF-8 de verdad. En un proyecto con
+-- nombres en español conviene desde el primer día: "Panadería" con tilde
+-- guardada en la codificación equivocada se ve como "PanaderÃ­a".
+
+USE panaderia;
+
+-- ── CATEGORÍAS ─────────────────────────────────────────────────────────────
+-- En el JSON las categorías eran un array de textos, y cada producto
+-- repetía el suyo. Aquí son una tabla, y el producto guarda un número.
+--
+-- QUÉ SE GANA: si mañana "Panes" pasa a llamarse "Panes artesanales", se
+-- corrige en UNA fila. Con el JSON había que corregir cuatro productos, y si
+-- se olvidaba uno quedaban dos categorías donde había una.
+
+CREATE TABLE categorias (
+  id     INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+-- UNIQUE en `nombre` es lo que impide crear "Panes" dos veces. Sin él,
+-- la tabla no resuelve nada: solo cambia de lugar el problema.
+
+-- ── PROVEEDORES ────────────────────────────────────────────────────────────
+-- Mismo caso, y aquí el argumento se ve todavía mejor: en el JSON el
+-- proveedor era solo un nombre. Una tabla puede guardar su teléfono, y ese
+-- teléfono queda en un solo lugar aunque le compre veinte productos.
+
+CREATE TABLE proveedores (
+  id       INT AUTO_INCREMENT PRIMARY KEY,
+  nombre   VARCHAR(100) NOT NULL UNIQUE,
+  telefono VARCHAR(20)
+);
+
+-- `telefono` NO lleva NOT NULL: puede no saberse todavía, y una base de datos
+-- que exige lo que no se tiene obliga a inventar. Un "0000000" es peor que un
+-- NULL, porque el NULL se puede buscar y el cero mentiroso no.
+
+-- ── PRODUCTOS ──────────────────────────────────────────────────────────────
+
+CREATE TABLE productos (
+  id            INT AUTO_INCREMENT PRIMARY KEY,
+  nombre        VARCHAR(100)  NOT NULL,
+  categoria_id  INT           NOT NULL,
+  proveedor_id  INT,
+  precio        DECIMAL(10,2) NOT NULL,
+  unidad        VARCHAR(20)   NOT NULL,
+  stock         INT           NOT NULL DEFAULT 0,
+
+  FOREIGN KEY (categoria_id) REFERENCES categorias(id),
+  FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
+);
+
+-- TRES DECISIONES QUE HAY QUE PODER DEFENDER:
+--
+-- 1. DECIMAL(10,2) Y NO FLOAT, para el precio.
+--    FLOAT es aproximado: 0.10 se guarda como 0.10000000149... y al sumar mil
+--    ventas de Bs 0.10 la diferencia se ve. DECIMAL guarda el número exacto.
+--    Para dinero, SIEMPRE DECIMAL. Es la regla más útil de todo el día.
+--
+-- 2. NO EXISTE LA COLUMNA `disponible`.
+--    En el JSON estaba, y era `stock > 0`. Guardarla aparte permite que un
+--    día haya stock 0 con disponible true, y ahí la base de datos se
+--    contradice a sí misma.
+--    LA REGLA: si un dato se puede calcular desde otro, no se guarda.
+--    Se consulta con   WHERE stock > 0
+--
+-- 3. `proveedor_id` ACEPTA NULL, `categoria_id` NO.
+--    Todo producto tiene categoría, pero lo que se hornea en casa no tiene
+--    proveedor. Esa diferencia sale de cómo funciona el negocio.
+
+-- ── FOREIGN KEY: qué hace de verdad ────────────────────────────────────────
+-- Una FOREIGN KEY es una restricción que hace cumplir el motor:
+-- no deja insertar un producto con `categoria_id = 99` si no
+-- existe la categoría 99, y no deja borrar una categoría que tenga productos.
+--
+-- Es la diferencia entre "acordamos que los datos van a ser consistentes" y
+-- "el sistema no permite que dejen de serlo".
+
+-- ── DATOS INICIALES ────────────────────────────────────────────────────────
+-- Los mismos del `datos.json` del módulo pasado, ya normalizados.
+
+INSERT INTO categorias (nombre) VALUES
+  ('Panes'), ('Salados'), ('Dulces'),
+  ('Tortas'), ('Bebidas'), ('Lácteos');
+
+INSERT INTO proveedores (nombre, telefono) VALUES
+  ('Lácteos del Valle',     '2 2789045'),
+  ('Distribuidora Norte',   '2 2451200'),
+  ('Mercado mayorista',     NULL),
+  ('Granja avícola',        '7 1234567'),
+  ('Distribuidora Sur',     '2 2334455'),
+  ('Molino harinero',       '2 2901122');
+
+-- "Mercado mayorista" entra con teléfono NULL. Es un dato que no se tiene, y
+-- así queda dicho. Es preferible a inventar un teléfono.
+
+INSERT INTO productos (nombre, categoria_id, proveedor_id, precio, unidad, stock) VALUES
+  ('Pan del día',          1, NULL,   0.50, 'unidad', 120),
+  ('Marraqueta',           1, NULL,   0.50, 'unidad', 200),
+  ('Pan integral',         1, NULL,   1.50, 'unidad',  40),
+  ('Pan de molde',         1, NULL,  12.00, 'unidad',   0),
+  ('Empanada de queso',    2, NULL,   3.50, 'unidad',  30),
+  ('Cuñapé',               2, NULL,   2.00, 'unidad',   0),
+  ('Alfajor',              3, NULL,   4.00, 'unidad',  50),
+  ('Rosquete',             3, NULL,   1.00, 'unidad',  60),
+  ('Torta de chocolate',   3, NULL,  45.00, 'unidad',   2),
+  ('Torta de cumpleaños',  4, NULL, 120.00, 'unidad',   1),
+  ('Tres leches',          4, NULL,  60.00, 'unidad',   3),
+  ('Selva negra',          4, NULL,  90.00, 'unidad',   2),
+  ('Leche',                6,    1,   6.00, 'litro',   25),
+  ('Yogurt',               6,    1,   9.50, 'litro',   18),
+  ('Queso fresco',         6,    1,  35.00, 'kg',      12),
+  ('Mantequilla',          6,    1,  14.00, 'unidad',  20);
+
+-- 'Pan de molde' y 'Cuñapé' entran con stock 0. En el JSON además decían
+-- `disponible: false`; aquí esa columna no existe y no hace falta.
+
+-- ── LA CONSULTA QUE DEVUELVE LO MISMO QUE EL JSON ──────────────────────────
+-- Vale la pena correrla hoy: demuestra que no se perdió nada al normalizar.
+-- Los datos siguen siendo los mismos; lo que cambió es dónde vive cada uno.
+
+SELECT
+  p.id,
+  p.nombre,
+  c.nombre AS categoria,
+  p.precio,
+  p.unidad,
+  p.stock,
+  (p.stock > 0) AS disponible,      -- calculado, no guardado
+  v.nombre AS proveedor
+FROM productos p
+JOIN categorias  c ON c.id = p.categoria_id
+LEFT JOIN proveedores v ON v.id = p.proveedor_id
+ORDER BY p.id;
+
+-- ¿POR QUÉ `JOIN` PARA CATEGORÍA Y `LEFT JOIN` PARA PROVEEDOR?
+-- JOIN devuelve solo las filas que tienen pareja. LEFT JOIN devuelve TODAS
+-- las de la izquierda, con NULL donde no hay pareja.
+--
+-- `categoria_id` es NOT NULL, así que ahí los dos dan lo mismo.
+-- `proveedor_id` acepta NULL, y ahí está la diferencia: con un JOIN normal,
+-- un producto sin proveedor DESAPARECE del listado. Sin error, sin aviso:
+-- simplemente no está.
+--
+-- En esta panadería se nota enseguida: de los 16 productos, 12 se hornean en
+-- casa y no tienen proveedor. Con JOIN el catálogo muestra 4 productos; con
+-- LEFT JOIN, los 16. Nadie ve un error: ve un catálogo al que le faltan cosas.
+
+-- ── PEDIDOS ────────────────────────────────────────────────────────────────
+-- Hasta aquí, el catálogo: QUÉ vende la panadería. Esta tabla es el problema
+-- del proyecto: QUIÉN encargó QUÉ y PARA CUÁNDO. Es el cuaderno del mostrador,
+-- convertido en tabla.
+
+CREATE TABLE pedidos (
+  id            INT AUTO_INCREMENT PRIMARY KEY,
+  cliente       VARCHAR(100) NOT NULL,
+  producto_id   INT          NOT NULL,
+  cantidad      INT          NOT NULL,
+  fecha_entrega DATE         NOT NULL,
+  entregado     BOOLEAN      NOT NULL DEFAULT FALSE,
+  creado        TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+  FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+
+-- DOS DECISIONES DE ESTA TABLA, y también hay que poder defenderlas:
+--
+-- 1. `cliente` ES TEXTO, NO UNA TABLA APARTE.
+--    Parece contradecir lo de hoy: si alguien encarga tres veces, su nombre
+--    queda escrito tres veces. Pero en una panadería de barrio el cliente de
+--    un encargo no tiene cuenta ni datos que mantener: es un nombre en el
+--    cuaderno. Se normaliza cuando hace falta: si un día hay que
+--    guardar su teléfono, se crea la tabla `clientes`.
+--
+-- 2. `entregado` SÍ SE GUARDA, aunque `disponible` no.
+--    `disponible` se calcula desde `stock`. Que un pedido se entregó no se
+--    calcula desde nada: pasó en el mostrador, y alguien tiene que marcarlo.
+
+INSERT INTO pedidos (cliente, producto_id, cantidad, fecha_entrega) VALUES
+  ('María López',    10,  1, CURDATE()),
+  ('Juan Pérez',      2, 50, CURDATE()),
+  ('Ana García',     11,  1, CURDATE() + INTERVAL 1 DAY),
+  ('Luis Torres',     5, 12, CURDATE() + INTERVAL 2 DAY);
+
+-- CURDATE() y no una fecha escrita a mano: así "los pedidos de hoy" existen
+-- el día que se corre el script, y no solo el día en que se escribió.
+
