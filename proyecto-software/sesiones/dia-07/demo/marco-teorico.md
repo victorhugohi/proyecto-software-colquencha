@@ -1,20 +1,20 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     MARCO TEÓRICO - documento de ejemplo
+     Marco teórico - documento de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
      El marco teórico crece en dos días:
        Día 7  estado del arte y matriz comparativa
        Día 8  referencias bibliográficas y citación
 
-     QUÉ ES Y QUÉ NO ES. El marco teórico NO es un capítulo de definiciones
+     Qué es y qué no es. El marco teórico no es un capítulo de definiciones
      copiadas. No es explicar qué es una base de datos ni qué es PHP.
 
      Es la respuesta a una pregunta concreta:
         ¿qué se ha hecho antes para resolver este problema,
          y por qué eso no me sirve tal cual?
 
-     Todo lo que no responda esa pregunta, sobra.
+     Lo que no responde esa pregunta no va en el marco teórico.
      ═══════════════════════════════════════════════════════════════════════ -->
 
 # Marco teórico
@@ -23,7 +23,7 @@
 
 ---
 
-<!-- ── EL ERROR QUE DEFINE ESTA SECCIÓN ─────────────────────────────────
+<!-- ── El error más frecuente en esta sección ─────────────────────────────────
      El marco teórico de un principiante empieza así:
 
         "Una base de datos es un conjunto de datos organizados..."
@@ -32,12 +32,12 @@
      Eso es un glosario, y no aporta nada: quien lee el documento sabe qué
      es una base de datos, y quien no lo sabe no va a leer el documento.
 
-     LA PRUEBA QUE LO DETECTA:
+     La prueba que lo detecta:
         ¿Este párrafo cambia alguna decisión del proyecto?
-     Si no cambia ninguna, sobra.
+     Si no cambia ninguna, se quita.
 
-     Lo que sí va: qué soluciones existen ya para ESTE problema, cómo
-     resuelven cada cosa, y por qué ninguna sirve tal cual para ESTE cliente.
+     Lo que sí va: qué soluciones existen ya para este problema, cómo
+     resuelven cada cosa, y por qué ninguna sirve tal cual para este cliente.
      De ahí sale la justificación de construir algo propio.               -->
 
 ## Introducción
@@ -48,11 +48,11 @@ para panaderías. Este apartado revisa cuatro alternativas disponibles y
 establece por qué ninguna se ajusta a las condiciones de la Panadería del
 Barrio, lo que fundamenta el desarrollo de una solución propia.
 
-<!-- ── LA MATRIZ COMPARATIVA ────────────────────────────────────────────
+<!-- ── La matriz comparativa ────────────────────────────────────────────
      Es el corazón del marco teórico y lo que lo distingue de un resumen de
      Wikipedia.
 
-     LAS COLUMNAS SE ELIGEN CON LOS CRITERIOS DEL PROYECTO, no genéricas.
+     Las columnas se eligen con los criterios del proyecto, no genéricas.
      Aquí las columnas salen directamente de la factibilidad del Día 4 y de
      lo observado el Día 6:
        - costo, porque el cliente es un negocio pequeño
@@ -60,10 +60,10 @@ Barrio, lo que fundamenta el desarrollo de una solución propia.
        - se usa desde el celular, porque se trabaja con las manos ocupadas
        - consulta por fecha, porque es el problema central
 
-     SI UNA COLUMNA NO SALE DE UNA CONDICIÓN DEL PROYECTO, sobra. Comparar
+     Si una columna no sale de una condición del proyecto, sobra. Comparar
      por "tiene interfaz gráfica" no aporta si eso no decide nada.
 
-     Y ESTO ES LO QUE CASI NADIE HACE: la última fila es la solución propia,
+     Además, la última fila es la solución propia,
      comparada con las mismas columnas. Sin ella, la matriz describe el
      mercado; con ella, argumenta una decisión.                           -->
 
@@ -115,12 +115,12 @@ contingencia, y se declara como una limitación del proyecto.
      credibilidad. Reconocer una desventaja real y decir cómo se mitiga
      demuestra que se miró en serio.                                       -->
 
-<!-- ── LA METODOLOGÍA, QUE TAMBIÉN VA AQUÍ ──────────────────────────────
+<!-- ── La metodología, que también va aquí ──────────────────────────────
      El programa pide identificar "la metodología, métodos, técnicas y
      herramientas de software". Va en el marco teórico porque es una decisión
      que hay que fundamentar.
 
-     LA REGLA: se elige una metodología y se dice POR QUÉ, con las
+     La regla: se elige una metodología y se dice por qué, con las
      condiciones del proyecto. "Uso Scrum porque es ágil" no fundamenta nada.
      "Uso un enfoque incremental porque tengo cuatro semanas y un solo
      desarrollador, y Scrum completo exige roles que no existen aquí", sí. -->

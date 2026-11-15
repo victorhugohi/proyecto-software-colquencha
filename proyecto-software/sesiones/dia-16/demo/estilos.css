@@ -38,7 +38,7 @@ th { background: #f5f5f5; }
 
 .precio { text-align: right; font-variant-numeric: tabular-nums; }
 
-/* ── PEDIDOS ──────────────────────────────────────────────────────────────── */
+/* ── Pedidos ──────────────────────────────────────────────────────────────── */
 
 section + section { margin-top: 2.5rem; }
 
@@ -99,9 +99,9 @@ button:disabled { opacity: 0.6; cursor: progress; }
 
 .entregado { color: #2e7d32; font-weight: 600; }
 
-/* ── PANTALLAS ANGOSTAS (RNF-03) ─────────────────────────────────────────── */
+/* ── Pantallas angostas (RNF-03) ─────────────────────────────────────────── */
 
-/* La tabla del catálogo se desplaza DENTRO de su caja, no la página. */
+/* La tabla del catálogo se desplaza dentro de su caja, no la página. */
 .tabla-desplazable { overflow-x: auto; }
 
 /* Un nombre larguísimo sin espacios (un enlace pegado, cien letras seguidas)

@@ -1,11 +1,11 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     PROPUESTA DE PROYECTO - documento de ejemplo
+     Propuesta de proyecto - documento de ejemplo
 
-     ⚠️ ESTE ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Este es el proyecto de ejemplo del módulo, no el tuyo.
 
      Se sigue el caso de la Panadería del Barrio, que es el cliente que se usó
      en Programación Web, para poder mostrar un documento completo y coherente.
-     Tú escribes el mismo documento sobre TU cliente, el que elegiste el mes
+     Tú escribes el mismo documento sobre tu cliente, el que elegiste el mes
      pasado.
 
      El documento crece día a día:
@@ -15,7 +15,7 @@
        Día 4  factibilidad, alcances y límites
        Día 5  cronograma, resumen e introducción  -> se entrega el Lab 1
 
-     Los comentarios como este explican POR QUÉ cada sección dice lo que dice.
+     Los comentarios como este explican por qué cada sección dice lo que dice.
      En un documento real no van: aquí están para aprender.
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -30,17 +30,17 @@ Fecha: noviembre de 2026
 
 ---
 
-<!-- ── QUÉ TIPO DE PROYECTO ES ESTE (subtemas 1.1 a 1.5) ────────────────
-     Antes de escribir una línea hay que saber QUÉ se está escribiendo. Los
+<!-- ── Qué tipo de proyecto es este (subtemas 1.1 a 1.5) ────────────────
+     Antes de escribir una línea hay que saber qué se está escribiendo. Los
      cuatro tipos no se diferencian por el tema, sino por lo que producen y
      por cómo se los evalúa:
 
-       Monografía            estudia un tema y lo expone. NO construye nada.
+       Monografía            estudia un tema y lo expone. No construye nada.
                              Producto: un documento.
 
        Proyecto integrador   resuelve un problema real construyendo algo.
                              Producto: el software Y su documentación.
-                             ← ESTE ES EL DE ESTE MÓDULO
+                             ← este es el de este módulo
 
        Proyecto de grado     igual, pero con exigencia de aporte original y
                              defensa formal ante tribunal.
@@ -81,15 +81,15 @@ Para completar el proyecto falta lo siguiente:
 | los datos en un archivo JSON | una base de datos real |
 | "funciona en mi máquina" | requerimientos, pruebas, costos y *deploy* (puesta en producción) |
 
-<!-- ── EL CLIENTE ───────────────────────────────────────────────────────
+<!-- ── El cliente ───────────────────────────────────────────────────────
      Todo lo que viene depende de esta sección. Un cliente vago produce un
      problema vago, objetivos vagos y requerimientos imposibles de verificar.
 
      Tres datos que no pueden faltar, y que hay que poder responder sin
      inventar:
-       QUIÉN es (nombre, rubro, tamaño)
-       QUÉ hace hoy para resolver lo que se le va a resolver
-       CÓMO se sabe (de dónde salió esa información)
+       quién es (nombre, rubro, tamaño)
+       qué hace hoy para resolver lo que se le va a resolver
+       cómo se sabe (de dónde salió esa información)
 
      El tercero es el que separa un proyecto real de uno imaginado.         -->
 
@@ -108,25 +108,25 @@ entrega. No hay copia ni respaldo.
 
 ---
 
-<!-- ── FORMULACIÓN DEL PROBLEMA (subtema 2.3) ──────────────────────────
-     ESTA SECCIÓN RESPONDE UNA SOLA PREGUNTA:
+<!-- ── Formulación del problema (subtema 2.3) ──────────────────────────
+     esta sección responde una sola pregunta:
      ¿qué está mal hoy, y cómo se sabe?
 
      Las tres reglas, y las tres se rompen todo el tiempo:
 
-     1. NO SE MENCIONA LA SOLUCIÓN. Ni una vez. En cuanto aparece "falta un
+     1. No se menciona la solución. Ni una vez. En cuanto aparece "falta un
         sistema", ya no se está describiendo un problema: se está describiendo
         la ausencia de tu solución, que no es lo mismo.
 
-     2. SE MIDE. "Se pierden pedidos" es una queja. "Se perdieron 12 pedidos
+     2. Se mide. "Se pierden pedidos" es una queja. "Se perdieron 12 pedidos
         en marzo, según el conteo de la dueña" es un problema. Si no hay
         número, hay que ir a buscarlo.
 
-     3. SE DICE DE DÓNDE SALE. Cada dato con su fuente. Sin eso, el tribunal
+     3. Se dice de dónde sale. Cada dato con su fuente. Sin eso, el tribunal
         pregunta "¿y usted cómo sabe?" y no hay respuesta.
 
      La prueba para saber si está bien escrito: dárselo a leer a alguien que
-     no conoce el proyecto. Si al terminar puede decir qué está mal HOY, sin
+     no conoce el proyecto. Si al terminar puede decir qué está mal hoy, sin
      saber todavía qué vas a construir, está bien.                        -->
 
 ## Formulación del problema
@@ -153,17 +153,17 @@ estima entre 15 y 20 minutos diarios en esta revisión.
 mojó parcialmente y se perdieron los encargos de una semana, que hubo que
 reconstruir llamando a los clientes.
 
-<!-- ── EL ÁRBOL DE PROBLEMAS ────────────────────────────────────────────
+<!-- ── El árbol de problemas ────────────────────────────────────────────
      Herramienta para no confundir el problema con sus causas ni con sus
      efectos. Se dibuja así:
 
-              EFECTOS        ← lo que se ve, lo que duele
+              Efectos        ← lo que se ve, lo que duele
                  ↑
-          PROBLEMA CENTRAL   ← una sola frase
+          problema central   ← una sola frase
                  ↑
-              CAUSAS         ← por qué ocurre
+              causas         ← por qué ocurre
 
-     El error más común es poner un EFECTO como problema central. "Los
+     El error más común es poner un efecto como problema central. "Los
      clientes se quejan" es un efecto; el problema es lo que lo produce.
 
      Y el segundo error: poner como causa "no tienen un sistema". Eso es,

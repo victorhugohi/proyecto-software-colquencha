@@ -20,7 +20,7 @@ endpoint del Día 12.
 
 En Programación Web ya usaste `fetch`. Lo nuevo es qué hacer cuando falla. Con un archivo fijo como
 `datos.json`, la petición no fallaba. Con un servidor sí puede fallar: puede estar apagado, la
-consulta puede tener un error o la red puede cortarse. Manejar esa falla es el trabajo de este día.
+consulta puede tener un error o la red puede cortarse. En este día se aprende a manejar esa falla.
 
 ### 2. Los tres estados de una pantalla
 

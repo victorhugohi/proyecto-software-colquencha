@@ -1,21 +1,21 @@
 -- ═══════════════════════════════════════════════════════════════════════════
--- ESQUEMA DE LA BASE DE DATOS - proyecto de ejemplo
+-- Esquema de la base de datos - proyecto de ejemplo
 --
--- ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+-- ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 --
--- DE DÓNDE SALE ESTE ARCHIVO: del `datos.json` del módulo pasado. Ese archivo
+-- De dónde sale este archivo: del `datos.json` del módulo pasado. Ese archivo
 -- es una foto de los datos; este es la estructura que los sostiene.
 --
 -- El JSON servía para practicar `fetch`, y para eso estaba bien. Como base de
--- datos tiene tres problemas, y encontrarlos ES el trabajo de hoy:
+-- datos tiene tres problemas, y encontrarlos es el trabajo de hoy:
 --
 --    1. "Panes" aparece escrito 4 veces
 --    2. "Lácteos del Valle" aparece escrito 4 veces
 --    3. `disponible` se puede calcular desde `stock`, y sin embargo está
 --       guardado aparte
 --
--- Los tres son la misma clase de problema: UN DATO GUARDADO EN VARIOS
--- LUGARES. Y siempre que un dato vive en varios lugares, tarde o temprano
+-- Los tres son la misma clase de problema: un dato guardado en varios
+-- lugares. Y siempre que un dato vive en varios lugares, tarde o temprano
 -- esos lugares se contradicen.
 -- ═══════════════════════════════════════════════════════════════════════════
 
@@ -23,19 +23,19 @@ CREATE DATABASE IF NOT EXISTS panaderia
   CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
--- utf8mb4 y no utf8: el `utf8` de MySQL es de 3 bytes y NO guarda emoji ni
+-- utf8mb4 y no utf8: el `utf8` de MySQL es de 3 bytes y no guarda emoji ni
 -- algunos caracteres. utf8mb4 es el UTF-8 de verdad. En un proyecto con
 -- nombres en español conviene desde el primer día: "Panadería" con tilde
 -- guardada en la codificación equivocada se ve como "PanaderÃ­a".
 
 USE panaderia;
 
--- ── CATEGORÍAS ─────────────────────────────────────────────────────────────
+-- ── Categorías ─────────────────────────────────────────────────────────────
 -- En el JSON las categorías eran un array de textos, y cada producto
 -- repetía el suyo. Aquí son una tabla, y el producto guarda un número.
 --
--- QUÉ SE GANA: si mañana "Panes" pasa a llamarse "Panes artesanales", se
--- corrige en UNA fila. Con el JSON había que corregir cuatro productos, y si
+-- Qué se gana: si mañana "Panes" pasa a llamarse "Panes artesanales", se
+-- corrige en una fila. Con el JSON había que corregir cuatro productos, y si
 -- se olvidaba uno quedaban dos categorías donde había una.
 
 CREATE TABLE categorias (
@@ -46,7 +46,7 @@ CREATE TABLE categorias (
 -- UNIQUE en `nombre` es lo que impide crear "Panes" dos veces. Sin él,
 -- la tabla no resuelve nada: solo cambia de lugar el problema.
 
--- ── PROVEEDORES ────────────────────────────────────────────────────────────
+-- ── Proveedores ────────────────────────────────────────────────────────────
 -- Mismo caso, y aquí el argumento se ve todavía mejor: en el JSON el
 -- proveedor era solo un nombre. Una tabla puede guardar su teléfono, y ese
 -- teléfono queda en un solo lugar aunque le compre veinte productos.
@@ -57,11 +57,11 @@ CREATE TABLE proveedores (
   telefono VARCHAR(20)
 );
 
--- `telefono` NO lleva NOT NULL: puede no saberse todavía, y una base de datos
+-- `telefono` no lleva NOT NULL: puede no saberse todavía, y una base de datos
 -- que exige lo que no se tiene obliga a inventar. Un "0000000" es peor que un
 -- NULL, porque el NULL se puede buscar y el cero mentiroso no.
 
--- ── PRODUCTOS ──────────────────────────────────────────────────────────────
+-- ── Productos ──────────────────────────────────────────────────────────────
 
 CREATE TABLE productos (
   id            INT AUTO_INCREMENT PRIMARY KEY,
@@ -76,21 +76,21 @@ CREATE TABLE productos (
   FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
 );
 
--- TRES DECISIONES QUE HAY QUE PODER DEFENDER:
+-- Tres decisiones que hay que poder defender:
 --
--- 1. DECIMAL(10,2) Y NO FLOAT, para el precio.
+-- 1. DECIMAL(10,2) y no FLOAT, para el precio.
 --    FLOAT es aproximado: 0.10 se guarda como 0.10000000149... y al sumar mil
 --    ventas de Bs 0.10 la diferencia se ve. DECIMAL guarda el número exacto.
---    Para dinero, SIEMPRE DECIMAL. Es la regla más útil de todo el día.
+--    Para dinero, siempre DECIMAL. Es la regla más útil de todo el día.
 --
--- 2. NO EXISTE LA COLUMNA `disponible`.
+-- 2. No existe la columna `disponible`.
 --    En el JSON estaba, y era `stock > 0`. Guardarla aparte permite que un
 --    día haya stock 0 con disponible true, y ahí la base de datos se
 --    contradice a sí misma.
---    LA REGLA: si un dato se puede calcular desde otro, no se guarda.
+--    La regla: si un dato se puede calcular desde otro, no se guarda.
 --    Se consulta con   WHERE stock > 0
 --
--- 3. `proveedor_id` ACEPTA NULL, `categoria_id` NO.
+-- 3. `proveedor_id` acepta NULL, `categoria_id` no.
 --    Todo producto tiene categoría, pero lo que se hornea en casa no tiene
 --    proveedor. Esa diferencia sale de cómo funciona el negocio.
 
@@ -102,7 +102,7 @@ CREATE TABLE productos (
 -- Es la diferencia entre "acordamos que los datos van a ser consistentes" y
 -- "el sistema no permite que dejen de serlo".
 
--- ── DATOS INICIALES ────────────────────────────────────────────────────────
+-- ── Datos iniciales ────────────────────────────────────────────────────────
 -- Los mismos del `datos.json` del módulo pasado, ya normalizados.
 
 INSERT INTO categorias (nombre) VALUES
@@ -141,7 +141,7 @@ INSERT INTO productos (nombre, categoria_id, proveedor_id, precio, unidad, stock
 -- 'Pan de molde' y 'Cuñapé' entran con stock 0. En el JSON además decían
 -- `disponible: false`; aquí esa columna no existe y no hace falta.
 
--- ── LA CONSULTA QUE DEVUELVE LO MISMO QUE EL JSON ──────────────────────────
+-- ── La consulta que devuelve lo mismo que el JSON ──────────────────────────
 -- Vale la pena correrla hoy: demuestra que no se perdió nada al normalizar.
 -- Los datos siguen siendo los mismos; lo que cambió es dónde vive cada uno.
 
@@ -159,22 +159,22 @@ JOIN categorias  c ON c.id = p.categoria_id
 LEFT JOIN proveedores v ON v.id = p.proveedor_id
 ORDER BY p.id;
 
--- ¿POR QUÉ `JOIN` PARA CATEGORÍA Y `LEFT JOIN` PARA PROVEEDOR?
--- JOIN devuelve solo las filas que tienen pareja. LEFT JOIN devuelve TODAS
+-- ¿Por qué `JOIN` para categoría Y `LEFT JOIN` para proveedor?
+-- JOIN devuelve solo las filas que tienen pareja. LEFT JOIN devuelve todas
 -- las de la izquierda, con NULL donde no hay pareja.
 --
 -- `categoria_id` es NOT NULL, así que ahí los dos dan lo mismo.
 -- `proveedor_id` acepta NULL, y ahí está la diferencia: con un JOIN normal,
--- un producto sin proveedor DESAPARECE del listado. Sin error, sin aviso:
+-- un producto sin proveedor desaparece del listado. Sin error, sin aviso:
 -- simplemente no está.
 --
 -- En esta panadería se nota enseguida: de los 16 productos, 12 se hornean en
 -- casa y no tienen proveedor. Con JOIN el catálogo muestra 4 productos; con
 -- LEFT JOIN, los 16. Nadie ve un error: ve un catálogo al que le faltan cosas.
 
--- ── PEDIDOS ────────────────────────────────────────────────────────────────
--- Hasta aquí, el catálogo: QUÉ vende la panadería. Esta tabla es el problema
--- del proyecto: QUIÉN encargó QUÉ y PARA CUÁNDO. Es el cuaderno del mostrador,
+-- ── Pedidos ────────────────────────────────────────────────────────────────
+-- Hasta aquí, el catálogo: qué vende la panadería. Esta tabla es el problema
+-- del proyecto: quién encargó qué y para cuándo. Es el cuaderno del mostrador,
 -- convertido en tabla.
 
 CREATE TABLE pedidos (
@@ -189,16 +189,16 @@ CREATE TABLE pedidos (
   FOREIGN KEY (producto_id) REFERENCES productos(id)
 );
 
--- DOS DECISIONES DE ESTA TABLA, y también hay que poder defenderlas:
+-- Dos decisiones de esta tabla, y también hay que poder defenderlas:
 --
--- 1. `cliente` ES TEXTO, NO UNA TABLA APARTE.
+-- 1. `cliente` es texto, no una tabla aparte.
 --    Parece contradecir lo de hoy: si alguien encarga tres veces, su nombre
 --    queda escrito tres veces. Pero en una panadería de barrio el cliente de
 --    un encargo no tiene cuenta ni datos que mantener: es un nombre en el
 --    cuaderno. Se normaliza cuando hace falta: si un día hay que
 --    guardar su teléfono, se crea la tabla `clientes`.
 --
--- 2. `entregado` SÍ SE GUARDA, aunque `disponible` no.
+-- 2. `entregado` sí se guarda, aunque `disponible` no.
 --    `disponible` se calcula desde `stock`. Que un pedido se entregó no se
 --    calcula desde nada: pasó en el mostrador, y alguien tiene que marcarlo.
 

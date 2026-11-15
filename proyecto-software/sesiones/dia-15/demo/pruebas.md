@@ -1,14 +1,14 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     MATRIZ DE CASOS DE PRUEBA - proyecto de ejemplo
+     Matriz de casos de prueba - proyecto de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
-     DE DÓNDE SALE CADA FILA: de los criterios de aceptación del Día 10 y de
+     De dónde sale cada fila: de los criterios de aceptación del Día 10 y de
      los requerimientos del Día 9. No se inventan pruebas: se prueba lo que
      se prometió. Por eso el Día 9 insistía en que un requerimiento tiene que
      poder dar PASA o FALLA: hoy es el día en que eso se pone a prueba.
 
-     QUÉ ES CAJA NEGRA: se prueba QUÉ hace el sistema mirando entradas y
+     Qué es caja negra: se prueba qué hace el sistema mirando entradas y
      salidas, sin mirar el código por dentro. Es lo que puede hacer cualquiera,
      y es lo que corresponde a este curso. La caja blanca (mirar el código)
      viene después, en materias de testing.
@@ -33,9 +33,9 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 1. Registrar un pedido (RF-01, RF-02, HU-01)
+## 1. Registrar un pedido (rf-01, rf-02, hu-01)
 
-| ID | Entrada | Acción | Resultado esperado | Tipo |
+| Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
 | P-01 | cliente, producto, cantidad y fecha válidos | confirmar | el pedido se guarda y aparece confirmación | normal |
 | P-02 | nombre del cliente vacío | confirmar | no guarda, señala el campo | error |
@@ -43,18 +43,18 @@ que discutir, la prueba no sirve.
 | P-04 | cantidad = 0 | confirmar | no guarda, señala la cantidad | borde |
 | P-05 | nombre con 200 caracteres | confirmar | guarda o corta con aviso, **no rompe** | borde |
 
-<!-- FÍJATE EN LA COLUMNA "TIPO". Casi todo el mundo escribe puros casos
-     "normal": lo que debería pasar cuando todo va bien. Pero el software casi
-     nunca falla en lo normal; falla en los bordes y los errores.
+<!-- Fíjate en la columna "tipo". Es común escribir solo casos
+     "normal": lo que debería pasar cuando todo va bien. Pero las fallas
+     suelen aparecer en los casos de borde y de error.
 
      La regla práctica: por cada caso normal, al menos uno de error o de
      borde. En esta tabla hay 1 normal y 4 de borde/error, y así debe ser.  -->
 
 ---
 
-## 2. Ver los pedidos de hoy (RF-03, RF-06, HU-02)
+## 2. Ver los pedidos de hoy (rf-03, rf-06, hu-02)
 
-| ID | Entrada | Acción | Resultado esperado | Tipo |
+| Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
 | P-06 | hay pedidos para hoy y para otros días | abrir la vista | se ven solo los de hoy, ordenados | normal |
 | P-07 | no hay pedidos para hoy | abrir la vista | mensaje "no hay pedidos", no pantalla en blanco | vacío |
@@ -67,9 +67,9 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 3. Marcar como entregado (RF-05, HU-03)
+## 3. Marcar como entregado (rf-05, hu-03)
 
-| ID | Entrada | Acción | Resultado esperado | Tipo |
+| Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
 | P-09 | un pedido pendiente | marcar entregado | desaparece de pendientes | normal |
 | P-10 | un pedido ya entregado | buscarlo | se encuentra y se puede revertir | error humano |
@@ -78,7 +78,7 @@ que discutir, la prueba no sirve.
 
 ## 4. Seguridad (del Día 12)
 
-| ID | Entrada | Acción | Resultado esperado | Tipo |
+| Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
 | P-11 | `?categoria=1 OR 1=1` en la URL | enviar | devuelve solo lo correcto, no todo | seguridad |
 | P-12 | comilla simple en un campo de texto | guardar | se guarda como texto, no rompe la consulta | seguridad |
@@ -89,9 +89,9 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 5. Ver el catálogo (RF-08)
+## 5. Ver el catálogo (rf-08)
 
-| ID | Entrada | Acción | Resultado esperado | Tipo |
+| Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
 | P-13 | hay productos disponibles y agotados | abrir el sistema | se ven todos, con su precio y si están disponibles | normal |
 
@@ -101,7 +101,7 @@ que discutir, la prueba no sirve.
 
 Se corre la matriz completa y se anota. Una corrida de ejemplo:
 
-| ID | Resultado | Nota |
+| Id | Resultado | Nota |
 |---|---|---|
 | P-01 | PASA | |
 | P-02 | PASA | |

@@ -1,11 +1,11 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     PROPUESTA DE PROYECTO - documento de ejemplo
+     Propuesta de proyecto - documento de ejemplo
 
-     ⚠️ ESTE ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Este es el proyecto de ejemplo del módulo, no el tuyo.
 
      Se sigue el caso de la Panadería del Barrio, que es el cliente que se usó
      en Programación Web, para poder mostrar un documento completo y coherente.
-     Tú escribes el mismo documento sobre TU cliente, el que elegiste el mes
+     Tú escribes el mismo documento sobre tu cliente, el que elegiste el mes
      pasado.
 
      El documento crece día a día:
@@ -15,7 +15,7 @@
        Día 4  factibilidad, alcances y límites
        Día 5  cronograma, resumen e introducción  -> se entrega el Lab 1
 
-     Los comentarios como este explican POR QUÉ cada sección dice lo que dice.
+     Los comentarios como este explican por qué cada sección dice lo que dice.
      En un documento real no van: aquí están para aprender.
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -30,17 +30,17 @@ Fecha: noviembre de 2026
 
 ---
 
-<!-- ── QUÉ TIPO DE PROYECTO ES ESTE (subtemas 1.1 a 1.5) ────────────────
-     Antes de escribir una línea hay que saber QUÉ se está escribiendo. Los
+<!-- ── Qué tipo de proyecto es este (subtemas 1.1 a 1.5) ────────────────
+     Antes de escribir una línea hay que saber qué se está escribiendo. Los
      cuatro tipos no se diferencian por el tema, sino por lo que producen y
      por cómo se los evalúa:
 
-       Monografía            estudia un tema y lo expone. NO construye nada.
+       Monografía            estudia un tema y lo expone. No construye nada.
                              Producto: un documento.
 
        Proyecto integrador   resuelve un problema real construyendo algo.
                              Producto: el software Y su documentación.
-                             ← ESTE ES EL DE ESTE MÓDULO
+                             ← este es el de este módulo
 
        Proyecto de grado     igual, pero con exigencia de aporte original y
                              defensa formal ante tribunal.
@@ -81,15 +81,15 @@ Para completar el proyecto falta lo siguiente:
 | los datos en un archivo JSON | una base de datos real |
 | "funciona en mi máquina" | requerimientos, pruebas, costos y *deploy* (puesta en producción) |
 
-<!-- ── EL CLIENTE ───────────────────────────────────────────────────────
+<!-- ── El cliente ───────────────────────────────────────────────────────
      Todo lo que viene depende de esta sección. Un cliente vago produce un
      problema vago, objetivos vagos y requerimientos imposibles de verificar.
 
      Tres datos que no pueden faltar, y que hay que poder responder sin
      inventar:
-       QUIÉN es (nombre, rubro, tamaño)
-       QUÉ hace hoy para resolver lo que se le va a resolver
-       CÓMO se sabe (de dónde salió esa información)
+       quién es (nombre, rubro, tamaño)
+       qué hace hoy para resolver lo que se le va a resolver
+       cómo se sabe (de dónde salió esa información)
 
      El tercero es el que separa un proyecto real de uno imaginado.         -->
 
@@ -108,25 +108,25 @@ entrega. No hay copia ni respaldo.
 
 ---
 
-<!-- ── FORMULACIÓN DEL PROBLEMA (subtema 2.3) ──────────────────────────
-     ESTA SECCIÓN RESPONDE UNA SOLA PREGUNTA:
+<!-- ── Formulación del problema (subtema 2.3) ──────────────────────────
+     esta sección responde una sola pregunta:
      ¿qué está mal hoy, y cómo se sabe?
 
      Las tres reglas, y las tres se rompen todo el tiempo:
 
-     1. NO SE MENCIONA LA SOLUCIÓN. Ni una vez. En cuanto aparece "falta un
+     1. No se menciona la solución. Ni una vez. En cuanto aparece "falta un
         sistema", ya no se está describiendo un problema: se está describiendo
         la ausencia de tu solución, que no es lo mismo.
 
-     2. SE MIDE. "Se pierden pedidos" es una queja. "Se perdieron 12 pedidos
+     2. Se mide. "Se pierden pedidos" es una queja. "Se perdieron 12 pedidos
         en marzo, según el conteo de la dueña" es un problema. Si no hay
         número, hay que ir a buscarlo.
 
-     3. SE DICE DE DÓNDE SALE. Cada dato con su fuente. Sin eso, el tribunal
+     3. Se dice de dónde sale. Cada dato con su fuente. Sin eso, el tribunal
         pregunta "¿y usted cómo sabe?" y no hay respuesta.
 
      La prueba para saber si está bien escrito: dárselo a leer a alguien que
-     no conoce el proyecto. Si al terminar puede decir qué está mal HOY, sin
+     no conoce el proyecto. Si al terminar puede decir qué está mal hoy, sin
      saber todavía qué vas a construir, está bien.                        -->
 
 ## Formulación del problema
@@ -153,17 +153,17 @@ estima entre 15 y 20 minutos diarios en esta revisión.
 mojó parcialmente y se perdieron los encargos de una semana, que hubo que
 reconstruir llamando a los clientes.
 
-<!-- ── EL ÁRBOL DE PROBLEMAS ────────────────────────────────────────────
+<!-- ── El árbol de problemas ────────────────────────────────────────────
      Herramienta para no confundir el problema con sus causas ni con sus
      efectos. Se dibuja así:
 
-              EFECTOS        ← lo que se ve, lo que duele
+              Efectos        ← lo que se ve, lo que duele
                  ↑
-          PROBLEMA CENTRAL   ← una sola frase
+          problema central   ← una sola frase
                  ↑
-              CAUSAS         ← por qué ocurre
+              causas         ← por qué ocurre
 
-     El error más común es poner un EFECTO como problema central. "Los
+     El error más común es poner un efecto como problema central. "Los
      clientes se quejan" es un efecto; el problema es lo que lo produce.
 
      Y el segundo error: poner como causa "no tienen un sistema". Eso es,
@@ -192,32 +192,32 @@ reconstruir llamando a los clientes.
 
 ---
 
-<!-- ── OBJETIVOS (subtema 2.5) ─────────────────────────────────────────
-     Aquí SÍ aparece la solución, y por primera vez. Pero con una forma muy
+<!-- ── Objetivos (subtema 2.5) ─────────────────────────────────────────
+     Aquí sí aparece la solución, y por primera vez. Pero con una forma muy
      estricta.
 
-     UN OBJETIVO GENERAL. Uno solo. Es el problema central en positivo:
+     Un objetivo general. Uno solo. Es el problema central en positivo:
      si el problema es "el registro no permite consultar", el objetivo es
      "desarrollar un sistema que permita consultar".
 
-     Empieza con un VERBO EN INFINITIVO que describe lo que TÚ vas a hacer:
+     Empieza con un verbo en infinitivo que describe lo que tú vas a hacer:
      desarrollar, implementar, diseñar. Nunca "mejorar la atención" ni
      "lograr que el cliente esté satisfecho": eso no depende de ti.
 
-     LOS ESPECÍFICOS son los pasos para llegar al general. Y la prueba que
-     los ordena: al terminar el proyecto, ¿se puede decir SÍ o NO a cada uno,
+     Los específicos son los pasos para llegar al general. Y la prueba que
+     los ordena: al terminar el proyecto, ¿se puede decir sí o no a cada uno,
      sin discutir? Si hace falta interpretar, está mal escrito.
 
      SMART, aplicado a un proyecto de software:
-       Specific    dice QUÉ, no "mejorar"
+       Specific    dice qué, no "mejorar"
        Measurable  se puede verificar si se cumplió
        Achievable  con el tiempo y los recursos que hay
        Relevant    ataca una causa del árbol del Día 2
        Time-bound  cabe en el cronograma
 
-     EL ERROR QUE HAY QUE DETECTAR: objetivos que son tareas ("instalar XAMPP")
+     El error que hay que detectar: objetivos que son tareas ("instalar XAMPP")
      o que son deseos ("mejorar la eficiencia"). Un objetivo específico es un
-     RESULTADO verificable, no una actividad ni una aspiración.            -->
+     resultado verificable, no una actividad ni una aspiración.            -->
 
 ## Objetivos
 
@@ -241,11 +241,11 @@ de entrega y conservar el registro con respaldo.
      "mejorar", "optimizar" ni "lograr que". Y el 4 no es relleno: verificar
      es parte del proyecto, no algo que se hace si sobra tiempo.
 
-     Fíjate también en lo que NO está: "capacitar al personal", "aumentar las
-     ventas". Son deseables y NO dependen del software. Van en las
+     Fíjate también en lo que no está: "capacitar al personal", "aumentar las
+     ventas". Son deseables y no dependen del software. Van en las
      recomendaciones del Día 18, no aquí.                                  -->
 
-<!-- ── JUSTIFICACIÓN (subtema 2.4) ─────────────────────────────────────
+<!-- ── Justificación (subtema 2.4) ─────────────────────────────────────
      Responde: ¿por qué vale la pena hacer esto, y por qué así?
 
      Tres ángulos, y con dos alcanza:
@@ -253,7 +253,7 @@ de entrega y conservar el registro con respaldo.
        técnico    por qué esta solución y no otra
        social     a quién más beneficia, si aplica
 
-     LA TRAMPA DE ESTA SECCIÓN: escribir elogios de la tecnología.
+     La trampa de esta sección: escribir elogios de la tecnología.
      "En la actualidad, los sistemas de información son fundamentales para
      toda organización moderna" no justifica nada: sirve para cualquier
      proyecto del mundo, y por eso no sirve para el tuyo.
@@ -281,22 +281,22 @@ semana.
 
 ---
 
-<!-- ── FACTIBILIDAD (subtema 2.6) ──────────────────────────────────────
+<!-- ── Factibilidad (subtema 2.6) ──────────────────────────────────────
      Responde una pregunta incómoda: ¿esto se puede hacer de verdad?
 
      Tres dimensiones, y las tres se responden con evidencia, no con
      optimismo:
 
-       TÉCNICA      ¿existe la tecnología, y sabemos usarla?
-       OPERATIVA    ¿el cliente va a poder usarlo y mantenerlo?
-       ECONÓMICA    ¿los costos son asumibles para ese cliente?
+       Técnica      ¿existe la tecnología, y sabemos usarla?
+       Operativa    ¿el cliente va a poder usarlo y mantenerlo?
+       Económica    ¿los costos son asumibles para ese cliente?
 
-     LA OPERATIVA ES LA QUE MÁS SE SUBESTIMA y la que más proyectos hace fracasar.
+     La operativa es la que más se subestima y la que más proyectos hace fracasar.
      Un sistema técnicamente perfecto que el cliente no usa es un fracaso.
      Y la pregunta que la resuelve no es "¿le gusta?", sino "¿quién lo va a
      usar todos los días, y sabe hacerlo?".
 
-     UNA FACTIBILIDAD HONESTA PUEDE DECIR QUE NO. Si la conclusión es que
+     Una factibilidad honesta puede decir que no. Si la conclusión es que
      algo no se puede, eso no descalifica el proyecto: se ajusta el alcance.
      Decir que todo es factible sin haberlo mirado es lo que sí descalifica. -->
 
@@ -333,21 +333,21 @@ Bs 35 según la propietaria, representan unos Bs 420 en un solo mes.
      argumento. Un costo suelto no dice nada; un costo comparado con lo que
      se pierde hoy, sí. El detalle fino de costos es el Día 15.            -->
 
-<!-- ── ALCANCES Y LÍMITES (subtema 2.7) ────────────────────────────────
-     LA SECCIÓN MÁS CORTA Y LA QUE MÁS PROBLEMAS EVITA.
+<!-- ── Alcances y límites (subtema 2.7) ────────────────────────────────
+     la sección más corta y la que más problemas evita.
 
-     Alcance  = lo que SÍ se va a entregar
-     Límite   = lo que NO, y por qué
+     Alcance  = lo que sí se va a entregar
+     Límite   = lo que no, y por qué
 
-     Los límites no son una disculpa: son una decisión. Y hay que escribirlos
-     ANTES de programar, no después, porque después se llaman "cosas que no
+     Los límites son una decisión del proyecto, y hay que escribirlos
+     antes de programar, no después, porque después se llaman "cosas que no
      me dio tiempo".
 
-     LA REGLA: cada límite dice QUÉ queda fuera y POR QUÉ. Un límite sin
+     La regla: cada límite dice qué queda fuera y por qué. Un límite sin
      razón parece una excusa; con razón, es una decisión de diseño.
 
      Y hay algo que se descubre escribiendo esta sección: si el alcance no
-     cabe en el cronograma, hay que recortarlo AHORA. Ese es el objetivo real
+     cabe en el cronograma, hay que recortarlo ahora. Ese es el objetivo real
      del ejercicio.                                                        -->
 
 ## Alcances y límites
@@ -383,19 +383,19 @@ El sistema **no** incluye, y en cada caso se indica por qué:
 
 ---
 
-<!-- ── CRONOGRAMA (subtema 2.8) ────────────────────────────────────────
+<!-- ── Cronograma (subtema 2.8) ────────────────────────────────────────
      Antes del cronograma va la WBS: descomponer el trabajo en pedazos que
      se puedan estimar. La regla práctica es que ningún paquete pase de una
      semana; si pasa, todavía no se entiende bien y hay que partirlo.
 
-     LA WBS SE ARMA CON SUSTANTIVOS, NO CON VERBOS. No es "hacer la base de
-     datos", es "base de datos". Se describe lo que va a EXISTIR, no lo que
+     La WBS se arma con sustantivos, no con verbos. No es "hacer la base de
+     datos", es "base de datos". Se describe lo que va a existir, no lo que
      se va a hacer. Eso evita que aparezcan actividades sin producto.
 
      El cronograma sale de la WBS. Si se empieza por el calendario, quedan
      fechas sin un entregable claro.
 
-     LA COLUMNA QUE MÁS SE OLVIDA: el ENTREGABLE, es decir, qué queda hecho
+     La columna que más se olvida: el entregable, es decir, qué queda hecho
      cuando esa fila termina. Una fila sin entregable no produce nada que se
      pueda revisar.                                 -->
 
@@ -440,18 +440,18 @@ El sistema **no** incluye, y en cada caso se indica por qué:
      las del módulo, que son las reales. Un cronograma que no coincide con el
      tiempo que existe es una declaración de deseos.                       -->
 
-<!-- ── RESUMEN E INTRODUCCIÓN (subtemas 2.1 y 2.2) ─────────────────────
-     SE ESCRIBEN AL FINAL, aunque vayan al principio. Es la única forma de
-     que resuman algo: no se puede resumir lo que todavía no existe.
+<!-- ── Resumen e introducción (subtemas 2.1 y 2.2) ─────────────────────
+     se escriben al final, aunque vayan al principio. Así pueden
+     resumir el documento completo, que al empezar todavía no existe.
 
-     EL RESUMEN: entre 150 y 250 palabras, y responde cuatro cosas:
+     El resumen: entre 150 y 250 palabras, y responde cuatro cosas:
        qué problema · qué se hizo · cómo · qué resultado se espera
      Sin citas, sin secciones, sin "el presente documento tiene por objeto".
 
-     LA INTRODUCCIÓN: presenta el proyecto y anuncia la estructura del
+     La introducción: presenta el proyecto y anuncia la estructura del
      documento. Es más larga y más suelta que el resumen.
 
-     LA PRUEBA DEL RESUMEN: si alguien lee solo eso, ¿entiende de qué se
+     La prueba del resumen: si alguien lee solo eso, ¿entiende de qué se
      trata el proyecto? Es lo único que muchos van a leer.                -->
 
 ## Resumen

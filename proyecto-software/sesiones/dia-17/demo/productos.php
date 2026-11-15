@@ -1,8 +1,8 @@
 <?php
 /* ═══════════════════════════════════════════════════════════════════════════
-   ENDPOINT: devuelve los productos en JSON - proyecto de ejemplo
+   Endpoint: devuelve los productos en JSON - proyecto de ejemplo
 
-   ESTE ARCHIVO CIERRA EL CÍRCULO DEL MÓDULO ANTERIOR.
+   Este archivo cierra el círculo del módulo anterior.
 
    El módulo pasado la página hacía:
 
@@ -24,13 +24,13 @@ require 'conexion.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
-/* EL Content-Type ES OBLIGATORIO Y SE OLVIDA SIEMPRE.
+/* El Content-Type es obligatorio y se olvida siempre.
    Sin esta línea el navegador recibe el JSON como si fuera HTML. `fetch` lo
    trae igual, pero al abrir el archivo directo en el navegador se ve un
    texto plano y cuesta darse cuenta de que está bien.
    Con la línea, Chrome lo muestra formateado y plegable. */
 
-/* ── EL PARÁMETRO OPCIONAL ──────────────────────────────────────────────────
+/* ── El parámetro opcional ──────────────────────────────────────────────────
    productos.php               devuelve todos
    productos.php?categoria=3   devuelve solo los de esa categoría           */
 
@@ -38,7 +38,7 @@ $categoria = $_GET['categoria'] ?? null;
 
 /* ?? null  es el operador "si no existe, usa esto".
    Sin él, pedir productos.php sin parámetros genera un aviso de PHP por
-   índice indefinido, y ese aviso se imprime ANTES del JSON y lo rompe.
+   índice indefinido, y ese aviso se imprime antes del JSON y lo rompe.
    Es una de las formas más comunes de romper un endpoint sin darse cuenta. */
 
 $sql = "
@@ -74,27 +74,27 @@ if ($categoria !== null) {
 $consulta->execute();
 $filas = $consulta->fetchAll();
 
-/* ═══ ESTO ES LO IMPORTANTE DEL DÍA ═══
+/* ═══ Esto es lo importante del día ═══
 
-   Fíjate en lo que NO se hizo. NO se escribió esto:
+   Fíjate en lo que no se hizo. No se escribió esto:
 
-       $sql = "SELECT ... WHERE categoria_id = $categoria";   // ⚠️ NUNCA
+       $sql = "SELECT ... WHERE categoria_id = $categoria";   // ⚠️ nunca
 
    Esa línea funciona perfectamente mientras nadie la ataque. El problema es que
-   pega el texto que mandó el visitante DENTRO de la consulta, y entonces el
+   pega el texto que mandó el visitante dentro de la consulta, y entonces el
    visitante puede escribir consulta en vez de datos.
 
    Con `prepare` y `bindValue`, la consulta viaja por un lado y el dato por
-   otro. El motor ya sabe cuál es la forma de la consulta ANTES de ver el
+   otro. El motor ya sabe cuál es la forma de la consulta antes de ver el
    dato, así que lo que llegue se trata como valor y nunca como instrucción.
-   Aunque el valor sea la palabra DROP.
+   Eso incluye un valor como la palabra DROP.
 
-   No es una precaución exagerada: es la vulnerabilidad más explotada de la
+   No es una precaución exagerada, porque es la vulnerabilidad más explotada de la
    web desde hace veinte años, y se evita escribiendo dos líneas en vez de
    una.                                                                      */
 
-/* ── ARREGLAR LOS TIPOS ────────────────────────────────────────────────────
-   MySQL devuelve TODO como texto. Sin esto, el JSON sale así:
+/* ── Arreglar los tipos ────────────────────────────────────────────────────
+   MySQL devuelve todo como texto. Sin esto, el JSON sale así:
 
        "precio": "0.50",  "stock": "120",  "disponible": "1"
 
@@ -111,7 +111,7 @@ unset($fila);
 /* El `&` de `&$fila` hace que se modifique el array original y no una
    copia. Sin él, este bloque no cambia nada y todo sigue como texto.
 
-   Y el `unset($fila)` del final NO es un adorno: después de un foreach por
+   Y el `unset($fila)` del final no es un adorno: después de un foreach por
    referencia, la variable sigue apuntando al último elemento, y el próximo
    foreach que use ese nombre lo sobrescribe. Es un error clásico de PHP y
    por eso se corta aquí. */

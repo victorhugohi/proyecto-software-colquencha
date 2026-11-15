@@ -1,17 +1,17 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     PLAN DE PUESTA EN PRODUCCIÓN - proyecto de ejemplo
+     Plan de puesta en producción - proyecto de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
-     LA DISTINCIÓN DEL DÍA, dicha sin rodeos:
-        Todo lo que construimos corre en LOCALHOST. Eso NO es producción.
+     La distinción del día, dicha sin rodeos:
+        Todo lo que construimos corre en LOCALHOST. Eso no es producción.
         Localhost es tu computadora hablándose a sí misma. Producción es un
         servidor al que puede llegar tu cliente desde su casa.
 
-     Este documento NO hace el deploy del sistema (eso excede el curso). Describe
-     QUÉ HARÍA FALTA para hacerlo, para dejar claro que un proyecto
+     Este documento no hace el deploy del sistema (eso excede el curso). Describe
+     qué haría falta para hacerlo, para dejar claro que un proyecto
      no termina cuando funciona en su máquina: termina cuando alguien más lo
-     puede usar. Esa brecha es lo que casi nadie ve.
+     puede usar. Esa diferencia suele pasarse por alto.
      ═══════════════════════════════════════════════════════════════════════ -->
 
 # Plan de puesta en producción
@@ -48,7 +48,7 @@ gratis:
    empezar, ver el presupuesto del Día 15).
 2. **Subir el código** por el panel del hosting o por FTP.
 3. **Crear la base de datos** en el servidor y correr `esquema.sql`.
-4. **Cambiar `conexion.php`**: en el servidor, el usuario ya NO es `root` sin
+4. **Cambiar `conexion.php`**: en el servidor, el usuario ya no es `root` sin
    contraseña. Es un usuario con permisos mínimos y su propia clave.
 5. **Probar los tres estados** del Día 13 en el servidor, no solo en local.
 6. **Configurar el respaldo automático** (ver `respaldo.sh`).

@@ -1,18 +1,18 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     ESPECIFICACIÓN DE REQUERIMIENTOS - documento de ejemplo
+     Especificación de requerimientos - documento de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
      Sigue la estructura de la IEEE 830-1998, sección 5, adaptada al tamaño
      del proyecto. La norma completa tiene secciones que aquí no aplican
      (interfaces de hardware, requisitos de rendimiento en tiempo real): se
      usan las que sirven, y se dice cuáles se omiten.
 
-     Un documento de requerimientos responde UNA pregunta:
+     Un documento de requerimientos responde una pregunta:
         ¿qué tiene que hacer el sistema para que se pueda decir que está
          terminado?
 
-     Y todo lo que diga CÓMO se hace, sobra. El cómo es diseño, y es la
+     Y todo lo que diga cómo se hace, sobra. El cómo es diseño, y es la
      semana que viene.
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -47,8 +47,8 @@ en la propuesta.
 | **Pendiente** | pedido cuya fecha de entrega no ha pasado y no está marcado como entregado |
 | **Operador** | persona que registra o consulta pedidos: propietaria o empleada |
 
-<!-- Las definiciones NO son un glosario general. Son los términos que en
-     ESTE proyecto tienen un significado preciso, y que sin definir producen
+<!-- Las definiciones no son un glosario general. Son los términos que en
+     este proyecto tienen un significado preciso, y que sin definir producen
      ambigüedad. "Pendiente" es el caso típico: sin definirlo, cada quien
      entiende algo distinto y el requerimiento no se puede verificar.      -->
 
@@ -58,74 +58,74 @@ Ver el marco teórico del proyecto.
 
 ---
 
-<!-- ── REQUERIMIENTOS FUNCIONALES ──────────────────────────────────────
-     QUÉ TIENE QUE HACER el sistema.
+<!-- ── Requerimientos funcionales ──────────────────────────────────────
+     Qué tiene que hacer el sistema.
 
-     LA FORMA, y es la que hace verificable un requerimiento:
+     La forma, y es la que hace verificable un requerimiento:
 
-        El sistema DEBE [verbo] [qué] [bajo qué condición]
+        El sistema debe [verbo] [qué] [bajo qué condición]
 
      Tres reglas:
 
-     1. UN REQUERIMIENTO, UNA COSA. Si dice "registrar y notificar", son dos.
+     1. Un requerimiento, una cosa. Si dice "registrar y notificar", son dos.
         Se parten, porque uno puede cumplirse y el otro no.
 
-     2. "DEBE" NO ES ADORNO. La ISO 29148 distingue: "debe" es obligatorio,
+     2. "Debe" no es adorno. La ISO 29148 distingue: "debe" es obligatorio,
         "debería" es deseable. Si todo es "debe", nada tiene prioridad.
 
-     3. SE PUEDE VERIFICAR. Ese es el filtro de la ISO 29148: si un
+     3. Se puede verificar. Ese es el filtro de la ISO 29148: si un
         requerimiento no se puede comprobar, hay que reescribirlo hasta que
         se pueda.
 
-     LA PRUEBA: ¿puedo escribir un caso de prueba que dé PASA o FALLA sobre
+     La prueba: ¿puedo escribir un caso de prueba que dé PASA o FALLA sobre
      esto? Si no, está mal escrito. Y esa es exactamente la matriz del
      Día 14.                                                               -->
 
 ## 2. Requerimientos funcionales
 
-| ID | Requerimiento | Prioridad | Origen |
+| Id | Requerimiento | Prioridad | Origen |
 |---|---|---|---|
-| RF-01 | El sistema **debe** permitir registrar un pedido con cliente, producto, cantidad y fecha de entrega | alta | problema central |
-| RF-02 | El sistema **debe** rechazar el registro si falta el nombre del cliente, el producto o la fecha de entrega | alta | observación 18/11: pedidos anotados sin datos completos |
-| RF-03 | El sistema **debe** listar los pedidos pendientes ordenados por fecha de entrega | alta | problema central |
-| RF-04 | El sistema **debe** permitir filtrar los pedidos por una fecha determinada | alta | entrevista 13/11 |
-| RF-05 | El sistema **debe** permitir marcar un pedido como entregado | alta | ciclo de vida del pedido |
-| RF-06 | El sistema **debe** mostrar el total de pedidos pendientes para el día en curso | media | entrevista 13/11 |
-| RF-07 | El sistema **debería** permitir buscar un pedido por nombre del cliente | baja | entrevista 13/11 |
-| RF-08 | El sistema **debe** mostrar el catálogo de productos con su precio y si está disponible | alta | el pedido elige un producto |
+| Rf-01 | El sistema **debe** permitir registrar un pedido con cliente, producto, cantidad y fecha de entrega | alta | problema central |
+| rf-02 | El sistema **debe** rechazar el registro si falta el nombre del cliente, el producto o la fecha de entrega | alta | observación 18/11: pedidos anotados sin datos completos |
+| rf-03 | El sistema **debe** listar los pedidos pendientes ordenados por fecha de entrega | alta | problema central |
+| rf-04 | El sistema **debe** permitir filtrar los pedidos por una fecha determinada | alta | entrevista 13/11 |
+| rf-05 | El sistema **debe** permitir marcar un pedido como entregado | alta | ciclo de vida del pedido |
+| rf-06 | El sistema **debe** mostrar el total de pedidos pendientes para el día en curso | media | entrevista 13/11 |
+| rf-07 | El sistema **debería** permitir buscar un pedido por nombre del cliente | baja | entrevista 13/11 |
+| rf-08 | El sistema **debe** mostrar el catálogo de productos con su precio y si está disponible | alta | el pedido elige un producto |
 
-<!-- Fíjate en RF-07: dice "debería", no "debe". Es lo deseable, no lo
+<!-- Fíjate en rf-07: dice "debería", no "debe". Es lo deseable, no lo
      obligatorio. Si el tiempo alcanza se hace; si no, el sistema igual
      cumple. Poner todo como "debe" es lo mismo que no priorizar nada.
 
-     Y fíjate en la columna ORIGEN. Cada requerimiento sale de algo que se
+     Y fíjate en la columna origen. Cada requerimiento sale de algo que se
      documentó antes: el problema, la entrevista, la observación. Un
      requerimiento sin origen es un requerimiento inventado, y esos son los
      que hacen crecer el alcance sin control.                              -->
 
 ---
 
-<!-- ── REQUERIMIENTOS NO FUNCIONALES ───────────────────────────────────
-     CÓMO tiene que comportarse el sistema. No qué hace, sino con qué
+<!-- ── Requerimientos no funcionales ───────────────────────────────────
+     Cómo tiene que comportarse el sistema. No qué hace, sino con qué
      cualidades.
 
-     EL PROBLEMA DE ESTA SECCIÓN: casi todos escriben deseos.
+     El problema de esta sección: casi todos escriben deseos.
         "El sistema debe ser rápido."
         "El sistema debe ser fácil de usar."
         "El sistema debe ser seguro."
      Nada de eso se puede verificar. ¿Rápido cuánto? ¿Fácil para quién?
 
-     LA REGLA: un requerimiento no funcional lleva un NÚMERO o un criterio
+     La regla: un requerimiento no funcional lleva un número o un criterio
      observable. Si no lo lleva, no se puede verificar.
 
-     Y LO MEJOR: casi todos los no funcionales de un proyecto real salen de
+     Además, casi todos los no funcionales de un proyecto real salen de
      las preguntas "laterales" del Día 6. "Se trabaja con las manos
      ocupadas" se convierte en un número: el registro en menos de 60
      segundos, con no más de cuatro campos.                                -->
 
 ## 3. Requerimientos no funcionales
 
-| ID | Requerimiento | Cómo se verifica |
+| Id | Requerimiento | Cómo se verifica |
 |---|---|---|
 | RNF-01 | El registro de un pedido **debe** completarse en no más de **60 segundos** por un operador con capacitación mínima | cronometrar tres registros con la empleada |
 | RNF-02 | El formulario de registro **debe** tener a lo sumo **cuatro campos obligatorios** | contar los campos |
@@ -155,7 +155,7 @@ explícitamente:
 - **requisitos de portabilidad entre sistemas operativos**: al ser una
   aplicación web, el navegador resuelve la portabilidad
 
-<!-- Declarar lo que se omite Y POR QUÉ es lo que distingue usar una norma de
+<!-- Declarar lo que se omite y por qué es lo que distingue usar una norma de
      copiarla. Una plantilla llena de secciones vacías con "No aplica" no
      demuestra criterio; decir cuáles no aplican y por qué, sí.            -->
 

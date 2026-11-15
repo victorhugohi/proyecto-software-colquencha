@@ -1,20 +1,20 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     MARCO TEÓRICO - documento de ejemplo
+     Marco teórico - documento de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
      El marco teórico crece en dos días:
        Día 7  estado del arte y matriz comparativa
        Día 8  referencias bibliográficas y citación
 
-     QUÉ ES Y QUÉ NO ES. El marco teórico NO es un capítulo de definiciones
+     Qué es y qué no es. El marco teórico no es un capítulo de definiciones
      copiadas. No es explicar qué es una base de datos ni qué es PHP.
 
      Es la respuesta a una pregunta concreta:
         ¿qué se ha hecho antes para resolver este problema,
          y por qué eso no me sirve tal cual?
 
-     Todo lo que no responda esa pregunta, sobra.
+     Lo que no responde esa pregunta no va en el marco teórico.
      ═══════════════════════════════════════════════════════════════════════ -->
 
 # Marco teórico
@@ -23,7 +23,7 @@
 
 ---
 
-<!-- ── EL ERROR QUE DEFINE ESTA SECCIÓN ─────────────────────────────────
+<!-- ── El error más frecuente en esta sección ─────────────────────────────────
      El marco teórico de un principiante empieza así:
 
         "Una base de datos es un conjunto de datos organizados..."
@@ -32,12 +32,12 @@
      Eso es un glosario, y no aporta nada: quien lee el documento sabe qué
      es una base de datos, y quien no lo sabe no va a leer el documento.
 
-     LA PRUEBA QUE LO DETECTA:
+     La prueba que lo detecta:
         ¿Este párrafo cambia alguna decisión del proyecto?
-     Si no cambia ninguna, sobra.
+     Si no cambia ninguna, se quita.
 
-     Lo que sí va: qué soluciones existen ya para ESTE problema, cómo
-     resuelven cada cosa, y por qué ninguna sirve tal cual para ESTE cliente.
+     Lo que sí va: qué soluciones existen ya para este problema, cómo
+     resuelven cada cosa, y por qué ninguna sirve tal cual para este cliente.
      De ahí sale la justificación de construir algo propio.               -->
 
 ## Introducción
@@ -48,11 +48,11 @@ para panaderías. Este apartado revisa cuatro alternativas disponibles y
 establece por qué ninguna se ajusta a las condiciones de la Panadería del
 Barrio, lo que fundamenta el desarrollo de una solución propia.
 
-<!-- ── LA MATRIZ COMPARATIVA ────────────────────────────────────────────
+<!-- ── La matriz comparativa ────────────────────────────────────────────
      Es el corazón del marco teórico y lo que lo distingue de un resumen de
      Wikipedia.
 
-     LAS COLUMNAS SE ELIGEN CON LOS CRITERIOS DEL PROYECTO, no genéricas.
+     Las columnas se eligen con los criterios del proyecto, no genéricas.
      Aquí las columnas salen directamente de la factibilidad del Día 4 y de
      lo observado el Día 6:
        - costo, porque el cliente es un negocio pequeño
@@ -60,10 +60,10 @@ Barrio, lo que fundamenta el desarrollo de una solución propia.
        - se usa desde el celular, porque se trabaja con las manos ocupadas
        - consulta por fecha, porque es el problema central
 
-     SI UNA COLUMNA NO SALE DE UNA CONDICIÓN DEL PROYECTO, sobra. Comparar
+     Si una columna no sale de una condición del proyecto, sobra. Comparar
      por "tiene interfaz gráfica" no aporta si eso no decide nada.
 
-     Y ESTO ES LO QUE CASI NADIE HACE: la última fila es la solución propia,
+     Además, la última fila es la solución propia,
      comparada con las mismas columnas. Sin ella, la matriz describe el
      mercado; con ella, argumenta una decisión.                           -->
 
@@ -115,12 +115,12 @@ contingencia, y se declara como una limitación del proyecto.
      credibilidad. Reconocer una desventaja real y decir cómo se mitiga
      demuestra que se miró en serio.                                       -->
 
-<!-- ── LA METODOLOGÍA, QUE TAMBIÉN VA AQUÍ ──────────────────────────────
+<!-- ── La metodología, que también va aquí ──────────────────────────────
      El programa pide identificar "la metodología, métodos, técnicas y
      herramientas de software". Va en el marco teórico porque es una decisión
      que hay que fundamentar.
 
-     LA REGLA: se elige una metodología y se dice POR QUÉ, con las
+     La regla: se elige una metodología y se dice por qué, con las
      condiciones del proyecto. "Uso Scrum porque es ágil" no fundamenta nada.
      "Uso un enfoque incremental porque tengo cuatro semanas y un solo
      desarrollador, y Scrum completo exige roles que no existen aquí", sí. -->
@@ -144,35 +144,35 @@ incrementos que funcionan, y la revisión al cierre de cada uno.
 
 ---
 
-<!-- ── REFERENCIAS BIBLIOGRÁFICAS (subtema 3.4) ────────────────────────
-     Una referencia responde una sola pregunta: ¿DÓNDE PUEDE IR ALGUIEN A
-     VERIFICAR ESTO?
+<!-- ── Referencias bibliográficas (subtema 3.4) ────────────────────────
+     Una referencia responde una sola pregunta: ¿dónde puede ir alguien a
+     verificar esto?
 
      Todo lo demás (el formato, el orden de los apellidos, la coma o el
      punto) son convenciones. Importantes, pero secundarias frente a esa
      pregunta.
 
-     LA REGLA QUE SIMPLIFICA TODO: se elige UNA norma y se usa de forma
+     La regla que simplifica todo: se elige una norma y se usa de forma
      consistente. APA es la más común en la región y es la que se usa aquí.
-     Mezclar dos normas es peor que usar mal una.
+     No se mezclan dos normas en un mismo documento.
 
      APA en su forma mínima, que es lo que hace falta aquí:
 
-       LIBRO
+       Libro
        Apellido, N. (año). *Título del libro* (edición). Editorial.
 
-       ARTÍCULO O PÁGINA WEB
+       Artículo o página web
        Apellido, N. (año). Título del artículo. *Sitio*. URL
 
-       NORMA O ESTÁNDAR
+       Norma o estándar
        Organismo. (año). *Título de la norma* (código). Editorial.
 
-       COMUNICACIÓN PERSONAL (entrevistas)
-       NO se listan en referencias. Se citan en el texto:
+       Comunicación personal (entrevistas)
+       no se listan en referencias. Se citan en el texto:
        (J. Pérez, comunicación personal, 13 de noviembre de 2026)
 
-     Ese último es el que casi nadie sabe, y es el que más se usa en estos
-     proyectos: las entrevistas al cliente NO van en la bibliografía.       -->
+     Ese último es poco conocido, y es el que más se usa en estos
+     proyectos: las entrevistas al cliente no van en la bibliografía.       -->
 
 ## Referencias bibliográficas
 
@@ -206,24 +206,24 @@ La información sobre el proceso actual de la panadería proviene de:
 Estas fuentes se citan en el texto como comunicación personal y no se listan en
 las referencias bibliográficas, conforme a la norma APA.
 
-<!-- ── INTEGRIDAD ACADÉMICA ─────────────────────────────────────────────
-     EL PUNTO QUE HAY QUE ENTENDER: la regla no es "no copiar". La regla es
-     DECIR DE DÓNDE SALIÓ CADA COSA.
+<!-- ── Integridad académica ─────────────────────────────────────────────
+     Lo central: se puede usar el trabajo de otros, siempre que se
+     diga de dónde salió cada cosa.
 
      Usar ideas de otros es lo normal y lo esperable: todo proyecto se apoya
      en trabajo previo. Lo que convierte eso en plagio es no decirlo.
 
-     Tres formas de usar una fuente, y las tres son válidas SI se cita:
+     Tres formas de usar una fuente, y las tres son válidas si se cita:
 
-       CITA TEXTUAL     las palabras exactas, entre comillas, con página
-       PARÁFRASIS       la idea con palabras propias, citando igual
-       RESUMEN          varias páginas condensadas, citando igual
+       Cita textual     las palabras exactas, entre comillas, con página
+       paráfrasis       la idea con palabras propias, citando igual
+       resumen          varias páginas condensadas, citando igual
 
-     EL MALENTENDIDO MÁS FRECUENTE: creer que parafrasear exime de citar.
+     El malentendido más frecuente: creer que parafrasear exime de citar.
      No. Cambiar las palabras y no citar sigue siendo plagio, porque la idea
      sigue siendo de otro autor.
 
-     Y SOBRE LA IA, que es la pregunta real de este año:
+     Y sobre la IA, que es la pregunta real de este año:
      Usarla para entender algo, para revisar redacción o para generar
      alternativas es una herramienta más, como buscar en internet.
      Entregar texto generado como propio, sin entenderlo, es lo mismo que

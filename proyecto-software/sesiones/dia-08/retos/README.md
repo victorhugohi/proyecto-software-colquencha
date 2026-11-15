@@ -29,7 +29,7 @@ Y después, la prueba:
 
 - [ ] Elige **una** de tus referencias al azar y escribe en dos líneas **qué dice**
 
-Si no puedes, esa referencia no la leíste.
+Si no puedes, vuelve a leer esa fuente antes de citarla.
 
 ---
 

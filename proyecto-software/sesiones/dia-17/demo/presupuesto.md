@@ -1,17 +1,17 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     PRESUPUESTO Y ESTIMACIÓN DE COSTOS - proyecto de ejemplo
+     Presupuesto y estimación de costos - proyecto de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
-     LA IDEA CENTRAL, y va contra el instinto de todos:
-        UN PRESUPUESTO NO ES UN NÚMERO. ES UN RANGO CON SUS SUPUESTOS.
+     La idea central, y va contra el instinto de todos:
+        un presupuesto se expresa como un rango, con sus supuestos.
 
-     "Cuesta 3.500 Bs" es una respuesta que suena segura y es mentira: nadie
+     "Cuesta 3.500 Bs" suena seguro, pero no es preciso: nadie
      sabe exactamente cuánto va a costar algo que todavía no hizo. "Entre
      3.000 y 4.500 Bs, suponiendo que el cliente entrega los datos a tiempo"
      es una respuesta honesta y más útil, porque dice de qué depende.
 
-     DE DÓNDE SALE EL NÚMERO: no de la intuición. De DESCOMPONER el trabajo en
+     De dónde sale el número: no de la intuición. De descomponer el trabajo en
      partes bastante pequeñas como para estimarlas, y sumar. Es el método del
      Día 11 al 14 aplicado al revés: ya sabemos qué se construyó, ahora se le
      pone tiempo a cada parte.
@@ -51,7 +51,7 @@ Las partes salen de lo que ya se construyó, del Día 11 al 14.
 | Ajustes imprevistos | 2 h | 4 h | 8 h |
 | **Total** | **19 h** | **31 h** | **54 h** |
 
-<!-- TRES COLUMNAS, NO UNA. Esto es lo que convierte una adivinanza en una
+<!-- Tres columnas, no una. Esto es lo que convierte una adivinanza en una
      estimación. Para cada parte se piensa:
         optimista  = si todo sale bien
         probable   = lo más realista
@@ -61,7 +61,7 @@ Las partes salen de lo que ya se construyó, del Día 11 al 14.
      esto puede tardar el doble de lo probable si las cosas se complican, y
      casi siempre algo se complica.
 
-     LA FILA "AJUSTES IMPREVISTOS" se justifica porque en todo proyecto aparece
+     La fila "ajustes imprevistos" se justifica porque en todo proyecto aparece
      algo que no se previó. Un presupuesto sin esa fila subestima el
      costo.            -->
 
@@ -78,7 +78,7 @@ Supuesto: **35 Bs por hora** (referencia, proyecto formativo).
 | **Probable** | **31 h** | **1.085 Bs** |
 | Pesimista | 54 h | 1.890 Bs |
 
-<!-- El número que se comunica al cliente es el PROBABLE, pero SIEMPRE con el
+<!-- El número que se comunica al cliente es el probable, pero siempre con el
      rango al lado. "Alrededor de 1.085 Bs, y hasta 1.890 si aparecen
      complicaciones" es honesto. "1.085 Bs" a secas es una promesa que no se
      puede cumplir.                                                          -->
@@ -94,8 +94,8 @@ La mano de obra no es todo. Un sistema que corre necesita dónde correr.
 | Certificado HTTPS | 0 Bs | gratis con Let's Encrypt |
 | **Total mensual** | **~50 a 80 Bs** | |
 
-<!-- Este cuadro suele ser una sorpresa: casi nadie piensa que el software
-     tiene un costo que sigue corriendo DESPUÉS de terminarlo. Un sistema no
+<!-- Este cuadro suele sorprender: pocas veces se piensa que el software
+     tiene un costo que sigue corriendo después de terminarlo. Un sistema no
      es como un mueble que se entrega y listo; es más como un auto, que
      además de comprarlo hay que mantenerlo en marcha.
 

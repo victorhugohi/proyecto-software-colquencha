@@ -1,11 +1,11 @@
 <?php
 /* ═══════════════════════════════════════════════════════════════════════════
-   ENDPOINT DE PEDIDOS - proyecto de ejemplo
+   Endpoint de pedidos - proyecto de ejemplo
 
-   productos.php LEE el catálogo. Este archivo ESCRIBE: registra un pedido, lo
+   productos.php lee el catálogo. Este archivo escribe: registra un pedido, lo
    lista y lo marca como entregado. Es el problema del proyecto - el cuaderno
    del mostrador - y el lugar donde se cumple lo que se dijo en el Día 20 del
-   módulo pasado: LA VALIDACIÓN DE VERDAD ES LA DEL SERVIDOR.
+   módulo pasado: la validación de verdad es la del servidor.
 
    Un solo archivo, cinco usos:
 
@@ -20,7 +20,7 @@ require 'conexion.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
-/* ── RESPONDER Y TERMINAR ───────────────────────────────────────────────────
+/* ── Responder y terminar ───────────────────────────────────────────────────
    Todas las salidas pasan por aquí. Así ninguna se olvida del código HTTP, y
    el frontend puede confiar en `respuesta.ok` igual que con productos.php.
    Un 400 dice "mandaste algo mal"; un 500, "falló algo de este lado". */
@@ -59,7 +59,7 @@ function tipos(array $filas): array
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
-/* ── GET: LISTAR ────────────────────────────────────────────────────────────── */
+/* ── GET: listar ────────────────────────────────────────────────────────────── */
 
 if ($metodo === 'GET') {
     $base = "
@@ -100,7 +100,7 @@ if ($metodo === 'GET') {
     responder(200, tipos($consulta->fetchAll()));
 }
 
-/* ── POST ?accion=entregar: MARCAR COMO ENTREGADO ───────────────────────────── */
+/* ── POST ?accion=entregar: marcar como entregado ───────────────────────────── */
 
 if ($metodo === 'POST' && ($_GET['accion'] ?? '') === 'entregar') {
     $id = filter_var($_GET['id'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
@@ -121,7 +121,7 @@ if ($metodo === 'POST' && ($_GET['accion'] ?? '') === 'entregar') {
 /* Marcar como entregado es un cambio de estado: el pedido deja de ser
    pendiente y sale de la lista del día. */
 
-/* ── POST: REGISTRAR UN PEDIDO ──────────────────────────────────────────────── */
+/* ── POST: registrar un pedido ──────────────────────────────────────────────── */
 
 if ($metodo === 'POST') {
     $datos = json_decode(file_get_contents('php://input'), true);
@@ -138,7 +138,7 @@ if ($metodo === 'POST') {
     $cantidad = filter_var($datos['cantidad'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
 
     /* is_string() antes de trim(): si alguien manda "cliente": ["a", "b"],
-       trim() de un array imprime un aviso de PHP ANTES del JSON y lo rompe.
+       trim() de un array imprime un aviso de PHP antes del JSON y lo rompe.
        Es la misma trampa del `?? null` de productos.php. */
 
     if ($cliente === '') {
@@ -165,7 +165,7 @@ if ($metodo === 'POST') {
         $aviso   = 'El nombre era muy largo y se guardó cortado a 100 letras.';
     }
 
-    /* Se cuentan LETRAS, no bytes. strlen("Cuñapé") da 8 porque la ñ y la é
+    /* Se cuentan letras, no bytes. strlen("Cuñapé") da 8 porque la ñ y la é
        ocupan dos bytes cada una en UTF-8. preg_split con /u parte por letra. */
 
     $consulta = $pdo->prepare('
@@ -177,7 +177,7 @@ if ($metodo === 'POST') {
     $consulta->bindValue(':cantidad', $cantidad, PDO::PARAM_INT);
     $consulta->bindValue(':fecha',    $fecha);
 
-    /* El mismo prepare + bindValue del Día 12, ahora para ESCRIBIR. Un cliente
+    /* El mismo prepare + bindValue del Día 12, ahora para escribir. Un cliente
        llamado   Rosa'); DROP TABLE pedidos; --   se guarda como texto. */
 
     try {

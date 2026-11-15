@@ -1,10 +1,10 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     INSTRUMENTO DE RECOLECCIÓN DE INFORMACIÓN - documento de ejemplo
+     Instrumento de recolección de información - documento de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
      Este documento no va en la propuesta: es una herramienta de trabajo. Lo
-     que va al documento final es lo que se OBTIENE con él, y eso alimenta el
+     que va al documento final es lo que se obtiene con él, y eso alimenta el
      marco teórico (Día 7) y los requerimientos (Día 9).
 
      La entrevista del Día 2 fue exploratoria: sirvió para entender el
@@ -19,26 +19,26 @@ Fecha de aplicación: 18 de noviembre de 2026
 
 ---
 
-<!-- ── QUÉ TÉCNICA SE USA, Y POR QUÉ ────────────────────────────────────
+<!-- ── Qué técnica se usa, y por qué ────────────────────────────────────
      Las tres que sirven en un proyecto de este tamaño:
 
-       ENTREVISTA    pocas personas, mucha profundidad.
-                     Para entender POR QUÉ hacen las cosas como las hacen.
+       Entrevista    pocas personas, mucha profundidad.
+                     Para entender por qué hacen las cosas como las hacen.
 
-       ENCUESTA      muchas personas, poca profundidad.
-                     Para contar CUÁNTOS piensan o hacen algo.
+       Encuesta      muchas personas, poca profundidad.
+                     Para contar cuántos piensan o hacen algo.
 
-       OBSERVACIÓN   mirar el proceso real, sin preguntar.
-                     Para ver lo que la gente HACE, que no siempre es lo que
-                     DICE que hace.
+       Observación   mirar el proceso real, sin preguntar.
+                     Para ver lo que la gente hace, que no siempre es lo que
+                     dice que hace.
 
-     LA REGLA QUE ORDENA LA ELECCIÓN: la técnica se elige por la pregunta,
+     Criterio: la técnica se elige según la pregunta,
      no por comodidad. Si la pregunta es "¿cuántos?", encuesta. Si es "¿por
      qué?", entrevista. Si es "¿cómo lo hacen de verdad?", observación.
 
-     Y EL HALLAZGO QUE MÁS SORPRENDE: la observación casi siempre contradice
-     algo de la entrevista. No porque mientan, sino porque nadie recuerda con
-     precisión lo que hace todos los días.                                -->
+     Es frecuente que la observación contradiga algo de la
+     entrevista, porque es difícil recordar con precisión lo que se hace
+     todos los días.                                -->
 
 ## Técnicas seleccionadas
 
@@ -51,7 +51,7 @@ Fecha de aplicación: 18 de noviembre de 2026
 No se aplica encuesta: el universo son dos personas, y una encuesta a dos
 personas es una entrevista con menos información.
 
-<!-- Ese último párrafo es importante: justificar por qué NO se usa una
+<!-- Ese último párrafo es importante: justificar por qué no se usa una
      técnica es tan válido como justificar por qué sí, y demuestra que se
      eligió en vez de aplicar todo por costumbre.                          -->
 
@@ -59,23 +59,23 @@ personas es una entrevista con menos información.
 
 ## Guía de entrevista
 
-<!-- ── CÓMO SE ESCRIBE UNA PREGUNTA ─────────────────────────────────────
+<!-- ── Cómo se escribe una pregunta ─────────────────────────────────────
      Cuatro reglas, y las cuatro se rompen:
 
-     1. ABIERTA, no de sí o no. "¿Le sirve el cuaderno?" se responde con
+     1. Abierta, no de sí o no. "¿Le sirve el cuaderno?" se responde con
         "sí" y no aporta nada. "¿Cómo usa el cuaderno?" abre.
 
-     2. NO SUGIERE LA RESPUESTA. "¿No le parece que perder pedidos es un
+     2. No sugiere la respuesta. "¿No le parece que perder pedidos es un
         problema grave?" ya trae la respuesta adentro. Eso es una pregunta
         dirigida, y contamina el dato.
 
-     3. UNA COSA POR PREGUNTA. "¿Cuántos pedidos recibe y cómo los anota?"
+     3. Una cosa por pregunta. "¿Cuántos pedidos recibe y cómo los anota?"
         son dos preguntas: se responde una y se olvida la otra.
 
-     4. SIN JERGA. "¿Qué requerimientos no funcionales considera
+     4. Sin jerga. "¿Qué requerimientos no funcionales considera
         prioritarios?" no significa nada para quien atiende un mostrador.
 
-     Y LA MÁS ÚTIL DE TODAS, que no es una pregunta:
+     Y la más útil de todas, que no es una pregunta:
         "Muéstreme cómo lo hace."                                          -->
 
 **Apertura**

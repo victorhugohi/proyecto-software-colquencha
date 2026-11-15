@@ -1,14 +1,14 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     DOCUMENTO FINAL: ÍNDICE Y GUÍA DE COMPILACIÓN - proyecto de ejemplo
+     Documento final: índice y guía de compilación - proyecto de ejemplo
 
-     ⚠️ ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Es el proyecto de ejemplo del módulo, no el tuyo.
 
-     LO QUE PASA HOY: durante cuatro semanas se escribieron piezas sueltas.
-     Hoy se juntan en UN documento. No se escribe nada nuevo: se ordena,
+     Lo que PASA hoy: durante cuatro semanas se escribieron piezas sueltas.
+     Hoy se juntan en un documento. No se escribe nada nuevo: se ordena,
      se numera, y se revisa que las piezas se hablen entre sí.
 
-     LA REVELACIÓN DEL DÍA, y alivia a todos: el documento final YA ESTÁ
-     ESCRITO. Está repartido en los archivos de cada semana. Compilar es
+     La revelación del día, y alivia a todos: el documento final ya está
+     escrito. Está repartido en los archivos de cada semana. Compilar es
      ensamblar, no redactar. Quien llega hoy con las piezas hechas, termina
      hoy.
      ═══════════════════════════════════════════════════════════════════════ -->
@@ -46,11 +46,11 @@ sale" dice en qué día se escribió.
 | - | Referencias | Día 8 (`marco-teorico.md`) |
 | - | Anexos | se ordenan hoy |
 
-<!-- Este índice ES el trabajo del día. Verlo entero de un golpe muestra dos
+<!-- Este índice es el trabajo del día. Verlo entero de un golpe muestra dos
      cosas: que ya está casi todo hecho (alivio), y en qué orden va (que no es
      el orden en que se escribió). El marco teórico se escribió el Día 7 pero
      va en la posición 6, después del problema y los objetivos, porque el
-     lector necesita el problema ANTES que el estado del arte.              -->
+     lector necesita el problema antes que el estado del arte.              -->
 
 ## 2. Qué va en los anexos
 
@@ -70,7 +70,7 @@ trabajo pero no para seguir el hilo, va al anexo.
      preguntas de la entrevista para entender el proyecto. Respalda, no narra.
      Por eso el Día 6 ya decía que ese documento "va en anexos".
 
-     El código va en anexo, NO en el cuerpo. En el cuerpo va la EXPLICACIÓN
+     El código va en anexo, no en el cuerpo. En el cuerpo va la explicación
      del diseño (por qué estas tablas); el código entero es respaldo.       -->
 
 ## 3. La revisión de coherencia
@@ -97,7 +97,7 @@ piezas se hablen. Los tres cruces que más fallan:
 - **Las referencias**, todas en la misma norma (Día 8)
 - **Los guiones y la ortografía**, una pasada completa
 - **Que no diga "el proyecto de ejemplo"** en tu documento: eso es del
-  material, tu documento habla de TU cliente
+  material, tu documento habla de tu cliente
 
 ---
 

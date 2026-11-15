@@ -1,11 +1,11 @@
 <!-- ═══════════════════════════════════════════════════════════════════════
-     PROPUESTA DE PROYECTO - documento de ejemplo
+     Propuesta de proyecto - documento de ejemplo
 
-     ⚠️ ESTE ES EL PROYECTO DE EJEMPLO DEL MÓDULO, no el tuyo.
+     ⚠️ Este es el proyecto de ejemplo del módulo, no el tuyo.
 
      Se sigue el caso de la Panadería del Barrio, que es el cliente que se usó
      en Programación Web, para poder mostrar un documento completo y coherente.
-     Tú escribes el mismo documento sobre TU cliente, el que elegiste el mes
+     Tú escribes el mismo documento sobre tu cliente, el que elegiste el mes
      pasado.
 
      El documento crece día a día:
@@ -15,7 +15,7 @@
        Día 4  factibilidad, alcances y límites
        Día 5  cronograma, resumen e introducción  -> se entrega el Lab 1
 
-     Los comentarios como este explican POR QUÉ cada sección dice lo que dice.
+     Los comentarios como este explican por qué cada sección dice lo que dice.
      En un documento real no van: aquí están para aprender.
      ═══════════════════════════════════════════════════════════════════════ -->
 
@@ -30,17 +30,17 @@ Fecha: noviembre de 2026
 
 ---
 
-<!-- ── QUÉ TIPO DE PROYECTO ES ESTE (subtemas 1.1 a 1.5) ────────────────
-     Antes de escribir una línea hay que saber QUÉ se está escribiendo. Los
+<!-- ── Qué tipo de proyecto es este (subtemas 1.1 a 1.5) ────────────────
+     Antes de escribir una línea hay que saber qué se está escribiendo. Los
      cuatro tipos no se diferencian por el tema, sino por lo que producen y
      por cómo se los evalúa:
 
-       Monografía            estudia un tema y lo expone. NO construye nada.
+       Monografía            estudia un tema y lo expone. No construye nada.
                              Producto: un documento.
 
        Proyecto integrador   resuelve un problema real construyendo algo.
                              Producto: el software Y su documentación.
-                             ← ESTE ES EL DE ESTE MÓDULO
+                             ← este es el de este módulo
 
        Proyecto de grado     igual, pero con exigencia de aporte original y
                              defensa formal ante tribunal.
@@ -81,15 +81,15 @@ Para completar el proyecto falta lo siguiente:
 | los datos en un archivo JSON | una base de datos real |
 | "funciona en mi máquina" | requerimientos, pruebas, costos y *deploy* (puesta en producción) |
 
-<!-- ── EL CLIENTE ───────────────────────────────────────────────────────
+<!-- ── El cliente ───────────────────────────────────────────────────────
      Todo lo que viene depende de esta sección. Un cliente vago produce un
      problema vago, objetivos vagos y requerimientos imposibles de verificar.
 
      Tres datos que no pueden faltar, y que hay que poder responder sin
      inventar:
-       QUIÉN es (nombre, rubro, tamaño)
-       QUÉ hace hoy para resolver lo que se le va a resolver
-       CÓMO se sabe (de dónde salió esa información)
+       quién es (nombre, rubro, tamaño)
+       qué hace hoy para resolver lo que se le va a resolver
+       cómo se sabe (de dónde salió esa información)
 
      El tercero es el que separa un proyecto real de uno imaginado.         -->
 

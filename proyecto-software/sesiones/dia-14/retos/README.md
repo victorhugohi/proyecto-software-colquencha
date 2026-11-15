@@ -47,7 +47,7 @@ Y responde con honestidad:
 
 - Si encontraste **cero**, casi seguro te faltan casos de borde: vuelve y prueba cantidad cero,
   fechas raras, textos larguísimos, campos vacíos.
-- Si encontraste **algunas**, anótalas bien: son lo más valioso que produce hoy tu trabajo. Cada
+- Si encontraste **algunas**, anótalas bien: son el resultado más útil del trabajo de hoy. Cada
   falla anotada es un arreglo pendiente identificado.
 
 > En la revisión se valora más una entrega con fallas bien documentadas que una que dice
