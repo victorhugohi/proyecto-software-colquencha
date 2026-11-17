@@ -5,8 +5,8 @@ Sede Universitaria Local Colquencha
 
 **Proyecto de Software** · 11 de noviembre al 9 de diciembre de 2026 · Docente: MSc Victor Hugo Huanca Ibarra
 
-Material del módulo para los estudiantes. El proyecto de este módulo es el mismo que empezaste en
-Programación Web, con el mismo cliente: se le agrega la base de datos, el backend y el documento de
+Material del módulo para los estudiantes. El proyecto de este módulo es para un familiar y parte de lo
+que construiste en Programación Web: se le agrega la base de datos, el backend y el documento de
 ingeniería.
 
 ## Por dónde empezar
@@ -17,6 +17,8 @@ ingeniería.
    escribe el documento y cómo se aprueba.
 3. [Guía de lectura N.° 1](proyecto-software/sesiones/dia-01/lectura-guiada.md): tipos de proyecto
    y formulación del problema (Días 1 y 2).
+4. [Tu repositorio de Proyecto de Software](proyecto-software/recursos/cheatsheets/repositorio-nuevo.md):
+   cómo crear el repositorio del proyecto con git y subirlo a GitHub.
 
 ## Material de cada día
 

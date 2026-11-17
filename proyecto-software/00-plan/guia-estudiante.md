@@ -28,7 +28,8 @@ grado**. No es un ejercicio más.
 
 ## De dónde partes
 
-Se continúa con el mismo cliente, el mismo repositorio y el mismo proyecto.
+Lo que aprendiste y construiste en Programación Web es la base. El proyecto de este módulo va en un
+**repositorio nuevo**, que se crea con la hoja «Tu repositorio de Proyecto de Software» (en las hojas de consulta).
 
 | Traes del módulo 1 | Le agregas este módulo |
 |---|---|
@@ -64,7 +65,7 @@ secciones por semana. Puedes escribirlo en la herramienta que prefieras:
 
 **Tres reglas, elijas lo que elijas:**
 
-1. **El archivo vive en tu repositorio**, el mismo del módulo pasado.
+1. **El archivo vive en tu repositorio de Proyecto de Software**, el que se crea con la hoja «Tu repositorio de Proyecto de Software».
 2. **Haces commit al final de cada clase.** Tu historial demuestra que el documento lo construiste tú,
    semana a semana. Un documento que aparece entero el último día no lo demuestra.
 3. **La entrega final es un PDF** (`documento-final.pdf`) en tu repositorio, con carátula, índice y
@@ -167,7 +168,7 @@ ahorras rehacerlo entero después.
 
 ## Qué necesitas
 
-- Tu **repositorio del módulo pasado**
+- Tu **repositorio de Proyecto de Software**, en tu memoria USB
 - El **contacto de tu cliente**, tu familiar: vas a necesitar hablar con esa persona varias veces
 - **XAMPP** instalado (Apache + PHP + MySQL). Funciona sin internet.
 - La lista de lo que **quedó pendiente** el módulo pasado: ese es tu punto de partida

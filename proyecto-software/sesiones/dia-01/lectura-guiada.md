@@ -75,10 +75,9 @@ se titula: con un trabajo de investigación, un proyecto, una pasantía u otra o
 aprende a elaborar un proyecto completo, de principio a fin, y lo que se escriba este mes puede servir
 de borrador para ese momento.
 
-### 5. Se continúa con el mismo proyecto
+### 5. Se parte de lo construido
 
-Cada uno sigue con el mismo cliente, el mismo repositorio y la misma página del módulo anterior. No se
-empieza un proyecto nuevo.
+Lo que cada uno construyó en el módulo anterior es la base, y el proyecto va en un repositorio nuevo.
 
 | Lo que ya existe (Programación Web) | Lo que se hace en este módulo |
 |---|---|

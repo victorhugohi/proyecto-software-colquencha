@@ -40,9 +40,9 @@ y la defensa ante un tribunal.
 Este módulo no es la Modalidad de Graduación: en esa etapa se elige cómo titularse. Aquí se aprende
 a elaborar un proyecto completo, y lo que se escriba puede servir de borrador para ese momento.
 
-### 3. Se continúa con el mismo proyecto
+### 3. Se parte de lo construido
 
-Cada uno sigue con el mismo cliente, el mismo repositorio y la misma página del módulo anterior. El
+Lo que cada uno construyó en el módulo anterior es la base, y el proyecto va en un repositorio nuevo. El
 cliente es un **familiar**: el negocio o la actividad de alguien de tu familia, a quien puedas
 entrevistar y volver a consultar durante el mes.
 
@@ -75,7 +75,7 @@ En `propuesta.md` (en la carpeta del código del día), la ficha del cliente dic
 
 ## Segunda parte. Trabajo en tu proyecto
 
-Crea `propuesta.md` en **tu mismo repositorio del módulo pasado** (no abras uno nuevo). Si prefieres
+Crea `propuesta.md` en **tu repositorio de Proyecto de Software** (hoja «Tu repositorio de Proyecto de Software»). Si prefieres
 Word, Writer o LaTeX, puedes usarlos: lee «Tu documento» en la guía del módulo.
 
 1. **La portada**: título del proyecto, tipo, programa, tu nombre y la fecha.
@@ -88,7 +88,7 @@ Word, Writer o LaTeX, puedes usarlos: lee «Tu documento» en la guía del módu
 
 Antes de dar por terminada la sección, revisa:
 
-- [ ] `propuesta.md` está en el repositorio del módulo pasado.
+- [ ] `propuesta.md` está en tu repositorio de Proyecto de Software.
 - [ ] Explicaste por qué tu proyecto es integrador.
 - [ ] La ficha tiene los tres datos y el tipo de sistema.
 - [ ] Puedes llamar a tu cliente esta semana.

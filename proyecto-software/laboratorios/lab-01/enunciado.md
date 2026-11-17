@@ -12,8 +12,7 @@ completo el Día 20.
 No es un trabajo suelto. El Lab 2 le agrega el marco teórico y los requerimientos; el Lab 3, el
 sistema construido. Los tres son el mismo documento.
 
-> **Tu cliente ya debía estar definido desde Programación Web.** Este proyecto continúa el que
-> empezaste el módulo pasado, con el mismo cliente y el mismo repositorio.
+> **Tu proyecto va en un repositorio nuevo**, el que se crea con la hoja «Tu repositorio de Proyecto de Software».
 >
 > **Tu cliente es un familiar**, y el sistema es el que su negocio necesite: pedidos, reservas, ventas,
 > inventario u otro (ver «Tu cliente y tu sistema» en la guía del módulo).
