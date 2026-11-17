@@ -93,7 +93,7 @@ Antes de dar por terminada la sección, revisa:
 - [ ] La ficha tiene los tres datos y el tipo de sistema.
 - [ ] Puedes llamar a tu cliente esta semana.
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add propuesta.md

@@ -36,7 +36,6 @@ solución, y los requerimientos que definen qué tiene que hacer. Se agrega a la
 ## Requisitos de forma
 
 - Se agrega al **mismo documento** de la propuesta (o a documentos enlazados en el mismo repositorio)
-- Commits en al menos 3 días distintos desde el Lab 1
 - Referencias en **una sola norma**, consistente
 - Tercera persona, sin guiones largos
 

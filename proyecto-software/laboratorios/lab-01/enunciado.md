@@ -50,11 +50,10 @@ Es **un solo documento** en tu repositorio (`propuesta.md`, o `.docx`, `.odt` o 
 
 ## Requisitos de forma
 
-- **Un solo documento** en tu repositorio, en el formato que elegiste, versionado con git (el
-  repositorio puede estar solo en tu computadora)
+- **Un solo documento**, en el formato que elegiste. Versionarlo con git es opcional, y el
+  repositorio puede estar solo en tu computadora
 - Se entrega por el formulario del curso, en tu memoria USB o con el enlace de GitHub: por dónde
   llega no cambia la nota
-- **Commits en al menos 3 días distintos** (no todo el último día)
 - Redacción en **tercera persona**, registro académico
 - **Sin guiones largos** (em dash ni en dash)
 - Referencias, si las hay, en una sola norma consistente
@@ -72,4 +71,3 @@ Rúbrica completa en `rubrica.md`. **Léela antes de empezar, no después de ent
   aparezca tu sistema
 - Alcances sin límites: prometer que el sistema "hace todo"
 - Un resumen que no se entiende sin leer el resto
-- Todo el trabajo en un solo commit el último día

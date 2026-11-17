@@ -130,7 +130,7 @@ Antes de dar por terminada la sección, revisa:
 | tienes doce historias | agrúpalas por lo que el usuario quiere lograr |
 | no se te ocurren criterios de error | piensa qué pasa si está vacío, si se equivoca o si no hay datos |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add historias.md

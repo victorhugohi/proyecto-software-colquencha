@@ -130,7 +130,7 @@ Antes de dar por terminada la sección, revisa:
 | phpMyAdmin no abre | MySQL no está encendido: revísalo en el panel de XAMPP |
 | MySQL no arranca | casi siempre el puerto 3306 está ocupado: cámbialo en el panel |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add esquema.sql

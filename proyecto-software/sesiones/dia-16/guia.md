@@ -95,7 +95,7 @@ Antes de dar por terminada la sección, revisa:
 | "Access denied" al respaldar | revisa el usuario y la contraseña, igual que en `conexion.php` |
 | al restaurar faltan datos | revisa si el respaldo dio algún error al crearse |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add .gitignore respaldo.sh deploy.md

@@ -9,13 +9,13 @@
 | **Requerimientos funcionales** | Verificables (PASA/FALLA), con prioridad y origen; uno por fila | Presentes pero alguno vago, o sin origen, o todos "debe" | Requerimientos que no se pueden verificar, o son tareas | **2.5** |
 | **Requerimientos no funcionales** | Cada uno con **número** o criterio observable, y cómo se verifica | Algunos con número, otros son deseos | "Debe ser rápido/fácil/seguro" sin medir | **1.5** |
 | **Referencias** | Una sola norma consistente; entrevistas como fuentes no bibliográficas | Norma inconsistente, o entrevistas en la bibliografía | Sin referencias, o inventadas | **1.0** |
-| **Metodología y forma** | Metodología fundamentada; tercera persona, sin guiones largos, commits en varios días | Metodología nombrada sin fundamentar, o forma inconsistente, o sin historial de commits | Sin metodología | **0.5** |
+| **Metodología y forma** | Metodología fundamentada; tercera persona, sin guiones largos | Metodología nombrada sin fundamentar, o forma inconsistente | Sin metodología | **0.5** |
 
 **Total: 10.0 puntos**
 
 **Por dónde entregas no cambia la nota.** El laboratorio se entrega por el formulario del curso, en tu
 memoria USB o con el enlace de GitHub, como te resulte posible. Tu repositorio puede estar solo en tu
-computadora: lo que se revisa es el trabajo y su historial de commits.
+computadora, y los commits son opcionales: lo que se revisa es el trabajo.
 
 ## Cómo se revisa
 

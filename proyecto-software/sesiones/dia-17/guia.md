@@ -118,7 +118,7 @@ Antes de dar por terminada la sección, revisa:
 | tus puntos describen la tecnología | pregúntate de cada uno para qué le sirve al cliente |
 | el README te quedó muy largo | deja arriba lo esencial: el lector decide en treinta segundos |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add LEEME.md README.md

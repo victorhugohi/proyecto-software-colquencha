@@ -39,10 +39,9 @@ cumplir, y lo que la matriz de pruebas verifica.
 
 ## Requisitos de forma
 
-- Todo el código en el repositorio, versionado
+- Todo el código en la carpeta del proyecto (con git, si lo usas)
 - El sistema **corre**: se puede cargar la base, levantar el backend y usar la página
 - La contraseña real **no** está en git
-- Commits distribuidos, no todo el último día
 
 ## Cómo se califica
 

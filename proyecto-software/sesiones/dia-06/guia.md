@@ -122,7 +122,7 @@ Antes de dar por terminado el instrumento, revisa:
 | tienes treinta preguntas | quédate con quince; después de eso la gente responde cualquier cosa |
 | no sabes si grabar | pide permiso; si no lo dan, toma notas y revísalas con tu cliente |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add instrumento.md

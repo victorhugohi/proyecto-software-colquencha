@@ -9,13 +9,13 @@
 | **Frontend conectado** | Consume el endpoint; los **tres estados** manejados; caso vacío distinto del error | Consume el endpoint pero sin manejar el error o el vacío | No conecta, o pantalla en blanco al fallar | **2.0** |
 | **Matriz de pruebas** | Una fila por requerimiento; casos de error/borde; al menos uno de seguridad; **corrida** | Matriz presente pero de puros casos normales, o sin correr | Sin matriz, o inventada sin ejecutar | **2.5** |
 | **El sistema corre** | Se carga la base, se levanta el backend y se usa la página, de punta a punta | Corre con ayuda o algún paso roto | No corre | **0.5** |
-| **Repositorio** | Versionado, contraseña fuera de git, commits distribuidos | 1-2 commits masivos, sin historial de commits, o algún dato sensible expuesto | Contraseña en git | **0.5** |
+| **Datos sensibles** | La contraseña real y los datos personales del cliente fuera del código que se entrega | Algún dato sensible expuesto, como teléfonos o correos reales | Contraseña real en el código entregado o en git | **0.5** |
 
 **Total: 10.0 puntos**
 
 **Por dónde entregas no cambia la nota.** El laboratorio se entrega por el formulario del curso, en tu
 memoria USB o con el enlace de GitHub, como te resulte posible. Tu repositorio puede estar solo en tu
-computadora: lo que se revisa es el trabajo y su historial de commits.
+computadora, y los commits son opcionales: lo que se revisa es el trabajo.
 
 ## Cómo se revisa
 
@@ -33,7 +33,7 @@ casi siempre no se corrió. Dos fallas bien documentadas valen más que un "todo
 usen delante. El caso de error se prueba apagando MySQL: si la página queda en blanco en vez de
 mostrar un mensaje, el criterio de frontend baja. Es el Día 13 hecho o no hecho.
 
-**Sobre la contraseña en git.** Revisar el historial: `git log -p -- conexion.php` no debe mostrar
-credenciales reales. Es un error de forma, pero importa: es un hábito que en producción cuesta
+**Sobre la contraseña.** Revisar `conexion.php` y, si el proyecto usa git, el historial:
+`git log -p -- conexion.php` no debe mostrar credenciales reales. Es un error de forma, pero importa: es un hábito que en producción cuesta
 caro.
 

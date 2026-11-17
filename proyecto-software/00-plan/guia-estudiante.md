@@ -59,15 +59,15 @@ secciones por semana. Puedes escribirlo en la herramienta que prefieras:
 | Herramienta | A favor | Ten en cuenta |
 |---|---|---|
 | **Markdown** (`.md`) en tu editor: **la recomendada** | Es la que usan las demos y las guías. Funciona sin internet, vive junto a tu código, y git muestra cada línea que cambiaste | Para el PDF final hay que convertirlo (ver abajo) |
-| **Word o LibreOffice Writer** (`.docx`, `.odt`) | Es el formato con el que se presentan los trabajos de grado. Carátula, índice y numeración salen automáticos | Git guarda el archivo, pero no muestra qué cambió adentro: tus commits frecuentes son tu historial |
+| **Word o LibreOffice Writer** (`.docx`, `.odt`) | Es el formato con el que se presentan los trabajos de grado. Carátula, índice y numeración salen automáticos | Git guarda el archivo, pero no muestra qué cambió adentro |
 | **LaTeX** (Overleaf o instalado) | El mejor acabado para un documento técnico | Overleaf necesita internet, y la del aula es muy lenta. Al final de cada clase, descarga el proyecto a tu repositorio |
 | **Google Docs** u otra herramienta en línea | Escribir desde el celular | Necesita internet. Al final de cada clase, descarga el `.docx` a tu repositorio |
 
 **Tres reglas, elijas lo que elijas:**
 
 1. **El archivo vive en tu repositorio de Proyecto de Software**, el que se crea con la hoja «Tu repositorio de Proyecto de Software».
-2. **Haces commit al final de cada clase.** Tu historial demuestra que el documento lo construiste tú,
-   semana a semana. Un documento que aparece entero el último día no lo demuestra.
+2. **Guardas tu avance al final de cada clase.** Con git es un commit, que es opcional y no cambia la
+   nota, pero te deja volver a una versión anterior. Sin git, una copia con la fecha en tu memoria USB.
 3. **La entrega final es un PDF** (`documento-final.pdf`) en tu repositorio, con carátula, índice y
    secciones numeradas, en el orden del Día 19. Los laboratorios se entregan por el formulario del curso,
    en tu memoria USB o con el enlace de GitHub, en el formato que elegiste: por dónde llegan no cambia
@@ -157,8 +157,8 @@ más segura de reprobar este módulo.
 producción valen más que un sistema enorme que se cae durante la demostración en vivo. Eso
 es cierto en el examen y sigue siendo cierto en el trabajo.
 
-**4. Tu historial de Git es tu diario de ingeniería.** Un repositorio con todo subido de
-golpe el último día levanta sospechas y baja nota. Commit todos los días, como el módulo pasado.
+**4. Avanza un poco en cada clase.** Un documento escrito entero la última noche se nota en la
+defensa, cuando hay que explicar cada decisión. Si usas git, un commit por clase te deja volver atrás.
 
 **5. Escribe pensando en tu tribunal de grado.** Si este proyecto termina siendo tu trabajo
 de grado, el documento que escribas aquí es el borrador. Escríbelo bien desde ahora y te

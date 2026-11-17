@@ -132,7 +132,7 @@ Si tienes dudas, estos son los problemas más frecuentes:
 | tu justificación suena a introducción de libro | reescríbela con los números de tu cliente |
 | no sabes qué poner en la justificación técnica | responde por qué web, por qué ese tipo de sistema y qué condición de tu cliente lo pide |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add propuesta.md

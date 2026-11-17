@@ -109,7 +109,7 @@ Si tienes dudas, estos son los problemas más frecuentes:
 | tu resumen tiene 400 palabras | deja solo las cuatro respuestas |
 | tu resumen empieza con "el presente documento" | empieza por el problema de tu cliente |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add propuesta.md

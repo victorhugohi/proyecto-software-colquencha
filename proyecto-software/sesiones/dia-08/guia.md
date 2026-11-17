@@ -110,7 +110,7 @@ Antes de dar por terminada la sección, revisa:
 - [ ] Puedes decir de qué trata cada una de tus referencias.
 - [ ] Cada afirmación que no es tuya tiene su origen.
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add marco-teorico.md

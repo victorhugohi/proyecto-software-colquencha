@@ -125,7 +125,7 @@ Antes de dar por terminada la sección, revisa:
 | escribiste "los clientes se quejan" | es un efecto: pregúntate qué lo produce |
 | tienes dos problemas centrales | elige uno; el otro va a los límites |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add propuesta.md

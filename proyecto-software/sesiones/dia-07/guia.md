@@ -118,7 +118,7 @@ Antes de dar por terminada la sección, revisa:
 | no sabes qué columnas poner | búscalas en tu factibilidad del Día 4 |
 | tu solución gana en todo | revisa costo, tiempo de aprendizaje y dependencia de internet |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add marco-teorico.md

@@ -128,7 +128,7 @@ Si tienes dudas, estos son los problemas más frecuentes:
 | tu cliente no va a pagar hosting | escríbelo: es un dato real y cambia la solución |
 | tu alcance es enorme | mueve a los límites lo que no ataca el problema central |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add propuesta.md

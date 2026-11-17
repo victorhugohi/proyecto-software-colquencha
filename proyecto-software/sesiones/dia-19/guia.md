@@ -117,7 +117,7 @@ Antes de dar por terminado el día, revisa:
 | un requerimiento no tiene prueba | vuelve a la guía del Día 14 |
 | no tienes `pandoc` | está en la carpeta de programas de la memoria; o copia el texto a Writer y exporta |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add .

@@ -128,7 +128,7 @@ Antes de dar por terminada la sección, revisa:
 | "Undefined array key" | falta el `?? null` |
 | "Access denied for user" | revisa el usuario y la contraseña en `conexion.php` |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add .gitignore conexion.ejemplo.php productos.php

@@ -146,7 +146,8 @@ git push
 ```
 
 El mensaje dice qué hiciste ese día. Si no hay internet, haz solo el commit; el `push` se hace después y
-sube todo lo pendiente. La rúbrica pide commits en tres días o más: un commit por clase lo cumple.
+sube todo lo pendiente. Los commits son opcionales y no cambian la nota, pero te dejan volver a una
+versión anterior si algo se rompe.
 
 ---
 

@@ -5,7 +5,7 @@ Los tres laboratorios son capítulos del **mismo documento**, que se entrega com
 de las formas que se usan. **Imprimir y tener al lado.**
 
 > **En qué lo escribes:** Markdown (la recomendada), Word, Writer o LaTeX. Lo que sea, con tres reglas:
-> vive en tu repositorio, commit al final de cada clase, y al final un PDF con carátula, índice y
+> vive en tu repositorio, guardas el avance en cada clase, y al final un PDF con carátula, índice y
 > secciones numeradas. Detalle en «Tu documento», en la guía del módulo.
 
 > **No es una plantilla para llenar.** Es la lista de las pruebas que cada sección tiene que

@@ -105,7 +105,7 @@ página conectada con sus tres estados (Día 13) y esta matriz corrida.
 | todo te da PASA | prueba cantidad cero, fecha de ayer, texto larguísimo y campo vacío |
 | encontraste una falla | anótala; si hay tiempo, corrígela y vuelve a correr ese caso |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add pruebas.md

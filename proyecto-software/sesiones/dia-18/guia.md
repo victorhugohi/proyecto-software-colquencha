@@ -96,7 +96,7 @@ Antes de dar por terminada la sección, revisa:
 | no sabes qué evidencia poner | búscala en tu matriz de pruebas del Día 14 |
 | un objetivo no se cumplió | escríbelo: "se cumplió parcialmente porque..." |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add propuesta.md

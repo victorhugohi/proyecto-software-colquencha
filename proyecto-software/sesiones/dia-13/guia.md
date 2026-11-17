@@ -125,7 +125,7 @@ Antes de dar por terminada la sección, revisa:
 | un error 500 da un mensaje confuso | falta la comprobación de `.ok` |
 | no llegan datos y no hay error | revisa que MySQL esté encendido y que la dirección del endpoint sea correcta |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add .

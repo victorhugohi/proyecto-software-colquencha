@@ -111,7 +111,7 @@ Antes de dar por terminada la sección, revisa:
 | olvidaste la infraestructura | pregúntate dónde va a correr el sistema cuando lo entregues |
 | tu cliente quiere un solo número | dale el probable, pero deja el rango por escrito |
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add presupuesto.md

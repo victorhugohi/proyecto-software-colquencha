@@ -119,7 +119,7 @@ Antes de dar por terminada la sección, revisa:
 El Laboratorio 2 reúne el marco teórico (con su matriz, la fila de tu solución, la metodología y las
 referencias) y estos requerimientos.
 
-Al terminar, guarda tu avance:
+Al terminar, guarda tu avance (si usas git):
 
 ```bash
 git add requerimientos.md marco-teorico.md

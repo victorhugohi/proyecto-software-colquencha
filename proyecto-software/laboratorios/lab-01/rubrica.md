@@ -9,13 +9,13 @@
 | **Justificación y factibilidad** | Justificación concreta; las tres factibilidades con su riesgo declarado | Justificación genérica, o factibilidad sin riesgos | Sin justificación real, o factibilidad copiada sin pensar | **2.0** |
 | **Alcances y límites** | Dice qué hace **y qué no hace**, con límites explícitos y defendibles | Dice qué hace pero los límites son vagos o faltan | Promete "todo", sin límites | **1.5** |
 | **Cronograma y resumen** | Cronograma realista; resumen que se entiende solo, en una página | Cronograma poco realista, o resumen que necesita el resto para entenderse | Sin cronograma, o sin resumen | **1.0** |
-| **Forma y versionado** | Tercera persona, sin guiones largos, commits en 3 días o más | Redacción inconsistente, o 1-2 commits masivos, o sin historial de commits | Primera persona en todo el documento | **0.5** |
+| **Forma** | Tercera persona, sin guiones largos | Redacción inconsistente: persona o guiones mezclados | Primera persona en todo el documento | **0.5** |
 
 **Total: 10.0 puntos**
 
 **Por dónde entregas no cambia la nota.** El laboratorio se entrega por el formulario del curso, en tu
 memoria USB o con el enlace de GitHub, como te resulte posible. Tu repositorio puede estar solo en tu
-computadora: lo que se revisa es el trabajo y su historial de commits.
+computadora, y los commits son opcionales: lo que se revisa es el trabajo.
 
 ## Cómo se revisa
 
