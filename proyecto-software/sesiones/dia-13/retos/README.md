@@ -48,3 +48,25 @@ Y responde:
 > como código suelto que corre una sola vez?
 
 Esa decisión, tomada antes de necesitarla, es lo que hace que agregar el botón sea trivial.
+
+---
+
+## Nivel extra 2 - La parte del dueño
+
+**A. Cambiar la contraseña de ejemplo.** La contraseña `pan-del-barrio` está escrita en
+`esquema.sql`: cualquiera que lea el repositorio la conoce.
+
+- [ ] Genera el hash de una contraseña nueva desde la consola (en XAMPP, el botón **Shell**):
+      `php -r "echo password_hash('otra-clave', PASSWORD_DEFAULT);"`
+- [ ] Cámbiala en la base con un `UPDATE usuarios SET clave_hash = '...' WHERE usuario = 'duena';`
+- [ ] Comprueba que la vieja ya no entra y la nueva sí
+
+> ¿Por qué la contraseña nueva no se escribe en ningún archivo del repositorio, y la de ejemplo sí?
+
+**B. El precio de entonces.** El total del panel usa el precio de hoy de cada producto.
+
+- [ ] Cambia el precio de la Marraqueta en phpMyAdmin y recarga el panel. ¿Qué pasó con el total?
+- [ ] Agrega a la tabla `pedidos` una columna `precio DECIMAL(10,2)` que guarde el precio al momento
+      del pedido, y usa esa columna en `panel.php`
+
+> El Día 11 se dijo «lo que se calcula no se guarda». ¿Por qué este precio sí se guarda?

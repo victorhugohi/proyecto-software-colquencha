@@ -26,10 +26,14 @@ cumplir, y lo que la matriz de pruebas verifica.
 - Conexión en archivo aparte, con `conexion.ejemplo.php` versionado (el real, no)
 - Tipos arreglados: los números salen como números, no como texto
 
-### 3. Frontend conectado (Día 13)
+### 3. Frontend conectado y parte del dueño (Día 13)
 - La página del módulo pasado consumiendo **tu** endpoint
 - Los **tres estados** manejados: cargando, con datos, y con error
 - El caso vacío distinguido del caso de error
+- **Login del dueño:** tabla `usuarios` con la contraseña guardada como hash (`password_hash`), sesión
+  de PHP, y el endpoint con los datos de tus clientes respondiendo **401** sin sesión
+- **Panel del día:** dos o tres números del día de tu negocio (pedidos, ventas, reservas), solo con
+  sesión
 
 ### 4. Matriz de pruebas ejecutada (Día 14)
 - Una fila por cada requerimiento del Lab 2
@@ -56,3 +60,6 @@ Rúbrica completa en `rubrica.md`.
 - Una matriz de pruebas de puros casos "normal", sin bordes ni errores
 - Una matriz con todo PASA sin haberla corrido de verdad
 - La contraseña real subida a git
+- La contraseña del dueño guardada tal cual en la base, en vez de su hash
+- Esconder el enlace al panel y creer que eso protege los datos: sin `exigir_login()` en el
+  servidor, cualquiera los ve

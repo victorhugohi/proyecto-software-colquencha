@@ -47,7 +47,7 @@ gratis:
 1. **Conseguir el hosting** con PHP y MySQL (hay opciones gratuitas para
    empezar, ver el presupuesto del Día 15).
 2. **Subir el código** por el panel del hosting o por FTP.
-3. **Crear la base de datos** en el servidor y correr `esquema.sql`.
+3. **Crear la base de datos** en el servidor, correr `esquema.sql` y cambiar la contraseña de ejemplo de la dueña.
 4. **Cambiar `conexion.php`**: en el servidor, el usuario ya no es `root` sin
    contraseña. Es un usuario con permisos mínimos y su propia clave.
 5. **Probar los tres estados** del Día 13 en el servidor, no solo en local.

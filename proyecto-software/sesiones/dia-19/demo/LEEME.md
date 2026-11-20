@@ -48,7 +48,7 @@ cuaderno hoja por hoja.
 ## Qué hace el sistema
 
 - Registra un pedido en cuatro campos, eligiendo del catálogo de productos
-- Muestra de un vistazo los pedidos comprometidos para hoy
+- Muestra a la dueña, con su contraseña, los pedidos y el total de hoy
 - Marca los pedidos como entregados, para que no se acumulen
 - Funciona desde el celular, con las manos ocupadas del mostrador
 
@@ -63,7 +63,7 @@ cuaderno hoja por hoja.
 
 1. Abre el sistema en el navegador del celular o la computadora.
 2. Para registrar: completa los cuatro campos y confirma.
-3. Para ver el día: entra a "Pedidos de hoy".
+3. Para ver el día: entra al "Panel de la dueña" con tu usuario y contraseña.
 4. Para cerrar un pedido: toca "Entregado".
 
 <!-- Instrucciones para el usuario, no para el programador. Un manual de
@@ -75,7 +75,7 @@ cuaderno hoja por hoja.
 Requiere PHP 8 y MySQL (incluidos en XAMPP).
 
 1. Copia el proyecto en la carpeta `htdocs` de XAMPP.
-2. Crea la base de datos y corre `esquema.sql`.
+2. Crea la base de datos, corre `esquema.sql` y cambia la contraseña de ejemplo.
 3. Copia `conexion.ejemplo.php` a `conexion.php` y completa tus datos.
 4. Abre `http://localhost/panaderia/`.
 
@@ -87,8 +87,8 @@ Requiere PHP 8 y MySQL (incluidos en XAMPP).
 ## Estado del proyecto
 
 Proyecto formativo, funcional en entorno local. No incluye facturación ni
-inventario (ver los límites en la propuesta). El acceso con usuario y contraseña
-(RNF-06) queda pendiente.
+inventario (ver los límites en la propuesta). El acceso de la dueña con usuario y
+contraseña (RNF-06) funciona; la contraseña de ejemplo se cambia al instalar.
 
 <!-- La honestidad sobre el estado y los límites es parte de la carta. Un
      README que promete más de lo que hay se descubre al primer clic y pierde

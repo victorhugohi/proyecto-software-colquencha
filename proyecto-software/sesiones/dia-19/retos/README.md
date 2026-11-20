@@ -9,7 +9,7 @@ Para cada elemento, decide si va en el **cuerpo** del documento o en un **anexo*
 1. La explicación de por qué elegiste esas tablas.
 2. El código completo de `productos.php`.
 3. La formulación del problema.
-4. La corrida completa de la matriz de pruebas, con las trece filas.
+4. La corrida completa de la matriz de pruebas, con las dieciocho filas.
 5. Las preguntas exactas de la entrevista a tu cliente.
 
 **La regla:** ¿se necesita para **seguir el hilo** (cuerpo) o solo para **confiar en el trabajo**

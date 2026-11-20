@@ -17,6 +17,14 @@
 memoria USB o con el enlace de GitHub, como te resulte posible. Tu repositorio puede estar solo en tu
 computadora, y los commits son opcionales: lo que se revisa es el trabajo.
 
+**La copia y la IA se miden, pero no descuentan.** Se revisa cuánto del documento coincide con el
+de un compañero o con otra fuente sin citarla, y cuánto parece escrito con IA sin revisar. No resta
+puntos: se te muestra en la devolución para que sepas cómo está tu trabajo. Indica siempre de dónde
+sale cada cosa (Día 8).
+
+**El Lab 1 corregido se recibe hasta el martes 24.** Si corriges tu propuesta con las observaciones
+y la vuelves a entregar hasta ese día, se califica de nuevo y tu nota del Lab 1 puede subir.
+
 ## Cómo se revisa
 
 **La matriz comparativa es el corazón del laboratorio.** El criterio que la separa de un cuadro

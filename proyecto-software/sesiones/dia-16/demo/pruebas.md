@@ -97,6 +97,21 @@ que discutir, la prueba no sirve.
 
 ---
 
+## 6. La parte de la dueña (RNF-06 y rf-06)
+
+| Id | Entrada | Acción | Resultado esperado | Tipo |
+|---|---|---|---|---|
+| P-14 | sin sesión | abrir `pedidos.php` o `panel.php` en el navegador | 401, no se ve ningún pedido | seguridad |
+| P-15 | contraseña equivocada, o un usuario que no existe | entrar | no entra, y el mensaje es el mismo en los dos casos | error |
+| P-16 | usuario y contraseña correctos | entrar | se ve el panel con los números del día | normal |
+| P-17 | tres pedidos para hoy, uno ya entregado | abrir el panel | pedidos, total en Bs y por entregar coinciden con la base | normal |
+| P-18 | ningún pedido para hoy | abrir el panel | 0, Bs 0.00 y 0, no «null» ni pantalla en blanco | vacío |
+
+<!-- P-14 es la prueba que importa: la protección vive en el servidor, y por
+     eso se prueba pidiendo el endpoint directo, sin pasar por la página. -->
+
+---
+
 ## Registro de una corrida
 
 Se corre la matriz completa y se anota. Una corrida de ejemplo:
@@ -116,6 +131,11 @@ Se corre la matriz completa y se anota. Una corrida de ejemplo:
 | P-11 | PASA | |
 | P-12 | PASA | |
 | P-13 | PASA | |
+| P-14 | PASA | |
+| P-15 | PASA | |
+| P-16 | PASA | |
+| P-17 | PASA | |
+| P-18 | PASA | |
 
 **Dos fallas, y las dos son hallazgos buenos:** una validación que falta (P-03)
 y una función que no existe (P-10). La matriz no arregla el software, pero **indica qué hay

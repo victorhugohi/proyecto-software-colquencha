@@ -531,7 +531,7 @@ propio proyecto.
    los pedidos del día ordenados, y distingue el caso de que no haya ninguno
    (P-06 y P-07), en lugar de mostrar una pantalla vacía.
 
-4. **Se verificó el sistema** con una matriz de trece casos que cubre registro,
+4. **Se verificó el sistema** con una matriz de dieciocho casos que cubre registro,
    consulta, casos de error y seguridad. La corrida encontró dos fallas, que
    quedaron documentadas para su corrección.
 

@@ -9,8 +9,9 @@ Sede Universitaria Local Colquencha
 Puedes avanzar a tu ritmo: cuando termines, sigue con la guía del día siguiente. El cuestionario
 del final sirve para comprobar que entendiste; respóndelo con tus propias palabras.
 
-El material del día es `app.js`, con `index.html` y `estilos.css`. Necesitas XAMPP encendido y el
-endpoint del Día 12.
+El material del día es `app.js`, con `index.html` y `estilos.css` (la página pública), y `login.php`,
+`sesion.php`, `panel.php`, `panel.html` y `panel.js` (la parte del dueño). Necesitas XAMPP encendido
+y el endpoint del Día 12.
 
 ---
 
@@ -94,6 +95,70 @@ a validarlos, porque el `required` de un formulario se puede quitar con el inspe
 Si tu sistema es de reservas o de ventas, tus archivos se llaman distinto (`reservas.php`,
 `ventas.php`), pero los tres estados de la pantalla son los mismos.
 
+### 9. Quién puede ver qué: el login
+
+Hasta ayer, cualquiera que abriera `pedidos.php` veía todos los pedidos con los nombres de los
+clientes. El catálogo y el formulario para pedir son públicos; la lista de pedidos y el resumen del
+día son del dueño. Desde hoy, esa parte pide usuario y contraseña. Es el RNF-06 del Día 9.
+
+La contraseña **no se guarda** en la base. Se guarda su *hash*: un resumen que se calcula con
+`password_hash()` y del que no se puede volver a la contraseña. Al entrar, `password_verify()`
+calcula el hash de lo que se escribió y lo compara con el guardado:
+
+```php
+if ($fila === false || !password_verify($clave, $fila['clave_hash'])) {
+    responder(401, ['error' => 'Usuario o contraseña incorrectos']);
+}
+```
+
+El mensaje es el mismo si el usuario no existe y si la contraseña está mal. Con mensajes distintos,
+quien prueba nombres sabría cuáles existen.
+
+### 10. La sesión
+
+HTTP no recuerda nada: cada petición llega sola. Para que el servidor sepa que quien pide el panel
+ya escribió su contraseña, existe la **sesión**. `session_start()` le da al navegador un número
+largo al azar en una *cookie*, y el servidor guarda en `$_SESSION` lo que corresponde a ese número.
+En cada petición siguiente, el navegador manda la cookie solo. La contraseña se pide una vez; después
+viaja solo el número.
+
+Todo lo que es del dueño empieza preguntando si hay sesión. Si no hay, responde **401** y no sigue:
+
+```php
+function exigir_login(): void
+{
+    if (!isset($_SESSION['usuario_id'])) {
+        http_response_code(401);
+        ...
+        exit;
+    }
+}
+```
+
+La protección vive en el servidor. Esconder el enlace al panel en el HTML no protege nada: cualquiera
+puede escribir la dirección de `pedidos.php` en el navegador.
+
+### 11. El panel del día
+
+Lo primero que el dueño quiere saber al abrir el negocio, en dos o tres números. En la panadería:
+cuántos pedidos hay para hoy, cuánto suman y cuántos faltan entregar. Sale de una sola consulta:
+
+```sql
+SELECT COUNT(*)                                  AS pedidos,
+       COALESCE(SUM(pe.cantidad * pr.precio), 0) AS total,
+       COALESCE(SUM(pe.entregado = FALSE), 0)    AS pendientes
+FROM pedidos pe
+JOIN productos pr ON pr.id = pe.producto_id
+WHERE pe.fecha_entrega = CURDATE();
+```
+
+`COALESCE(..., 0)` porque un día sin pedidos `SUM` devuelve `NULL`, no 0. En tu sistema los números
+son otros: las ventas del día y lo que se vendió, las reservas de hoy y las libres, las citas de la
+semana.
+
+En `panel.js`, al abrir la página se pregunta si ya hay sesión. Un 401 ahí no es un error: es la
+respuesta normal cuando nadie entró todavía, y se muestra el formulario para entrar.
+
 ---
 
 ## Segunda parte. Trabajo en tu proyecto
@@ -109,6 +174,14 @@ Si tu sistema es de reservas o de ventas, tus archivos se llaman distinto (`rese
 5. Conecta el formulario de tu problema (el pedido, la reserva, la venta) a tu endpoint que guarda.
    Quita el `required` de un campo con el inspector y envía el formulario vacío: el servidor tiene
    que rechazarlo igual.
+6. Agrega la tabla `usuarios` a tu `esquema.sql`, con un usuario de prueba. El hash se genera desde
+   la consola (en XAMPP, el botón **Shell**):
+   `php -r "echo password_hash('tu-clave-de-prueba', PASSWORD_DEFAULT);"`
+7. Copia `sesion.php` y `login.php` del ejemplo y adapta los nombres. En el endpoint que lista los
+   datos de tus clientes, agrega `exigir_login();` al principio de la lectura.
+8. Haz tu panel: un endpoint con dos o tres números del día de tu negocio, y una página que pide
+   usuario y contraseña antes de mostrarlos. Si no te alcanza el tiempo, termina el panel en casa;
+   el login sí déjalo funcionando hoy.
 
 Antes de dar por terminada la sección, revisa:
 
@@ -116,6 +189,9 @@ Antes de dar por terminada la sección, revisa:
 - [ ] Con MySQL apagado se ve un mensaje claro.
 - [ ] Sin datos se ve un mensaje de "no hay", no un error.
 - [ ] Los precios se ven como números formateados.
+- [ ] Tu endpoint privado, abierto sin sesión, responde 401.
+- [ ] Con el usuario de prueba se entra al panel, y «Cerrar sesión» vuelve a pedir la contraseña.
+- [ ] En la tabla `usuarios` no hay ninguna contraseña escrita, solo hashes.
 
 | Lo que te pasa | Qué hacer |
 |---|---|
@@ -124,6 +200,9 @@ Antes de dar por terminada la sección, revisa:
 | pantalla en blanco al fallar | falta el `try/catch` o el mensaje de error |
 | un error 500 da un mensaje confuso | falta la comprobación de `.ok` |
 | no llegan datos y no hay error | revisa que MySQL esté encendido y que la dirección del endpoint sea correcta |
+| la contraseña correcta da «Usuario o contraseña incorrectos» | el hash se pegó incompleto, o la columna es más corta que 60: usa `VARCHAR(255)` |
+| después de entrar, el panel sigue respondiendo 401 | falta `require 'sesion.php'` en el endpoint, o la página se abrió con otra dirección (`localhost` y `127.0.0.1` tienen cookies distintas) |
+| «Cannot modify header information - headers already sent» | hay un espacio o una línea en blanco antes de `<?php`: la sesión tiene que empezar antes de imprimir nada |
 
 Al terminar, guarda tu avance (si usas git):
 
@@ -133,8 +212,8 @@ git commit -m "feat: frontend conectado al backend propio"
 git push
 ```
 
-Con esto el sistema queda construido: la base de datos, el endpoint que la sirve y la página que lo
-consume.
+Con esto el sistema queda construido: la base de datos, el endpoint que la sirve, la página que lo
+consume y la parte privada del dueño.
 
 ---
 
@@ -147,6 +226,11 @@ consume.
 5. ¿Por qué el detalle del error va a la consola y no al usuario?
 6. ¿Por qué la página no funciona si se abre con doble clic?
 7. ¿Qué pasa en tu página cuando apagas MySQL? Descríbelo.
+8. ¿Por qué la base guarda el hash de la contraseña y no la contraseña?
+9. ¿Qué es la sesión, y qué viaja en cada petición después de entrar?
+10. ¿Por qué esconder el enlace al panel no protege los datos de los clientes?
+11. El total del panel se calcula con el precio de hoy. ¿Qué pasa si mañana sube el precio de un
+    producto? ¿Qué habría que guardar en el pedido para evitarlo?
 
 ---
 

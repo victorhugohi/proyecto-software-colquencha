@@ -9,15 +9,15 @@
 
    Un solo archivo, cinco usos:
 
-       GET  pedidos.php                          pendientes de hoy
-       GET  pedidos.php?fecha=2026-11-25         pendientes de ese día
-       GET  pedidos.php?cliente=rosa             buscar por cliente
-       POST pedidos.php                          registrar un pedido (JSON)
-       POST pedidos.php?accion=entregar&id=3     marcarlo como entregado
+       GET  pedidos.php                          pendientes de hoy           (con sesión)
+       GET  pedidos.php?fecha=2026-11-25         pendientes de ese día       (con sesión)
+       GET  pedidos.php?cliente=rosa             buscar por cliente          (con sesión)
+       POST pedidos.php                          registrar un pedido (JSON)  (público)
+       POST pedidos.php?accion=entregar&id=3     marcarlo como entregado     (con sesión)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 require 'conexion.php';
-
+require 'sesion.php';
 header('Content-Type: application/json; charset=utf-8');
 
 /* ── Responder y terminar ───────────────────────────────────────────────────
@@ -62,6 +62,7 @@ $metodo = $_SERVER['REQUEST_METHOD'];
 /* ── GET: listar ────────────────────────────────────────────────────────────── */
 
 if ($metodo === 'GET') {
+    exigir_login();
     $base = "
         SELECT pe.id, pe.cliente, pr.nombre AS producto,
                pe.cantidad, pe.fecha_entrega, pe.entregado
@@ -103,6 +104,7 @@ if ($metodo === 'GET') {
 /* ── POST ?accion=entregar: marcar como entregado ───────────────────────────── */
 
 if ($metodo === 'POST' && ($_GET['accion'] ?? '') === 'entregar') {
+    exigir_login();
     $id = filter_var($_GET['id'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
     if ($id === false) {
         responder(400, ['error' => 'Falta el número de pedido']);
@@ -119,7 +121,12 @@ if ($metodo === 'POST' && ($_GET['accion'] ?? '') === 'entregar') {
 }
 
 /* Marcar como entregado es un cambio de estado: el pedido deja de ser
-   pendiente y sale de la lista del día. */
+   pendiente y sale de la lista del día.
+
+   Desde el Día 13, listar y entregar empiezan con exigir_login() (sesion.php):
+   la lista tiene los nombres de los clientes, y solo la dueña puede marcar
+   un pedido como entregado. Registrar un pedido sigue siendo público: es el
+   formulario que usa cualquier cliente. */
 
 /* ── POST: registrar un pedido ──────────────────────────────────────────────── */
 

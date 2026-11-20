@@ -102,8 +102,9 @@ function renderProductos(productos) {
 cargarProductos();
 
 /* ── Pedidos ────────────────────────────────────────────────────────────────
-   Todo lo de arriba lee: el catálogo. Esto escribe: registra pedidos y los
-   marca como entregados, contra pedidos.php.
+   Todo lo de arriba lee: el catálogo. Esto escribe: registra pedidos contra
+   pedidos.php. La lista de pedidos y el botón "Entregado" no están aquí:
+   tienen los nombres de los clientes, y viven en el panel (panel.js).
 
    No es teoría nueva. Son las mismas tres ideas de hoy, otra vez: fetch con
    .ok, los tres estados, y el error a la consola. Lo único nuevo es que el
@@ -114,18 +115,6 @@ const URL_PEDIDOS = "pedidos.php";
 const formulario       = document.querySelector("#form-pedido");
 const selectorProducto = document.querySelector("#producto");
 const avisoPedido      = document.querySelector("#aviso-pedido");
-const fechaConsulta    = document.querySelector("#fecha-consulta");
-const buscador         = document.querySelector("#buscar");
-const tituloPedidos    = document.querySelector("#titulo-pedidos");
-const totalPendientes  = document.querySelector("#total-pendientes");
-const estadoPedidos    = document.querySelector("#estado-pedidos");
-const listaPedidos     = document.querySelector("#lista-pedidos");
-
-/* La fecha de hoy como AAAA-MM-DD, que es lo que usan <input type="date"> y
-   MySQL. toISOString() no sirve: da la fecha en UTC, y en Bolivia (UTC-4)
-   después de las 20:00 ya dice mañana. El formato regional "en-ca" es
-   justamente AAAA-MM-DD. */
-const hoy = new Date().toLocaleDateString("en-CA");
 
 function avisar(texto, tipo) {
   avisoPedido.textContent = texto;
@@ -176,7 +165,6 @@ async function registrarPedido(evento) {
     avisar(resultado.aviso ?? "Pedido guardado.", "ok");
     formulario.reset();
     formulario.elements.cliente.focus();
-    cargarPedidos();
   } catch (error) {
     console.error(error);
     avisar("No se pudo guardar el pedido. Revisa la conexión e intenta de nuevo.", "error");
@@ -187,105 +175,7 @@ async function registrarPedido(evento) {
    mensaje "Falta el nombre del cliente" no queda flotando: el cursor ya está
    donde hay que escribir. Es el criterio de aceptación 2 de la hu-01. */
 
-/* ── Listar ────────────────────────────────────────────────────────────────── */
-function renderPedidos(pedidos, mensajeVacio) {
-  listaPedidos.replaceChildren();
-  totalPendientes.textContent = pedidos.filter((p) => !p.entregado).length;
-
-  if (pedidos.length === 0) {
-    estadoPedidos.textContent = mensajeVacio;
-    estadoPedidos.hidden = false;
-    return;
-  }
-  estadoPedidos.hidden = true;
-
-  pedidos.forEach((p) => {
-    const item = document.createElement("li");
-    const texto = document.createElement("span");
-    texto.textContent = `${p.cantidad} × ${p.producto} · ${p.cliente}`;
-    item.append(texto);
-
-    if (p.entregado) {
-      const marca = document.createElement("span");
-      marca.className = "entregado";
-      marca.textContent = "Entregado";
-      item.append(marca);
-    } else {
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.dataset.id = p.id;
-      boton.textContent = "Entregado";
-      item.append(boton);
-    }
-    listaPedidos.append(item);
-  });
-}
-
-/* Por qué createElement Y textContent, y no innerHTML como en la tabla:
-   la tabla muestra el catálogo, que escribe la panadería. Esta lista muestra
-   lo que escribió cualquiera en el formulario. Si alguien pone de nombre
-   <img src=x onerror=alert(1)>, innerHTML lo ejecutaría. Con textContent es
-   texto, y se ve tal cual. Es la regla del Día 12 del lado del navegador: lo
-   que viene del usuario es dato, nunca instrucción. */
-
-async function cargarPedidos() {
-  const cliente = buscador.value.trim();
-  const url = cliente
-    ? `${URL_PEDIDOS}?cliente=${encodeURIComponent(cliente)}`
-    : `${URL_PEDIDOS}?fecha=${encodeURIComponent(fechaConsulta.value)}`;
-
-  if (cliente) {
-    tituloPedidos.textContent = `Pedidos de «${cliente}»`;
-  } else if (fechaConsulta.value === hoy) {
-    tituloPedidos.textContent = "Pedidos de hoy";
-  } else {
-    tituloPedidos.textContent = `Pedidos del ${fechaConsulta.value}`;
-  }
-  estadoPedidos.textContent = "Cargando pedidos...";
-  estadoPedidos.hidden = false;
-
-  try {
-    const respuesta = await fetch(url);
-    if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
-    const pedidos = await respuesta.json();
-    renderPedidos(pedidos, cliente ? "No hay pedidos de ese cliente." : "No hay pedidos pendientes para este día.");
-  } catch (error) {
-    console.error(error);
-    listaPedidos.replaceChildren();
-    estadoPedidos.textContent = "No se pudieron cargar los pedidos. Intenta de nuevo en un momento.";
-    estadoPedidos.hidden = false;
-  }
-}
-
-/* ── Marcar como entregado ─────────────────────────────────────────────────
-   Un solo listener en la lista, no uno por botón: es la delegación de eventos
-   del Día 9 del módulo pasado. Los botones se crean y se destruyen con cada
-   carga, y el listener de la lista sirve para todos. */
-listaPedidos.addEventListener("click", async (evento) => {
-  const boton = evento.target.closest("button[data-id]");
-  if (!boton) return;
-
-  boton.disabled = true;                     // que un doble toque no mande dos veces
-  try {
-    const respuesta = await fetch(`${URL_PEDIDOS}?accion=entregar&id=${boton.dataset.id}`, { method: "POST" });
-    if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
-    cargarPedidos();
-  } catch (error) {
-    console.error(error);
-    boton.disabled = false;
-    estadoPedidos.textContent = "No se pudo marcar como entregado. Intenta de nuevo.";
-    estadoPedidos.hidden = false;
-  }
-});
-
-/* Un toque en "Entregado" cambia el estado del pedido, y la lista se vuelve a
-   pedir al servidor para que muestre lo que de verdad quedó guardado. */
-
 formulario.addEventListener("submit", registrarPedido);
-fechaConsulta.addEventListener("change", cargarPedidos);
-buscador.addEventListener("change", cargarPedidos);
 
-fechaConsulta.value = hoy;
 llenarProductos();
-cargarPedidos();
 

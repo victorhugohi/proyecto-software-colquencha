@@ -211,3 +211,27 @@ INSERT INTO pedidos (cliente, producto_id, cantidad, fecha_entrega) VALUES
 -- CURDATE() y no una fecha escrita a mano: así "los pedidos de hoy" existen
 -- el día que se corre el script, y no solo el día en que se escribió.
 
+-- ── Usuarios ───────────────────────────────────────────────────────────────
+-- Desde el Día 13 el sistema tiene una parte privada: el panel de la dueña.
+-- Aquí se guarda quién puede entrar. La contraseña NO se guarda: se guarda
+-- su hash, un resumen del que no se puede volver a la contraseña.
+
+CREATE TABLE usuarios (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  usuario    VARCHAR(40)  NOT NULL UNIQUE,
+  nombre     VARCHAR(100) NOT NULL,
+  clave_hash VARCHAR(255) NOT NULL
+);
+
+-- VARCHAR(255) aunque el hash de hoy mide 60: password_hash() puede pasar a
+-- un método más fuerte y más largo en una versión futura de PHP.
+
+-- La dueña, con una contraseña DE EJEMPLO, para probar en clase:
+--     usuario: duena      contraseña: pan-del-barrio
+-- Al instalar el sistema para el cliente se cambia por una nueva, y la nueva
+-- no se escribe en ningún archivo del repositorio. El hash se generó con:
+--     php -r "echo password_hash('pan-del-barrio', PASSWORD_DEFAULT);"
+
+INSERT INTO usuarios (usuario, nombre, clave_hash) VALUES
+  ('duena', 'Elena Rivas', '$2y$12$xL0k5ulKs5.50EQ5.5LzRuJQyp5m4EvaGiMG17IooKGJmQvvod/5C');
+

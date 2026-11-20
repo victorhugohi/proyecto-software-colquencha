@@ -63,7 +63,7 @@ del Día 3. Dos de ellas:
 >    P-04 confirman que no se guarda un pedido incompleto. Se cumplió a medias: una fecha anterior
 >    a hoy todavía se acepta (P-03).
 >
-> 4. **Se verificó el sistema** con una matriz de trece casos que cubre registro, consulta, casos de
+> 4. **Se verificó el sistema** con una matriz de dieciocho casos que cubre registro, consulta, casos de
 >    error y seguridad. La corrida encontró dos fallas, que quedaron documentadas para su
 >    corrección.
 

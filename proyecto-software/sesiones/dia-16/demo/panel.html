@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel de la dueña - Panadería del Barrio</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <main>
+    <h1>Panadería del Barrio · Panel</h1>
+    <p><a href="index.html">Volver a la página de pedidos</a></p>
+
+    <!-- ── Entrar ─────────────────────────────────────────────────────── -->
+    <!-- Se ve cuando no hay sesión. panel.js lo oculta al entrar. -->
+    <section id="entrar" aria-labelledby="titulo-entrar" hidden>
+      <h2 id="titulo-entrar">Iniciar sesión</h2>
+
+      <form id="form-entrar">
+        <label for="usuario">Usuario</label>
+        <input id="usuario" name="usuario" type="text" autocomplete="username" required>
+
+        <!-- type="password" oculta lo que se escribe, nada más: la contraseña
+             viaja igual al servidor. Por eso, en producción, HTTPS (Día 16). -->
+        <label for="clave">Contraseña</label>
+        <input id="clave" name="clave" type="password" autocomplete="current-password" required>
+
+        <button type="submit">Entrar</button>
+        <p id="aviso-entrar" role="status" hidden></p>
+      </form>
+    </section>
+
+    <!-- ── El panel ───────────────────────────────────────────────────── -->
+    <!-- Se ve solo con sesión. -->
+    <div id="panel" hidden>
+      <p>Hola, <strong id="nombre"></strong>. <button id="salir" type="button" class="enlace">Cerrar sesión</button></p>
+
+      <section aria-labelledby="titulo-resumen">
+        <h2 id="titulo-resumen">Hoy</h2>
+        <p id="estado-resumen">Cargando el resumen...</p>
+
+        <!-- Tres números, cada uno con su nombre. <dl> es la lista de
+             "término y valor": un lector de pantalla los lee juntos. -->
+        <dl class="numeros">
+          <div><dt>Pedidos para hoy</dt><dd id="num-pedidos">-</dd></div>
+          <div><dt>Total del día</dt><dd id="num-total">-</dd></div>
+          <div><dt>Por entregar</dt><dd id="num-pendientes">-</dd></div>
+        </dl>
+      </section>
+
+      <!-- ── Pedidos ──────────────────────────────────────────────────── -->
+      <section aria-labelledby="titulo-pedidos">
+        <h2 id="titulo-pedidos">Pedidos de hoy</h2>
+
+        <div class="filtros">
+          <label for="fecha-consulta">Día</label>
+          <input id="fecha-consulta" type="date">
+
+          <label for="buscar">Buscar por cliente</label>
+          <input id="buscar" type="search">
+        </div>
+
+        <p>Pendientes: <strong id="total-pendientes">0</strong></p>
+        <p id="estado-pedidos">Cargando pedidos...</p>
+
+        <!-- panel.js llena esta lista. Cada pedido pendiente trae su botón
+             "Entregado". -->
+        <ul id="lista-pedidos" class="pedidos"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script src="panel.js"></script>
+</body>
+</html>
