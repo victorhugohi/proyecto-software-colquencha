@@ -173,7 +173,7 @@ async function registrarPedido(evento) {
 
 /* El servidor dice qué campo falló, y el frontend le pone el foco. Así el
    mensaje "Falta el nombre del cliente" no queda flotando: el cursor ya está
-   donde hay que escribir. Es el criterio de aceptación 2 de la hu-01. */
+   donde hay que escribir. Es el criterio de aceptación 2 de la HU-01. */
 
 formulario.addEventListener("submit", registrarPedido);
 

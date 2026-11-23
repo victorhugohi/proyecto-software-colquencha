@@ -85,16 +85,16 @@ Ver el marco teórico del proyecto.
 
 | Id | Requerimiento | Prioridad | Origen |
 |---|---|---|---|
-| Rf-01 | El sistema **debe** permitir registrar un pedido con cliente, producto, cantidad y fecha de entrega | alta | problema central |
-| rf-02 | El sistema **debe** rechazar el registro si falta el nombre del cliente, el producto o la fecha de entrega | alta | observación 18/11: pedidos anotados sin datos completos |
-| rf-03 | El sistema **debe** listar los pedidos pendientes ordenados por fecha de entrega | alta | problema central |
-| rf-04 | El sistema **debe** permitir filtrar los pedidos por una fecha determinada | alta | entrevista 13/11 |
-| rf-05 | El sistema **debe** permitir marcar un pedido como entregado | alta | ciclo de vida del pedido |
-| rf-06 | El sistema **debe** mostrar el total de pedidos pendientes para el día en curso | media | entrevista 13/11 |
-| rf-07 | El sistema **debería** permitir buscar un pedido por nombre del cliente | baja | entrevista 13/11 |
-| rf-08 | El sistema **debe** mostrar el catálogo de productos con su precio y si está disponible | alta | el pedido elige un producto |
+| RF-01 | El sistema **debe** permitir registrar un pedido con cliente, producto, cantidad y fecha de entrega | alta | problema central |
+| RF-02 | El sistema **debe** rechazar el registro si falta el nombre del cliente, el producto o la fecha de entrega | alta | observación 18/11: pedidos anotados sin datos completos |
+| RF-03 | El sistema **debe** listar los pedidos pendientes ordenados por fecha de entrega | alta | problema central |
+| RF-04 | El sistema **debe** permitir filtrar los pedidos por una fecha determinada | alta | entrevista 13/11 |
+| RF-05 | El sistema **debe** permitir marcar un pedido como entregado | alta | ciclo de vida del pedido |
+| RF-06 | El sistema **debe** mostrar el total de pedidos pendientes para el día en curso | media | entrevista 13/11 |
+| RF-07 | El sistema **debería** permitir buscar un pedido por nombre del cliente | baja | entrevista 13/11 |
+| RF-08 | El sistema **debe** mostrar el catálogo de productos con su precio y si está disponible | alta | el pedido elige un producto |
 
-<!-- Fíjate en rf-07: dice "debería", no "debe". Es lo deseable, no lo
+<!-- Fíjate en RF-07: dice "debería", no "debe". Es lo deseable, no lo
      obligatorio. Si el tiempo alcanza se hace; si no, el sistema igual
      cumple. Poner todo como "debe" es lo mismo que no priorizar nada.
 

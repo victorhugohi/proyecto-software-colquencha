@@ -33,7 +33,7 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 1. Registrar un pedido (rf-01, rf-02, hu-01)
+## 1. Registrar un pedido (RF-01, RF-02, HU-01)
 
 | Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
@@ -52,7 +52,7 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 2. Ver los pedidos de hoy (rf-03, rf-06, hu-02)
+## 2. Ver los pedidos de hoy (RF-03, RF-06, HU-02)
 
 | Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
@@ -67,7 +67,7 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 3. Marcar como entregado (rf-05, hu-03)
+## 3. Marcar como entregado (RF-05, HU-03)
 
 | Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
@@ -89,7 +89,7 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 5. Ver el catálogo (rf-08)
+## 5. Ver el catálogo (RF-08)
 
 | Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
@@ -97,7 +97,7 @@ que discutir, la prueba no sirve.
 
 ---
 
-## 6. La parte de la dueña (RNF-06 y rf-06)
+## 6. La parte de la dueña (RNF-06 y RF-06)
 
 | Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|

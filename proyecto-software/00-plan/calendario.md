@@ -28,6 +28,12 @@ Sede Universitaria Local Colquencha
 | 18 y 19 | lun 7 dic | Conclusiones y documento final | Entrega final: 23:59 |
 | 20 | mar 8 y mié 9 dic | Examen final: exposición del proyecto | **Examen final** |
 
+**Turno tarde.** El lunes 23 y el miércoles 25 de noviembre, y el miércoles 2 y el viernes 4 de
+diciembre, la clase de la tarde es virtual: a las 18:00 se llama lista por 15 minutos y después se
+envía el enlace de un video con el contenido del día. El turno tarde da el primer parcial el martes 24,
+junto con el Laboratorio 2, y el segundo parcial el martes 1, junto con el Laboratorio 3. Las demás
+clases son presenciales.
+
 **Cómo se aprueba (100 puntos):** asistencia 20 (1 punto por día) · tres laboratorios 30 · primer
 parcial 10 · segundo parcial 15 · examen final 25 (entrega final 15 y exposición 10). Nota mínima de
 aprobación: 51.

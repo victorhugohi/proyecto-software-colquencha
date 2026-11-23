@@ -40,13 +40,13 @@
      sistema tiene usuarios. El rol es quién específicamente, porque distintos
      roles quieren cosas distintas.                                        -->
 
-## Hu-01 · Registrar un pedido
+## HU-01 · Registrar un pedido
 
 > **Como** encargada del mostrador
 > **quiero** registrar un pedido en menos de un minuto
 > **para** no perder la venta mientras atiendo a otro cliente
 
-**Requerimientos relacionados:** rf-01, rf-02, RNF-01, RNF-02
+**Requerimientos relacionados:** RF-01, RF-02, RNF-01, RNF-02
 
 ### Criterios de aceptación
 
@@ -67,13 +67,13 @@
 
 ---
 
-## Hu-02 · Saber qué preparar hoy
+## HU-02 · Saber qué preparar hoy
 
 > **Como** propietaria
 > **quiero** ver de un vistazo los pedidos comprometidos para hoy
 > **para** decidir qué hornear antes de abrir
 
-**Requerimientos relacionados:** rf-03, rf-04, rf-06
+**Requerimientos relacionados:** RF-03, RF-04, RF-06
 
 ### Criterios de aceptación
 
@@ -90,13 +90,13 @@
 
 ---
 
-## Hu-03 · Cerrar un pedido entregado
+## HU-03 · Cerrar un pedido entregado
 
 > **Como** encargada del mostrador
 > **quiero** marcar un pedido como entregado
 > **para** que no siga apareciendo en la lista de pendientes
 
-**Requerimientos relacionados:** rf-05, rf-03
+**Requerimientos relacionados:** RF-05, RF-03
 
 ### Criterios de aceptación
 
