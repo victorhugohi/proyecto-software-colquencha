@@ -25,13 +25,13 @@ const estado  = document.querySelector("#estado");
 function mostrarCargando() {
   estado.textContent = "Cargando productos...";
   estado.hidden = false;
-  tabla.innerHTML = "";
+  tabla.replaceChildren();
 }
 
 function mostrarError(mensaje) {
   estado.textContent = mensaje;
   estado.hidden = false;
-  tabla.innerHTML = "";
+  tabla.replaceChildren();
 }
 
 function ocultarEstado() {
@@ -83,15 +83,26 @@ async function cargarProductos() {
    de dónde vienen ni le importa: solo renderiza lo que le pasan. */
 
 function renderProductos(productos) {
-  tabla.innerHTML = productos.map((p) => `
-    <tr>
-      <td>${p.nombre}</td>
-      <td>${p.categoria}</td>
-      <td class="precio">Bs ${p.precio.toFixed(2)}</td>
-      <td>${p.disponible ? "Sí" : "No"}</td>
-    </tr>
-  `).join("");
+  const filas = productos.map((p) => {
+    const fila = document.createElement("tr");
+    const celdas = [p.nombre, p.categoria, `Bs ${p.precio.toFixed(2)}`, p.disponible ? "Sí" : "No"];
+    celdas.forEach((texto, i) => {
+      const celda = document.createElement("td");
+      celda.textContent = texto;
+      if (i === 2) celda.className = "precio";
+      fila.append(celda);
+    });
+    return fila;
+  });
+  tabla.replaceChildren(...filas);
 }
+
+/* createElement y textContent, no innerHTML con los datos pegados: el
+   nombre de un producto viene de la base, y el día que se cargue desde un
+   formulario, un nombre como <img src=x onerror=alert(1)> se vería como
+   texto y nunca se ejecutaría. Es la misma regla de la lista de pedidos del
+   panel (panel.js). replaceChildren() vacía la tabla y pone las filas nuevas
+   de una vez. */
 
 /* p.precio.toFixed(2) solo funciona si precio es un número.
    Si el backend lo devolviera como texto "0.50", esta línea lanzaría
@@ -178,4 +189,9 @@ async function registrarPedido(evento) {
 formulario.addEventListener("submit", registrarPedido);
 
 llenarProductos();
+
+/* El calendario no ofrece días pasados: min es la fecha de hoy. Es una ayuda
+   para quien llena el formulario, no una protección: la regla de verdad la
+   revisa pedidos.php, que rechaza una fecha anterior a hoy con un 400. */
+formulario.elements.fecha_entrega.min = new Date().toLocaleDateString("en-CA");
 

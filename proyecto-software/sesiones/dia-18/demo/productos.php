@@ -41,6 +41,20 @@ $categoria = $_GET['categoria'] ?? null;
    índice indefinido, y ese aviso se imprime antes del JSON y lo rompe.
    Es una de las formas más comunes de romper un endpoint sin darse cuenta. */
 
+if ($categoria !== null) {
+    $categoria = filter_var($categoria, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    if ($categoria === false) {
+        http_response_code(400);
+        echo json_encode(['error' => 'La categoría tiene que ser un número entero'], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+}
+
+/* Si llega ?categoria=abc, se responde 400 y se dice por qué, en vez de una
+   lista vacía que parece "no hay productos". filter_var() revisa la forma del
+   dato; el prepare de abajo lo protege igual aunque esta revisión faltara.
+   Son dos barreras distintas, y conviene tener las dos. */
+
 $sql = "
     SELECT
       p.id,
@@ -94,12 +108,17 @@ $filas = $consulta->fetchAll();
    una.                                                                      */
 
 /* ── Arreglar los tipos ────────────────────────────────────────────────────
-   MySQL devuelve todo como texto. Sin esto, el JSON sale así:
+   Sin este bloque, con la conexión de conexion.php, el JSON sale así
+   (medido con PHP 8 y MariaDB):
 
-       "precio": "0.50",  "stock": "120",  "disponible": "1"
+       "precio": "0.50",  "stock": 120,  "disponible": 1
 
-   con comillas. Y en JavaScript, "0.50" + "1.50" da "0.501.50", porque suma
-   textos. Es un bug que aparece lejos de aquí y cuesta encontrar.            */
+   El stock ya llega como número, pero el precio (DECIMAL) llega como texto,
+   con comillas, y disponible llega como 1 y no como true. En JavaScript,
+   "0.50" + "1.50" da "0.501.50", porque suma textos: es un bug que aparece
+   lejos de aquí y cuesta encontrar. Con otra configuración del servidor
+   (EMULATE_PREPARES en true) llegaría todo como texto, también el stock.
+   Convertir cada campo deja el JSON igual en cualquier servidor.            */
 
 foreach ($filas as &$fila) {
     $fila['precio']     = (float) $fila['precio'];

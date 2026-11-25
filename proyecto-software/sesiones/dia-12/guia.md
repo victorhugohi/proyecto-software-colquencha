@@ -63,8 +63,10 @@ trata como un valor, nunca como una instrucción.
 
 ### 4. Los tipos de los datos
 
-MySQL devuelve todo como texto. Sin corregirlo, el precio llega como `"0.50"`, con comillas, y en
-JavaScript `"0.50" + "1.50"` da `"0.501.50"` en lugar de 2.00. Por eso, después de la consulta, el
+Sin corregirlo, el precio (`DECIMAL`) llega como `"0.50"`, con comillas, y `disponible` llega como `1`
+en lugar de `true`. En JavaScript `"0.50" + "1.50"` da `"0.501.50"` en lugar de 2.00. (El stock ya
+llega como número con esta conexión, pero con otra configuración del servidor llegaría todo como
+texto.) Por eso, después de la consulta, el
 ejemplo recorre las filas con un `foreach` y convierte cada campo a su tipo: `(float)` para el precio,
 `(int)` para el stock, `(bool)` para disponible. Si se omite, el error aparece en la página, lejos de
 su causa.

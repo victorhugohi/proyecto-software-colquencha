@@ -158,18 +158,22 @@ function renderPedidos(pedidos, mensajeVacio) {
     texto.textContent = `${p.cantidad} × ${p.producto} · ${p.cliente}`;
     item.append(texto);
 
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.dataset.id = p.id;
     if (p.entregado) {
       const marca = document.createElement("span");
       marca.className = "entregado";
       marca.textContent = "Entregado";
       item.append(marca);
+      boton.dataset.accion = "deshacer";
+      boton.textContent = "Deshacer";
+      boton.className = "enlace";
     } else {
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.dataset.id = p.id;
+      boton.dataset.accion = "entregar";
       boton.textContent = "Entregado";
-      item.append(boton);
     }
+    item.append(boton);
     listaPedidos.append(item);
   });
 }
@@ -208,16 +212,18 @@ async function cargarPedidos() {
   }
 }
 
-/* ── Marcar como entregado ─────────────────────────────────────────────────
+/* ── Marcar como entregado, o deshacerlo ───────────────────────────────────
    Un solo listener en la lista, no uno por botón: la delegación de eventos
-   del Día 9 del módulo pasado. */
+   del Día 9 del módulo pasado. El botón dice qué hacer en data-accion:
+   "entregar" en un pendiente, "deshacer" en uno ya entregado (aparecen al
+   buscar por cliente: la lista del día muestra solo los pendientes). */
 listaPedidos.addEventListener("click", async (evento) => {
   const boton = evento.target.closest("button[data-id]");
   if (!boton) return;
 
   boton.disabled = true;                     // que un doble toque no mande dos veces
   try {
-    const respuesta = await fetch(`${URL_PEDIDOS}?accion=entregar&id=${boton.dataset.id}`, { method: "POST" });
+    const respuesta = await fetch(`${URL_PEDIDOS}?accion=${boton.dataset.accion}&id=${boton.dataset.id}`, { method: "POST" });
     if (respuesta.status === 401) return mostrarEntrar("La sesión terminó. Vuelve a entrar.");
     if (!respuesta.ok) throw new Error(`HTTP ${respuesta.status}`);
     cargarResumen();
@@ -225,13 +231,13 @@ listaPedidos.addEventListener("click", async (evento) => {
   } catch (error) {
     console.error(error);
     boton.disabled = false;
-    estadoPedidos.textContent = "No se pudo marcar como entregado. Intenta de nuevo.";
+    estadoPedidos.textContent = "No se pudo guardar el cambio. Intenta de nuevo.";
     estadoPedidos.hidden = false;
   }
 });
 
-/* Al entregar, se piden otra vez el resumen y la lista: "Por entregar" baja
-   en uno, y lo que se ve es lo que de verdad quedó guardado. */
+/* Al entregar o deshacer, se piden otra vez el resumen y la lista: "Por
+   entregar" cambia en uno, y lo que se ve es lo que de verdad quedó guardado. */
 
 formEntrar.addEventListener("submit", entrar);
 document.querySelector("#salir").addEventListener("click", salir);

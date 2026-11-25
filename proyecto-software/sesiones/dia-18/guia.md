@@ -59,15 +59,17 @@ Las recomendaciones son el lugar de lo que en el Día 3 no era un objetivo del s
 En `propuesta.md` (en la carpeta del código del día), las conclusiones siguen a los cuatro objetivos
 del Día 3. Dos de ellas:
 
-> 2. **Se implementó el registro de pedidos** con validación de los campos obligatorios: P-02 y
->    P-04 confirman que no se guarda un pedido incompleto. Se cumplió a medias: una fecha anterior
->    a hoy todavía se acepta (P-03).
+> 2. **Se implementó el registro de pedidos** con validación en el servidor: P-02, P-03, P-04 y P-19
+>    confirman que no se guarda un pedido incompleto, con fecha pasada ni con una cantidad fuera de
+>    rango. Dos de esas reglas faltaban en la primera corrida (P-03 y P-19); se agregaron y la segunda
+>    corrida las confirma.
 >
-> 4. **Se verificó el sistema** con una matriz de dieciocho casos que cubre registro, consulta, casos de
->    error y seguridad. La corrida encontró dos fallas, que quedaron documentadas para su
->    corrección.
+> 4. **Se verificó el sistema** con una matriz de veinte casos que cubre registro, consulta, casos de
+>    error y seguridad. La primera corrida encontró tres fallas (P-03, P-10 y P-19); se corrigieron, y
+>    la segunda corrida pasó completa.
 
-La conclusión 2 dice con claridad qué quedó a medias, y cita el caso que lo muestra.
+La conclusión 2 no esconde lo que falló en el camino: dice qué encontró la primera corrida y cita el
+caso que confirma el arreglo. Si en tu proyecto algo quedó a medias, se dice igual, con su caso.
 
 ---
 

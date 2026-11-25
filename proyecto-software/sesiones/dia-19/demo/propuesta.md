@@ -523,25 +523,27 @@ propio proyecto.
    cliente quedó como un dato del pedido y no como tabla propia. El caso P-13
    confirma que el catálogo completo sale de la base.
 
-2. **Se implementó el registro de pedidos** con validación de los campos
-   obligatorios: P-02 y P-04 confirman que no se guarda un pedido incompleto.
-   Se cumplió a medias: una fecha anterior a hoy todavía se acepta (P-03).
+2. **Se implementó el registro de pedidos** con validación en el servidor:
+   P-02, P-03, P-04 y P-19 confirman que no se guarda un pedido incompleto, con
+   fecha pasada ni con una cantidad fuera de rango. Dos de esas reglas faltaban
+   en la primera corrida (P-03 y P-19); se agregaron y la segunda corrida las
+   confirma.
 
 3. **Se implementó la consulta de pendientes por fecha.** El sistema muestra
    los pedidos del día ordenados, y distingue el caso de que no haya ninguno
    (P-06 y P-07), en lugar de mostrar una pantalla vacía.
 
-4. **Se verificó el sistema** con una matriz de dieciocho casos que cubre registro,
-   consulta, casos de error y seguridad. La corrida encontró dos fallas, que
-   quedaron documentadas para su corrección.
+4. **Se verificó el sistema** con una matriz de veinte casos que cubre registro,
+   consulta, casos de error y seguridad. La primera corrida encontró tres fallas
+   (P-03, P-10 y P-19); se corrigieron, y la segunda corrida pasó completa.
 
 <!-- Fíjate en el patrón: cada conclusión empieza con el objetivo cumplido y
      termina con la evidencia (el caso de prueba, el resultado medido). Una
      conclusión sin evidencia es una afirmación; con evidencia, es un
      resultado.
 
-     Y la conclusión 4 dice que se encontraron dos fallas. Eso no debilita el
-     trabajo: lo hace creíble. Un proyecto que dice "todo salió perfecto"
+     Y la conclusión 4 dice que la primera corrida encontró tres fallas. Eso no
+     debilita el trabajo: lo hace creíble. Un proyecto que dice "todo salió perfecto"
      miente o no probó. Reconocer lo que falta es más fuerte que ocultarlo.
 
      Lo que no son conclusiones:

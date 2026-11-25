@@ -42,13 +42,18 @@ que discutir, la prueba no sirve.
 | P-03 | fecha de entrega anterior a hoy | confirmar | no guarda, explica por qué | borde |
 | P-04 | cantidad = 0 | confirmar | no guarda, señala la cantidad | borde |
 | P-05 | nombre con 200 caracteres | confirmar | guarda o corta con aviso, **no rompe** | borde |
+| P-19 | cantidad = 5000 | confirmar | no guarda, señala la cantidad (el tope es 1000) | borde |
 
 <!-- Fíjate en la columna "tipo". Es común escribir solo casos
      "normal": lo que debería pasar cuando todo va bien. Pero las fallas
      suelen aparecer en los casos de borde y de error.
 
      La regla práctica: por cada caso normal, al menos uno de error o de
-     borde. En esta tabla hay 1 normal y 4 de borde/error, y así debe ser.  -->
+     borde. En esta tabla hay 1 normal y 5 de borde/error, y así debe ser.
+
+     P-19 se agregó después de la primera corrida: una cantidad enorme no
+     cabía en la columna y el servidor respondía 500 en vez de 400. Un caso
+     que encuentra una falla se queda en la matriz para siempre.          -->
 
 ---
 
@@ -80,8 +85,9 @@ que discutir, la prueba no sirve.
 
 | Id | Entrada | Acción | Resultado esperado | Tipo |
 |---|---|---|---|---|
-| P-11 | `?categoria=1 OR 1=1` en la URL | enviar | devuelve solo lo correcto, no todo | seguridad |
+| P-11 | `?categoria=1 OR 1=1` en la URL | enviar | 400, no devuelve ningún producto (nunca todo el catálogo) | seguridad |
 | P-12 | comilla simple en un campo de texto | guardar | se guarda como texto, no rompe la consulta | seguridad |
+| P-20 | `?categoria=abc` en la URL | enviar | 400 con un mensaje claro, no una lista vacía | error |
 
 <!-- Estas dos prueban que los prepared statements del Día 12 funcionan. Es
      lo bueno de una matriz: la seguridad deja de ser "confío en que está
@@ -112,32 +118,30 @@ que discutir, la prueba no sirve.
 
 ---
 
-## Registro de una corrida
+## Registro de las corridas
 
-Se corre la matriz completa y se anota. Una corrida de ejemplo:
+Se corre la matriz completa y se anota. La **primera corrida** del ejemplo se hizo
+sobre una versión anterior del código, y encontró tres fallas:
 
 | Id | Resultado | Nota |
 |---|---|---|
-| P-01 | PASA | |
-| P-02 | PASA | |
-| P-03 | **FALLA** | guardó con fecha de ayer; falta la validación |
-| P-04 | PASA | |
-| P-05 | PASA | corta a 100, con aviso |
-| P-06 | PASA | |
-| P-07 | PASA | |
-| P-08 | PASA | |
-| P-09 | PASA | |
-| P-10 | **FALLA** | no hay forma de revertir; hay que agregarla |
-| P-11 | PASA | |
-| P-12 | PASA | |
-| P-13 | PASA | |
-| P-14 | PASA | |
-| P-15 | PASA | |
-| P-16 | PASA | |
-| P-17 | PASA | |
-| P-18 | PASA | |
+| P-03 | **FALLA** | guardó con fecha de ayer; faltaba la validación |
+| P-10 | **FALLA** | no había forma de revertir; faltaba la función |
+| P-19 | **FALLA** | con cantidad 5000 respondió 500, no 400; faltaba el tope |
+| las demás | PASA | P-05 corta a 100 letras, con aviso |
 
-**Dos fallas, y las dos son hallazgos buenos:** una validación que falta (P-03)
-y una función que no existe (P-10). La matriz no arregla el software, pero **indica qué hay
-que arreglar**.
+Las tres se corrigieron en `pedidos.php` (la fecha anterior a hoy y la cantidad
+de más de 1000 se rechazan con 400, y existe `accion=deshacer`) y en `panel.js`
+(el botón "Deshacer" en los pedidos entregados). Después se corrió **la matriz
+completa otra vez**, no solo las tres filas:
+
+| Id | Resultado | Nota |
+|---|---|---|
+| P-01 a P-20 | PASA | segunda corrida, con el código de esta carpeta |
+
+**Tres fallas, y las tres fueron hallazgos buenos:** dos validaciones que faltaban
+(P-03 y P-19) y una función que no existía (P-10). La matriz no arregla el software,
+pero **indica qué hay que arreglar**, y la segunda corrida comprueba que el arreglo
+no rompió otra cosa. En tu proyecto, la primera corrida es la que se anota tal
+como salió.
 

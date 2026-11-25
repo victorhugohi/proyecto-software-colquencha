@@ -7,13 +7,14 @@
    del mostrador - y el lugar donde se cumple lo que se dijo en el Día 20 del
    módulo pasado: la validación de verdad es la del servidor.
 
-   Un solo archivo, cinco usos:
+   Un solo archivo, seis usos:
 
        GET  pedidos.php                          pendientes de hoy           (con sesión)
        GET  pedidos.php?fecha=2026-11-25         pendientes de ese día       (con sesión)
        GET  pedidos.php?cliente=rosa             buscar por cliente          (con sesión)
        POST pedidos.php                          registrar un pedido (JSON)  (público)
        POST pedidos.php?accion=entregar&id=3     marcarlo como entregado     (con sesión)
+       POST pedidos.php?accion=deshacer&id=3     volver a pendiente          (con sesión)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 require 'conexion.php';
@@ -54,8 +55,12 @@ function tipos(array $filas): array
     return $filas;
 }
 
-/* El mismo array de tipos de productos.php, por la misma razón: MySQL lo
-   devuelve todo como texto, y en JavaScript "1" + "1" da "11". */
+/* El mismo bloque de tipos de productos.php. Con la conexión de
+   conexion.php los enteros ya llegan como número, pero `entregado` llega como
+   0 o 1, no como true o false. Y con otra configuración del servidor (con
+   EMULATE_PREPARES en true, por ejemplo) todo llegaría como texto, y en
+   JavaScript "1" + "1" da "11". Convertir cada campo deja el JSON igual en
+   cualquier servidor. */
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
@@ -123,10 +128,32 @@ if ($metodo === 'POST' && ($_GET['accion'] ?? '') === 'entregar') {
 /* Marcar como entregado es un cambio de estado: el pedido deja de ser
    pendiente y sale de la lista del día.
 
-   Desde el Día 13, listar y entregar empiezan con exigir_login() (sesion.php):
+   Desde el Día 13, listar, entregar y deshacer empiezan con exigir_login() (sesion.php):
    la lista tiene los nombres de los clientes, y solo la dueña puede marcar
    un pedido como entregado. Registrar un pedido sigue siendo público: es el
    formulario que usa cualquier cliente. */
+
+/* ── POST ?accion=deshacer: volver a pendiente ──────────────────────────────
+   Si la dueña tocó "Entregado" por error, busca el pedido por el nombre del
+   cliente y deshace la marca. Es la historia de usuario "marqué un pedido por
+   error" del Día 10. */
+
+if ($metodo === 'POST' && ($_GET['accion'] ?? '') === 'deshacer') {
+    exigir_login();
+    $id = filter_var($_GET['id'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    if ($id === false) {
+        responder(400, ['error' => 'Falta el número de pedido']);
+    }
+
+    $consulta = $pdo->prepare('UPDATE pedidos SET entregado = FALSE WHERE id = :id AND entregado = TRUE');
+    $consulta->bindValue(':id', $id, PDO::PARAM_INT);
+    $consulta->execute();
+
+    if ($consulta->rowCount() === 0) {
+        responder(404, ['error' => 'Ese pedido no existe o no estaba entregado']);
+    }
+    responder(200, ['ok' => true]);
+}
 
 /* ── POST: registrar un pedido ──────────────────────────────────────────────── */
 
@@ -142,7 +169,7 @@ if ($metodo === 'POST') {
     $cliente  = is_string($datos['cliente'] ?? null) ? trim($datos['cliente']) : '';
     $fecha    = is_string($datos['fecha_entrega'] ?? null) ? $datos['fecha_entrega'] : '';
     $producto = filter_var($datos['producto_id'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
-    $cantidad = filter_var($datos['cantidad'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $cantidad = filter_var($datos['cantidad'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 1000]]);
 
     /* is_string() antes de trim(): si alguien manda "cliente": ["a", "b"],
        trim() de un array imprime un aviso de PHP antes del JSON y lo rompe.
@@ -155,15 +182,28 @@ if ($metodo === 'POST') {
         responder(400, ['error' => 'Falta elegir el producto', 'campo' => 'producto_id']);
     }
     if ($cantidad === false) {
-        responder(400, ['error' => 'La cantidad tiene que ser un número entero, al menos 1', 'campo' => 'cantidad']);
+        responder(400, ['error' => 'La cantidad tiene que ser un número entero, de 1 a 1000', 'campo' => 'cantidad']);
     }
     if (!fecha_valida($fecha)) {
         responder(400, ['error' => 'Falta la fecha de entrega', 'campo' => 'fecha_entrega']);
     }
+    $hoy = $pdo->query('SELECT CURDATE()')->fetchColumn();
+    if ($fecha < $hoy) {
+        responder(400, ['error' => 'La fecha de entrega no puede ser anterior a hoy', 'campo' => 'fecha_entrega']);
+    }
 
-    /* Hasta aquí: hay cliente, el producto y la cantidad son enteros desde 1, y
-       la fecha tiene forma y existe en el calendario. ¿Falta revisar algo? Esa
-       es la pregunta que hace la matriz de pruebas del Día 14. */
+    /* Hasta aquí: hay cliente, el producto es un entero desde 1, la cantidad va
+       de 1 a 1000, y la fecha tiene forma, existe en el calendario y no es
+       anterior a hoy. Cada una de estas reglas es una fila de la matriz de
+       pruebas del Día 14.
+
+       max_range 1000: la columna cantidad es INT, y un número enorme no cabe.
+       Sin el tope, el motor lo rechazaría y la respuesta sería un 500 ("no se
+       pudo guardar") en vez de un 400 que dice qué corregir. Y ningún encargo
+       de una panadería de barrio pasa de mil unidades.
+
+       "Hoy" lo decide la base con CURDATE(), igual que en el listado. Dos
+       fechas AAAA-MM-DD se comparan bien como texto: "2026-11-24" < "2026-11-25". */
 
     $aviso  = null;
     $letras = preg_split('//u', $cliente, -1, PREG_SPLIT_NO_EMPTY);

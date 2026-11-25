@@ -61,7 +61,7 @@ se rompió.
 
 ### 6. El ejemplo de la Panadería del Barrio
 
-En `pruebas.md` (en la carpeta del código del día), la primera sección tiene un caso normal y cuatro
+En `pruebas.md` (en la carpeta del código del día), la primera sección tiene un caso normal y cinco
 de borde o error:
 
 | ID | Entrada | Acción | Resultado esperado | Tipo |
@@ -71,8 +71,11 @@ de borde o error:
 | P-03 | fecha de entrega anterior a hoy | confirmar | no guarda, explica por qué | borde |
 | P-04 | cantidad = 0 | confirmar | no guarda, señala la cantidad | borde |
 | P-05 | nombre con 200 caracteres | confirmar | guarda o corta con aviso, sin romperse | borde |
+| P-19 | cantidad = 5000 | confirmar | no guarda, señala la cantidad (el tope es 1000) | borde |
 
-Al correr la matriz del ejemplo aparecen dos fallas, y se anotan.
+La primera corrida del ejemplo, sobre una versión anterior del código, encontró tres fallas (P-03,
+P-10 y P-19). Se corrigieron y se corrió la matriz entera otra vez: con el código de la carpeta del
+día, todos los casos pasan. En tu proyecto, anota la primera corrida tal como salga.
 
 ---
 
