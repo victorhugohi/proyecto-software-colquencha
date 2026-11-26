@@ -11,7 +11,8 @@ siguiente. El cuestionario del final sirve para comprobar que entendiste; respó
 propias palabras.
 
 Desde este día se vuelve al código. Necesitas XAMPP instalado (está en la carpeta de programas de
-la memoria) y el `datos.json` de tu proyecto del módulo pasado.
+la memoria) y tu carpeta de Proyecto de Software con tu página del módulo pasado copiada adentro (con
+su `datos.json`). Dónde va cada archivo y cómo se trabaja con XAMPP: hoja "Tu carpeta del proyecto".
 
 ---
 
@@ -99,9 +100,14 @@ datos en tablas no se perdió nada.
    `SELECT * FROM pedidos;` devuelve 4 pedidos. Prueba también a insertar un pedido con
    `producto_id = 99`: tiene que dar el error 1452.
 
+5. Copia tu carpeta de Proyecto de Software a `C:\xampp\htdocs\` (queda
+   `C:\xampp\htdocs\proyecto-software`). Si todavía no tiene tu página de Programación Web, cópiala
+   adentro ahora, sin su carpeta `.git`. Desde hoy se trabaja en la copia de `htdocs`, y al terminar se
+   copia de vuelta a tu memoria (hoja "Tu carpeta del proyecto").
+
 ### Diseña tu base de datos
 
-Crea tu propio `esquema.sql`:
+Crea tu propio `esquema.sql`, en tu carpeta de Proyecto de Software, junto a tus documentos y tu página:
 
 1. Revisa los datos de tu proyecto y anota qué está escrito más de una vez. Cada cosa repetida es
    una tabla.

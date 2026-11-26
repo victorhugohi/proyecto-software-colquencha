@@ -27,14 +27,20 @@ sudo /opt/lampp/lampp stop
 sudo /opt/lampp/lampp status     # ver qué está corriendo
 ```
 
-**Dónde van los archivos del proyecto:** `/opt/lampp/htdocs/`
+**Dónde van los archivos del proyecto:** `/opt/lampp/htdocs/`. La carpeta es de root: dásela a tu
+usuario una sola vez, y después trabaja ahí sin `sudo`:
 
 ```bash
-sudo ln -s ~/mi-proyecto /opt/lampp/htdocs/mi-proyecto
+sudo chown -R $USER /opt/lampp/htdocs
+cp -r ~/proyecto-software /opt/lampp/htdocs/
 ```
 
-Un enlace simbólico evita trabajar con permisos de root: tu proyecto se queda en tu carpeta
-de siempre, con tu repositorio de Git, y Apache lo ve igual.
+Y se abre en `http://localhost/proyecto-software/`. Al terminar, copia la carpeta de vuelta a tu memoria
+o haz `git push` (hoja "Tu carpeta del proyecto").
+
+No sirve un enlace simbólico desde tu carpeta personal (`ln -s ~/proyecto-software ...`): en Ubuntu la
+carpeta personal es privada, Apache no puede entrar, y la página responde **403 Forbidden** (comprobado
+con XAMPP 8.5 en Ubuntu, nov 2026).
 
 ## La alternativa: paquetes del sistema
 

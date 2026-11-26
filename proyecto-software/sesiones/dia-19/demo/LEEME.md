@@ -49,7 +49,7 @@ cuaderno hoja por hoja.
 
 - Registra un pedido en cuatro campos, eligiendo del catálogo de productos
 - Muestra a la dueña, con su contraseña, los pedidos y el total de hoy
-- Marca los pedidos como entregados, para que no se acumulen
+- Marca los pedidos como entregados, para que no se acumulen, y deshace la marca si fue un error
 - Funciona desde el celular, con las manos ocupadas del mostrador
 
 <!-- Cada punto empieza con un verbo y describe un beneficio, no una
@@ -64,7 +64,7 @@ cuaderno hoja por hoja.
 1. Abre el sistema en el navegador del celular o la computadora.
 2. Para registrar: completa los cuatro campos y confirma.
 3. Para ver el día: entra al "Panel de la dueña" con tu usuario y contraseña.
-4. Para cerrar un pedido: toca "Entregado".
+4. Para cerrar un pedido: toca "Entregado". Si fue un error, búscalo por el cliente y toca "Deshacer".
 
 <!-- Instrucciones para el usuario, no para el programador. Un manual de
      instalación con "clonar el repositorio" y "configurar el .env" va más
@@ -74,8 +74,9 @@ cuaderno hoja por hoja.
 
 Requiere PHP 8 y MySQL (incluidos en XAMPP).
 
-1. Copia el proyecto en la carpeta `htdocs` de XAMPP.
-2. Crea la base de datos, corre `esquema.sql` y cambia la contraseña de ejemplo.
+1. Copia la carpeta del proyecto en `htdocs` de XAMPP, con el nombre `panaderia`.
+2. Crea la base de datos, corre `esquema.sql` y cambia la contraseña de ejemplo (cómo, en el
+   comentario de la tabla `usuarios` de `esquema.sql`).
 3. Copia `conexion.ejemplo.php` a `conexion.php` y completa tus datos.
 4. Abre `http://localhost/panaderia/`.
 

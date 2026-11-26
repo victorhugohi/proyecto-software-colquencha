@@ -163,8 +163,9 @@ respuesta normal cuando nadie entró todavía, y se muestra el formulario para e
 
 ## Segunda parte. Trabajo en tu proyecto
 
-1. Copia tu proyecto del módulo pasado dentro de la carpeta `htdocs` de XAMPP y ábrelo en
-   `http://localhost/tu-proyecto/`.
+1. Trabaja en tu carpeta de Proyecto de Software, la de `C:\xampp\htdocs` (hoja "Tu carpeta del
+   proyecto"), que ya tiene tu página del módulo pasado, tu `esquema.sql` y tus endpoints. Ábrela en
+   `http://localhost/proyecto-software/`. No abras el repositorio de Programación Web.
 2. Cambia el `fetch` para que apunte a tu endpoint y comprueba que la página se llena con los datos
    de tu base.
 3. Agrega los tres estados: cargando, con datos y con error. Incluye la comprobación de `.ok` y el

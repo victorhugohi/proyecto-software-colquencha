@@ -22,8 +22,21 @@ set -euo pipefail
 
 # ── Configuración ──────────────────────────────────────────────────────────
 BASE="panaderia"
+USUARIO="root"           # el mismo de conexion.php; en XAMPP, root sin contraseña
 CARPETA="respaldos"
 DIAS_A_CONSERVAR=30
+
+# mysqldump viene con XAMPP, pero en Windows no suele estar en el PATH. Si no se
+# encuentra, se usa el de la carpeta de XAMPP (en Git Bash, C:\xampp es /c/xampp).
+MYSQLDUMP="mysqldump"
+if ! command -v "$MYSQLDUMP" > /dev/null 2>&1; then
+  MYSQLDUMP="/c/xampp/mysql/bin/mysqldump.exe"
+fi
+
+# -u siempre: sin él, mysqldump entra con el usuario del sistema operativo (en
+# Windows, "ODBC"), y la base responde "Access denied". Si tu usuario tiene
+# contraseña, agrega -p en la línea de mysqldump: la pide al correr. La
+# contraseña nunca se escribe dentro del script, que va a git.
 
 # La fecha en el nombre del archivo permite tener muchas copias sin que se
 # sobrescriban, y saber de un vistazo de cuándo es cada una.
@@ -43,7 +56,16 @@ echo "Respaldando '$BASE' en $ARCHIVO ..."
 # --single-transaction: toma una foto consistente sin bloquear la base
 #   mientras se usa. Sin esto, un respaldo de una base en uso puede quedar a
 #   mitad de una operación.
-mysqldump --single-transaction "$BASE" > "$ARCHIVO.parcial" && mv "$ARCHIVO.parcial" "$ARCHIVO"
+if ! "$MYSQLDUMP" -u "$USUARIO" --single-transaction "$BASE" > "$ARCHIVO.parcial"; then
+  rm -f "$ARCHIVO.parcial"
+  echo "ERROR: mysqldump falló. No se borró ningún respaldo viejo." >&2
+  exit 1
+fi
+mv "$ARCHIVO.parcial" "$ARCHIVO"
+
+# El if y no un "mysqldump ... && mv ...": set -e no detiene el script cuando
+# falla un comando que está a la izquierda de un &&. Con el if, si mysqldump
+# falla se borra el .parcial, se avisa y se termina ahí.
 
 # ── Verificar que el respaldo sirve ────────────────────────────────────────
 # Un respaldo hay que probarlo. El error frecuente es confiar en

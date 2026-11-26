@@ -74,8 +74,9 @@ el usuario de la base con contraseña y los pasos para volver atrás.
 
 ## Segunda parte. Trabajo en tu proyecto
 
-1. Copia `respaldo.sh`, cambia `BASE` por el nombre de tu base de datos y córrelo. Tiene que crear
-   un archivo `.sql` con tus `CREATE TABLE` e `INSERT`.
+1. Copia `respaldo.sh`, cambia `BASE` por el nombre de tu base de datos (y `USUARIO`, si no usas
+   `root`) y córrelo con `bash respaldo.sh` (en Windows, desde Git Bash). Tiene que crear un archivo
+   `.sql` con tus `CREATE TABLE` e `INSERT`.
 2. **Prueba el respaldo**: crea una base nueva, restaura el respaldo en ella y cuenta los registros.
 3. Agrega `respaldos/` a tu `.gitignore`, y revisa que `conexion.ejemplo.php` siga sin contraseña.
 4. Escribe tu `deploy.md`: qué haría falta para que tu cliente use el sistema desde su casa
@@ -90,7 +91,7 @@ Antes de dar por terminada la sección, revisa:
 
 | Lo que te pasa | Qué hacer |
 |---|---|
-| `mysqldump: command not found` | está en la carpeta `bin` de XAMPP: usa la ruta completa |
+| `mysqldump: command not found` | el script lo busca en `C:\xampp\mysql\bin`; si instalaste XAMPP en otra carpeta, cambia esa ruta en el script |
 | el respaldo sale vacío | revisa el nombre de la base y que MySQL esté encendido |
 | "Access denied" al respaldar | revisa el usuario y la contraseña, igual que en `conexion.php` |
 | al restaurar faltan datos | revisa si el respaldo dio algún error al crearse |

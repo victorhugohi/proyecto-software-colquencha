@@ -231,6 +231,11 @@ CREATE TABLE usuarios (
 -- Al instalar el sistema para el cliente se cambia por una nueva, y la nueva
 -- no se escribe en ningún archivo del repositorio. El hash se generó con:
 --     php -r "echo password_hash('pan-del-barrio', PASSWORD_DEFAULT);"
+--
+-- Para cambiarla, se genera el hash de la nueva con esa misma línea (con la
+-- contraseña nueva en lugar de pan-del-barrio) y se guarda, por ejemplo en la
+-- pestaña SQL de phpMyAdmin:
+--     UPDATE usuarios SET clave_hash = 'EL-HASH-QUE-SALIÓ' WHERE usuario = 'duena';
 
 INSERT INTO usuarios (usuario, nombre, clave_hash) VALUES
   ('duena', 'Elena Rivas', '$2y$12$xL0k5ulKs5.50EQ5.5LzRuJQyp5m4EvaGiMG17IooKGJmQvvod/5C');

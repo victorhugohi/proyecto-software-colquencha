@@ -19,6 +19,8 @@ ingeniería.
    y formulación del problema (Días 1 y 2).
 4. [Tu repositorio de Proyecto de Software](proyecto-software/recursos/cheatsheets/repositorio-nuevo.md):
    cómo crear el repositorio del proyecto con git y subirlo a GitHub.
+5. [Tu carpeta del proyecto](proyecto-software/recursos/cheatsheets/tu-carpeta-del-proyecto.md):
+   desde el Día 11, dónde va cada archivo y cómo se trabaja con XAMPP sin perder nada.
 
 ## Material de cada día
 

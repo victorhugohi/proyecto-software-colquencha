@@ -100,8 +100,12 @@ una tienda. Las reglas son las mismas.
 
 ## Segunda parte. Trabajo en tu proyecto
 
-1. Copia `conexion.php` y cambia el nombre de la base por el de la tuya. Agrégalo al `.gitignore` y
-   sube en su lugar un `conexion.ejemplo.php` sin la contraseña.
+Todo va en tu carpeta de Proyecto de Software, la que está en `C:\xampp\htdocs` (hoja "Tu carpeta del
+proyecto"), y se abre con `http://localhost/proyecto-software/`, nunca con doble clic.
+
+1. Copia `conexion.php` y `conexion.ejemplo.php` del ejemplo, y cambia el nombre de la base por el de la
+   tuya en los dos. Agrega `conexion.php` al `.gitignore`: a git va solo `conexion.ejemplo.php`, sin la
+   contraseña.
 2. Escribe tu endpoint, con la consulta de tu proyecto:
    - `header('Content-Type: application/json; charset=utf-8')` al principio;
    - un parámetro opcional (una categoría, una fecha, un estado), siempre con `prepare` y
