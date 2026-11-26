@@ -27,27 +27,29 @@ el código juntos**, como en el ejemplo de la Panadería del Barrio.
 
 ## 2. Cómo queda, día por día
 
-Todo en la misma carpeta, sin subcarpetas para los documentos:
+Todo en la misma carpeta, sin subcarpetas para los documentos. De tu `datos.json` salen tus tablas, y
+`conexion.php` lleva tu contraseña: por eso no va a git.
 
 ```
 proyecto-software/
-├── propuesta.md              Lab 1
-├── instrumento.md            Lab 2
-├── marco-teorico.md          Lab 2
-├── requerimientos.md         Lab 2
-├── historias.md              Día 10
-├── index.html, .css, .js     tu página de Programación Web
-├── datos.json                el de tu página: de aquí salen tus tablas
-├── esquema.sql               Día 11: tu base de datos
-├── conexion.php              Día 12: NO va a git
-├── conexion.ejemplo.php      Día 12: el que sí va a git, sin contraseña
-├── (tus endpoints).php       Día 12: el que lee y el que guarda
-├── sesion.php, login.php     Día 13: la parte privada
-├── panel.html, panel.js...   Día 13: el panel del día
-├── pruebas.md                Día 14: la matriz (Lab 3)
-├── presupuesto.md            Día 15
-├── respaldo.sh, deploy.md    Día 16
-├── LEEME.md                  Día 17
+├── propuesta.md           Lab 1
+├── instrumento.md         Lab 2
+├── marco-teorico.md       Lab 2
+├── requerimientos.md      Lab 2
+├── historias.md           Día 10
+├── index.html, .css, .js  tu página de PW
+├── datos.json             de tu página de PW
+├── esquema.sql            Día 11
+├── conexion.php           Día 12 (no va a git)
+├── conexion.ejemplo.php   Día 12 (va a git)
+├── tus endpoints .php     Día 12
+├── sesion.php, login.php  Día 13
+├── panel.html, panel.js   Día 13
+├── pruebas.md             Día 14 (Lab 3)
+├── presupuesto.md         Día 15
+├── respaldo.sh            Día 16
+├── deploy.md              Día 16
+├── LEEME.md               Día 17
 └── .gitignore
 ```
 
